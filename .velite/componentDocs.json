@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Button",
+    "slug": "button",
+    "import": "import { Button } from \"@actionishope/shelley\";",
+    "description": "Button is a foundational component that allows users to execute actions such as submitting forms, starting processes, or changing settings, translating user intentions into actions within an application. 🚀🎉",
+    "category": "Buttons",
+    "meta": {},
+    "toc": [
+      {
+        "title": "Button",
+        "url": "#button",
+        "items": [
+          {
+            "title": "Usage for Buttons",
+            "url": "#usage-for-buttons",
+            "items": []
+          },
+          {
+            "title": "More usage",
+            "url": "#more-usage",
+            "items": [
+              {
+                "title": "My Great Heading",
+                "url": "#my-great-heading",
+                "items": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 233
+    },
+    "excerpt": "Button\nUsage for Buttons\n<Button>Button text - preview:true</Button>\n\n<Button>Button text - live:true</Button>\n\n<ButtonGroup variant=\"secondary\" splitButton>\n  <Button>I'm a button</Button>\n  <Button>I'm a button</Button>\n</ButtonGroup>\n\n| Header 1 | Header 2 ",
+    "content": "<h1>Button</h1>\n<h2>Usage for Buttons</h2>\n<pre><code class=\"language-jsx{preview:true}\">&#x3C;Button>Button text - preview:true&#x3C;/Button>\n</code></pre>\n<pre><code class=\"language-jsx{live:true,twoCol:true}\">&#x3C;Button>Button text - live:true&#x3C;/Button>\n</code></pre>\n<pre><code class=\"language-{preview:true}\">&#x3C;ButtonGroup variant=\"secondary\" splitButton>\n  &#x3C;Button>I'm a button&#x3C;/Button>\n  &#x3C;Button>I'm a button&#x3C;/Button>\n&#x3C;/ButtonGroup>\n</code></pre>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Header 1</th><th>Header 2</th></tr></thead><tbody><tr><td>Row 1</td><td>Data</td></tr><tr><td>Row 2</td><td>Data</td></tr></tbody></table>\n<h2>More usage</h2>\n<ul>\n<li>List item one</li>\n<li>List item two</li>\n</ul>\n<p>I'm a paragrph with <del>strikethrough</del> text!</p>\n<p>Link: <a href=\"https://velite.js.org/reference/cli#usage\">https://velite.js.org/reference/cli#usage</a></p>\n<pre><code class=\"language-jsx{live:true,twoCol:true}\">&#x3C;Button\n  icon={\n    &#x3C;Icon>\n      &#x3C;path d=\"M14 7h-5v-5h-2v5h-5v2h5v5h2v-5h5v-2z\" />\n    &#x3C;/Icon>\n  }\n>\n  I'm a button\n&#x3C;/Button>\n</code></pre>\n<pre><code class=\"language-jsx{live:true,twoCol:true}\">() => {\n  const targetRef = useRef(null);\n  return (\n    &#x3C;>\n      &#x3C;DialogTrigger\n        type=\"popup\"\n        targetRef={targetRef}\n      >\n        &#x3C;Button>Trigger&#x3C;/Button>\n        &#x3C;Dialog>\n          &#x3C;H2 vol={4} className={dialog.title} data-title>\n            Anchor\n          &#x3C;/H2>\n          &#x3C;hr className={dialog.divider} />\n          &#x3C;P className={dialog.content} vol={2}>\n            This is a popup anchored to the span.\n          &#x3C;/P>\n        &#x3C;/Dialog>\n      &#x3C;/DialogTrigger>\n      &#x3C;div style={{ marginTop: 80 }}>\n        &#x3C;P vol={1}>\n          &#x3C;span ref={targetRef}>popup appears over here&#x3C;/span>\n        &#x3C;/P>\n      &#x3C;/div>\n    &#x3C;/>\n  );\n}\n</code></pre>\n<pre><code class=\"language-jsx{live:true,twoCol:true}\">&#x3C;div style={{display: \"flex\", gap: 20, justifyContent: \"center\"}}>\n  &#x3C;Button variant=\"primary\">Primary&#x3C;/Button>\n  &#x3C;Button variant=\"secondary\">Secondary&#x3C;/Button>\n  &#x3C;Button variant=\"quiet\">Quiet&#x3C;/Button>\n&#x3C;/div>\n</code></pre>\n<ul>\n<li>Modal windows</li>\n<li>Forms</li>\n<li>Cards</li>\n<li>Toolbars</li>\n</ul>\n<blockquote>\n<p>To learn more about styling single part components, visit the\n<a href=\"/docs/styled-system/component-style#styling-single-part-components\">Component Style</a>\npage.</p>\n</blockquote>\n<h3>My Great Heading</h3>\n<p>I need to highlight these ==very important words==.</p>\n<pre><code class=\"language-css\">\n@st-namespace: \"btn\";\n\nbody {\n  color: rgb(var(--foreground-rgb));\n  background: linear-gradient(\n      to bottom,\n      transparent,\n      rgb(var(--background-end-rgb))\n    ) rgb(var(--background-start-rgb));\n}\n\na {\n  color: inherit;\n  text-decoration: none;\n}\n\n@media (prefers-color-scheme: dark) {\n  html {\n    color-scheme: dark;\n  }\n}\n</code></pre>",
+    "permalink": "/components/button"
+  }
+]

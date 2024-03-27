@@ -1,0 +1,43 @@
+@st-import [--spacing-unit] from "@actionishope/shelley/styles/default/project.st.css";
+
+.root {}
+
+.root > p + p,
+.root > p + h4,
+.root > p + h5,
+.root > h2 + p,
+.root > h3 + p,
+.root > h4 + p,
+.root > h5 + p,
+.root > h6 + p,
+.root > h4 + h5 {
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.root > blockquote {
+  margin-top: calc(var(--spacing-unit) * 4);
+  margin-bottom: calc(var(--spacing-unit) * 5);
+}
+
+.root > p + div {}
+
+.root > blockquote + Text {
+  margin-top: calc(var(--spacing-unit) * 6);
+}
+
+.root > p + h2 {
+  margin-top: calc(var(--spacing-unit) * 4);
+}
+
+.root > p + Text.vol4 {
+  margin-top: calc(var(--spacing-unit) * 8);
+}
+
+.root > p + h3,
+.root > h2 + h3 {
+  margin-top: calc(var(--spacing-unit) * 4);
+}
+
+.root > p + h6 {
+  margin-top: calc(var(--spacing-unit) * 2);
+}

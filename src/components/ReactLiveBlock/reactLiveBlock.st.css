@@ -1,0 +1,17 @@
+@st-namespace "ReactLiveBlock";
+
+.root {
+  -st-states: twoColumn, editable;
+}
+
+.codeBlock {}
+
+.codeBlock pre {
+  background-color: transparent !important;
+  padding: 0 !important;
+  color: inherit !important;
+}
+
+.preview {}
+
+.editableNotice {}

@@ -1,0 +1,36 @@
+@st-import [breakpoint-md-max, breakpoint-sm-max] from "@actionishope/shelley/styles/default/project.st.css";
+
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
+
+.header {
+  position: fixed;
+  right: 0;
+}
+
+.main {
+  box-sizing: border-box;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 256px;
+  margin-right: 180px;
+  display: flex;
+  padding: 40px 52px 0;
+}
+
+@media value(breakpoint-md-max) {
+  .main {
+    margin-top: 48px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 40px 24px;
+  }
+}
+
+.article :global(ul)Text :global(ul)Text {
+  font-size: 1em;
+}
+
+.article ul {
+  padding: 0 20px;
+}

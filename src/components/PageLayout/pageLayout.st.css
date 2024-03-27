@@ -1,0 +1,48 @@
+@st-namespace "PageLayout";
+
+@st-import [
+  --spacing-unit,
+  breakpoint-md
+] from "@actionishope/shelley/styles/default/project.st.css";
+
+.root {
+  width: 100%;
+  max-width: 60rem;
+  margin: auto;
+  padding: var(--spacing-unit)
+}
+
+.grid {
+  display: grid;
+  gap: var(--spacing-unit);
+}
+
+.sideBar {
+  display: none;
+}
+
+.nav {}
+
+.main {
+  -st-states: hasTOC;
+}
+
+@media value(breakpoint-md) {
+  .grid {
+    grid-template-columns: 260px 1fr;
+  }
+
+  .sideBar {
+    display: block;
+  }
+
+  .nav {
+    position: sticky;
+    top: 20px;
+  }
+
+  .main:hasTOC {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+  }
+}

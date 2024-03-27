@@ -1,0 +1,9 @@
+@st-namespace "header";
+
+@st-import AppBar from "@actionishope/shelley/AppBar/appBar.st.css";
+
+.root {
+  -st-extends: AppBar;
+}
+
+.nav {}

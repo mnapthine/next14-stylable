@@ -1,0 +1,150 @@
+[
+  {
+    "title": "Style Guide",
+    "slug": "style-guide",
+    "date": "1969-12-31T23:00:00.000Z",
+    "cover": {
+      "src": "/static/cover-2a4138.jpg",
+      "height": 1100,
+      "width": 1650,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoIAAUADMDOJbACdADWaUXAAMltC0BZxTv24bHUX8EibgVs/sPiTqq6QAA=",
+      "blurWidth": 8,
+      "blurHeight": 5
+    },
+    "draft": false,
+    "featured": false,
+    "categories": [
+      "Journal"
+    ],
+    "tags": [],
+    "meta": {},
+    "toc": [
+      {
+        "title": "Heading 1",
+        "url": "#heading-1",
+        "items": [
+          {
+            "title": "Heading 2",
+            "url": "#heading-2",
+            "items": [
+              {
+                "title": "Heading 3",
+                "url": "#heading-3",
+                "items": [
+                  {
+                    "title": "Heading 4",
+                    "url": "#heading-4",
+                    "items": [
+                      {
+                        "title": "Heading 5",
+                        "url": "#heading-5",
+                        "items": [
+                          {
+                            "title": "Heading 6",
+                            "url": "#heading-6",
+                            "items": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Paragraph",
+            "url": "#paragraph",
+            "items": [
+              {
+                "title": "List Types",
+                "url": "#list-types",
+                "items": [
+                  {
+                    "title": "Ordered List",
+                    "url": "#ordered-list",
+                    "items": []
+                  },
+                  {
+                    "title": "Unordered List",
+                    "url": "#unordered-list",
+                    "items": []
+                  },
+                  {
+                    "title": "Definition List",
+                    "url": "#definition-list",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "title": "Blockquotes",
+                "url": "#blockquotes",
+                "items": []
+              },
+              {
+                "title": "Table",
+                "url": "#table",
+                "items": []
+              },
+              {
+                "title": "Code",
+                "url": "#code",
+                "items": []
+              },
+              {
+                "title": "Media",
+                "url": "#media",
+                "items": [
+                  {
+                    "title": "Wide Image",
+                    "url": "#wide-image",
+                    "items": []
+                  },
+                  {
+                    "title": "Big Image",
+                    "url": "#big-image",
+                    "items": []
+                  },
+                  {
+                    "title": "Small Image",
+                    "url": "#small-image",
+                    "items": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "excerpt": "Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.\n\nHeadings\nHeading 1\nDoloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel",
+    "content": "<p>Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.</p>\n<hr>\n<h3>Headings</h3>\n<h1>Heading 1</h1>\n<p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel.</p>\n<h2>Heading 2</h2>\n<p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel.</p>\n<h3>Heading 3</h3>\n<p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel.</p>\n<h4>Heading 4</h4>\n<p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel.</p>\n<h5>Heading 5</h5>\n<p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel.</p>\n<h6>Heading 6</h6>\n<p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel.</p>\n<hr>\n<h2>Paragraph</h2>\n<p>It's very easy to make some words <strong>bold</strong> and other words <em>italic</em> with Markdown. You can even <a href=\"http://google.com\">link to Google!</a></p>\n<p>HTML and CSS are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. To copy a file type COPY filename. Dinner’s at 5:00. Let’s make that 7. This text has been struck.</p>\n<h4>Emphasis</h4>\n<p><em>This text will be italic</em><br>\n<strong>This text will be bold</strong><br>\n<em>You <strong>can</strong> combine them</em></p>\n<h4>Preformatted Text</h4>\n<p>The silver swan, who living had no note,<br>\nWhen death approached, unlocked her silent throat;</p>\n<h4>Text-level semantics</h4>\n<p>The <a href=\"#foo\">a element</a> example<br>\nThe <abbr>abbr element</abbr> and <abbr title=\"Title text\">abbr element with title</abbr> examples<br>\nThe <strong>b element</strong> example<br>\nThe <cite>cite element</cite> example<br>\nThe <code>code element</code> example<br>\nThe <del>del element</del> example<br>\nThe <dfn>dfn element</dfn> and <dfn title=\"Title text\">dfn element with title</dfn> examples<br>\nThe <em>em element</em> example<br>\nThe <em>i element</em> example<br>\nThe <ins>ins element</ins> example<br>\nThe <kbd>kbd element</kbd> example<br>\nThe <mark>mark element</mark> example<br>\nThe <q>q element <q>inside</q> a q element</q> example<br>\nThe <s>s element</s> example<br>\nThe <samp>samp element</samp> example<br>\nThe <small>small element</small> example<br>\nThe <span>span element</span> example<br>\nThe <strong>strong element</strong> example<br>\nThe <sub>sub element</sub> example<br>\nThe <sup>sup element</sup> example<br>\nThe <var>var element</var> example<br>\nThe <u>u element</u> example</p>\n<h4>Footnotes</h4>\n<p>You can create footnotes like this<sup><a href=\"#user-content-fn-footnote\" id=\"user-content-fnref-footnote\" data-footnote-ref=\"\" aria-describedby=\"footnote-label\">1</a></sup>.</p>\n<hr>\n<h3>List Types</h3>\n<h4>Ordered List</h4>\n<p>Sometimes you want numbered lists:</p>\n<ol>\n<li>List Item 1</li>\n<li>List Item 2</li>\n<li>Nested list item A</li>\n<li>Nested list item B</li>\n<li>List Item 3</li>\n</ol>\n<h4>Unordered List</h4>\n<p>Sometimes you want bullet points:</p>\n<ul>\n<li>List Item 1</li>\n<li>List Item 2\n<ul>\n<li>Nested list item A</li>\n<li>Nested list item B</li>\n</ul>\n</li>\n<li>List Item 3</li>\n</ul>\n<p>Alternatively,</p>\n<ul>\n<li>Start a line with a star</li>\n<li>Profit!</li>\n</ul>\n<p>But I have to admit, tasks lists are my favorite:</p>\n<ul class=\"contains-task-list\">\n<li class=\"task-list-item\"><input type=\"checkbox\" checked disabled> This is a complete item</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled> This is an incomplete item</li>\n</ul>\n<h4>Definition List</h4>\n<dl>\n  <dt>Definition List Title</dt>\n  <dd>This is a definition list division.</dd>\n  <dt>Definition</dt>\n  <dd>An exact statement or description of the nature, scope, or meaning of something: <em>our definition of what constitutes poetry.</em></dd>\n</dl>\n<hr>\n<h3>Blockquotes</h3>\n<p>Let’s keep it simple. Italics are good to help set it off from the body text. Be sure to style the citation.</p>\n<blockquote>\n<p>Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr. Langley, and he taught me to sing a song. If you’d like to hear it I can sing it for you.\n— <a href=\"http://en.wikipedia.org/wiki/HAL_9000\">HAL 9000</a></p>\n</blockquote>\n<p>And here’s a bit of trailing text.</p>\n<hr>\n<h3>Table</h3>\n<p>If you want to embed table, this is how you do it:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>TABLE HEADER 1</th><th>TABLE HEADER 2</th><th>TABLE HEADER 3</th></tr></thead><tbody><tr><td>Division 1</td><td>Division 2</td><td>Division 3</td></tr><tr><td>Division 1</td><td>Division 2</td><td>Division 3</td></tr><tr><td>Division 1</td><td>Division 2</td><td>Division 3</td></tr></tbody></table>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Name</th><th></th><th>Age</th><th>Sex</th><th>Location</th></tr></thead><tbody><tr><td>Naruto</td><td>Uzumaki</td><td>16</td><td>Male</td><td>Konoha</td></tr><tr><td>Sakura</td><td>Haruno</td><td>16</td><td>Female</td><td>Konoha</td></tr></tbody></table>\n<hr>\n<h3>Code</h3>\n<p>Code can be presented inline, like <code>&#x3C;?php bloginfo('stylesheet_url'); ?></code>, or within a <code>&#x3C;pre></code> block. Because we have more specific typographic needs for code, we’ll specify Consolas and Monaco ahead of the browser-defined monospace font.</p>\n<pre><code class=\"language-css\">.banner {\n  width: 750px;\n  height: 420px;\n}\n\n.banner image {\n  width: 100%;\n  height: 100%;\n}\n</code></pre>\n<pre><code class=\"language-js\" metastring=\"{6,20} showLineNumbers /velite/\">import { defineConfig, s } from 'velite'\n\n// `s` is extended from Zod with some custom schemas,\n// you can also import re-exported `z` from `velite` if you don't need these extension schemas.\n\nexport default defineConfig({\n  collections: {\n    posts: {\n      name: 'Post', // collection type name\n      pattern: 'posts/**/*.md', // content files glob pattern\n      schema: s\n        .object({\n          title: s.string().max(99), // Zod primitive type\n          slug: s.slug('posts'), // validate format, unique in posts collection\n          date: s.isodate(), // input Date-like string, output ISO Date string.\n          cover: s.image().optional(), // input image relpath, output image object with blurImage.\n          video: s.file().optional(), // input file relpath, output file public path.\n          metadata: s.metadata(), // extract markdown reading-time, word-count, etc.\n          excerpt: s.excerpt(), // excerpt of markdown content\n          content: s.markdown() // transform markdown to html\n        })\n        // more additional fields (computed fields)\n        .transform(data => ({ ...data, permalink: `/blog/${data.slug}` }))\n    },\n    others: {\n      // other collection schema options\n    }\n  }\n})\n</code></pre>\n<hr>\n<h3>Media</h3>\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>\n<h4>Wide Image</h4>\n<p><img src=\"/static/img-03-9804d3.jpg\" alt=\"Wide Image\"></p>\n<h4>Big Image</h4>\n<p><img src=\"/static/img-01-8bafce.jpg\" alt=\"Big Image\"></p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n<h4>Small Image</h4>\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>\n<p><img src=\"/static/img-02-b629d5.jpg\" alt=\"Small Image\"></p>\n<p>Labore et dolore.</p>\n<section data-footnotes=\"\" class=\"footnotes\"><h2 class=\"sr-only\" id=\"footnote-label\">Footnotes</h2>\n<ol>\n<li id=\"user-content-fn-footnote\">\n<p>Here is the <em>text</em> of the <strong>footnote</strong>. <a href=\"#user-content-fnref-footnote\" data-footnote-backref=\"\" aria-label=\"Back to reference 1\" class=\"data-footnote-backref\">↩</a></p>\n</li>\n</ol>\n</section>",
+    "permalink": "/blog/style-guide"
+  },
+  {
+    "title": "Hello world",
+    "slug": "hello-world",
+    "date": "1992-02-25T13:00:00.000Z",
+    "cover": {
+      "src": "/static/cover-9986b0.jpg",
+      "height": 1100,
+      "width": 1650,
+      "blurDataURL": "data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAABQAQCdASoIAAUADMDOJZwABDOAAP7sHYAAAA==",
+      "blurWidth": 8,
+      "blurHeight": 5
+    },
+    "video": "/static/video-08fc25.mp4",
+    "draft": false,
+    "featured": false,
+    "categories": [
+      "Journal"
+    ],
+    "tags": [],
+    "meta": {},
+    "toc": [],
+    "excerpt": "path to file\n\n\n\nlink to file\nLink to example.com\n\n\n\n\n\n\n\n\n\n  \n  Your browser does not support the video element.\n\n",
+    "content": "<p><a href=\"/static/plain-5cd675.txt\">path to file</a></p>\n<img src=\"/static/img-8eb538.webp\" alt=\"reletive path\">\n<img src=\"/static/img-8eb538.jpeg\">\n<img src=\"/static/img-8eb538.jpg\">\n<a href=\"/static/pdf-5cd675.pdf\">link to file</a>\n<a href=\"http://example.com/\">Link to example.com</a>\n<p><img src=\"/static/img-0300fe.svg\" alt=\"some svg image\">\n<img src=\"/static/img-8eb538.gif\" alt=\"some gif image\">\n<img src=\"/static/img-8eb538.png\" alt=\"some png image\">\n<img src=\"/static/img-8eb538.jpg\" alt=\"some jpg image\">\n<img src=\"/static/img-8eb538.jpeg\" alt=\"some jpeg image\">\n<img src=\"https://google.com/img.gif\" alt=\"some absolute image\"></p>\n<audio src=\"/static/audio-08fc25.mp3\" controls autoplay loop>\n<video src=\"/static/video-08fc25.mp4\" controls autoplay loop>\n<video controls autoplay loop>\n  <source type=\"video/mp4\" src=\"/static/video2-08fc25.mp4\">\n  <p>Your browser does not support the video element.</p>\n</video>\n<p><img src=\"/static/img-8eb538.png\" alt=\"sample\"></p></video></audio>",
+    "permalink": "/blog/hello-world"
+  }
+]

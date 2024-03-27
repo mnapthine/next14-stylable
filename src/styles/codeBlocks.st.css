@@ -1,0 +1,111 @@
+@st-import ReactLiveBlock from "../components/ReactLiveBlock/reactLiveBlock.st.css";
+@st-import CodeBlock from "../components/CodeBlock/codeBlock.st.css";
+@st-import [--spacing-unit, breakpoint-lg] from "@actionishope/shelley/styles/default/project.st.css";
+
+:vars {
+  borderColor: #383838;
+  borderRadius: 8px;
+}
+
+@st-scope {
+
+
+  ReactLiveBlock {
+    display: grid;
+    margin: calc(var(--spacing-unit) * 2) 0;
+    border: 1px solid value(borderColor);
+    border-radius: value(borderRadius);
+  }
+
+  ReactLiveBlock > pre {
+    padding: var(--spacing-unit);
+    margin: 0;
+    background-color: rgb(53, 115, 222);
+    border-radius: 0 0 value(borderRadius) value(borderRadius);
+  }
+
+  ReactLiveBlock::codeBlock,
+  CodeBlock {
+    padding: var(--spacing-unit);
+    font-family: Menlo, monospace;
+    background-color: black;
+    position: relative;
+  }
+
+  CodeBlock {
+    border-radius: value(borderRadius);
+  }
+
+  ReactLiveBlock::codeBlock {
+    border-top: 1px solid value(borderColor);
+    border-radius: 0 0 value(borderRadius) value(borderRadius);
+  }
+
+  ReactLiveBlock {}
+
+  ReactLiveBlock:editable::codeBlock {
+    padding-top: calc(var(--spacing-unit) * 2.5);
+  }
+
+  ReactLiveBlock::preview {
+    padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+    border-radius: value(borderRadius);
+    /* border: 1px solid value(borderColor); */
+    /* display: flex;
+    align-items: center; */
+  }
+
+  ReactLiveBlock::editableNotice {
+    height: calc(var(--spacing-unit) * 1.5);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: -1.25em;
+    top: 0;
+    /* border-radius: value(borderRadius) value(borderRadius) 0 0; */
+    background: #011627;
+    z-index: 0;
+    letter-spacing: 1px;
+    color: lightblue;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  @media value(breakpoint-lg) {
+
+    ReactLiveBlock:twoColumn {
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid value(borderColor);
+      border-radius: value(borderRadius);
+      min-height: 100px;
+    }
+
+    ReactLiveBlock:twoColumn > pre {
+      /* border-bottom-right-radius: 0; */
+      border-right: 1px solid value(borderColor);
+    }
+
+    ReactLiveBlock:twoColumn::editableNotice {
+      border-top-right-radius: 0;
+    }
+
+    ReactLiveBlock:twoColumn::codeBlock {
+      order: -1;
+      border-width: 0 1px 0 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    ReactLiveBlock:twoColumn::preview {
+      border: none;
+      padding-left: calc(var(--spacing-unit) * 1.5);
+    }
+  }
+}
