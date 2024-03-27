@@ -32,6 +32,9 @@ yarn-error.log*
 # Stylable types
 st-types
 
+# velite
+.velite
+
 # vercel
 .vercel
 
