@@ -1,7 +1,7 @@
 /** Main layout.tsx */
 import type { Metadata } from "next";
-import "@actionishope/shelley/styles/default";
-import { classes } from "@actionishope/shelley/styles/default/project.st.css";
+// import { Project } from "@actionishope/shelley/styles/default";
+import "@actionishope/shelley/styles/default/button.st.css";
 import "@/styles";
 import { Header } from "@/components/Header";
 
@@ -15,9 +15,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log(classes);
+  // console.log(classes);
   return (
-    <html lang="en" data-theme="shelley shelley-dark">
+    <html lang="en" className={"test"} data-theme="shelley shelley-dark">
       <body>
         <Header />
         {children}
