@@ -14,7 +14,13 @@ export const generateStaticParams = async () =>
     slug: component.slug,
   }));
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = ({
+  params,
+}: {
+  tabs: ReactNode;
+  children: ReactNode;
+  params: { slug: string };
+}) => {
   const component = componentDocs.find(
     (component) => component.slug === params.slug
   );
