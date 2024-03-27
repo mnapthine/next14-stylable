@@ -13,7 +13,7 @@ const stylableOptimizer = new StylableOptimizer();
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  // transpilePackages: ["@actionishope/shelley"],
+  transpilePackages: ["@actionishope/shelley"],
   webpack: (config, { isServer }) => {
     // Apply stylable configuration exclusions
     applyWebpackConfigStylableExcludes(config);
