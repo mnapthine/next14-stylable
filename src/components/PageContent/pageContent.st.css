@@ -1,7 +1,7 @@
 @st-import [
   --spacing-unit,
   breakpoint-md
-] from "@actionishope/shelley/styles/default/project.st.css";
+] from "@actionishope/shelley/styles/project.st.css";
 
 .root {
   -st-states: hasTOC;

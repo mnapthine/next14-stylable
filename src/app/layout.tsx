@@ -1,7 +1,7 @@
 /** Main layout.tsx */
 import type { Metadata } from "next";
-// import { Project } from "@actionishope/shelley/styles/default";
-import "@actionishope/shelley/styles/default/button.st.css";
+import { root } from "@actionishope/shelley/styles";
+// import "@actionishope/shelley/styles/button.st.css";
 import "@/styles";
 import { Header } from "@/components/Header";
 
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   // console.log(classes);
   return (
-    <html lang="en" className={"test"} data-theme="shelley shelley-dark">
+    <html lang="en" className={root} data-theme="dark">
       <body>
         <Header />
         {children}

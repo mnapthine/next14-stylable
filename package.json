@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@actionishope/shelley": "^5.1.1",
+    "@actionishope/shelley": "^5.1.2",
     "@stylable/core": "^6.0.1",
     "@stylable/webpack-plugin": "^6.0.1",
     "next": "14.1.4",

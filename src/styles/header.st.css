@@ -1,6 +1,6 @@
 @st-import Header from "../components/Header/header.st.css";
 
-@st-import [ --bg-main] from "@actionishope/shelley/styles/default/project.st.css";
+@st-import [ --bg-main] from "@actionishope/shelley/styles/project.st.css";
 
 @st-scope body {
   Header {

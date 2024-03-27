@@ -1,4 +1,4 @@
-@st-import [breakpoint-md-max, breakpoint-sm-max] from "@actionishope/shelley/styles/default/project.st.css";
+@st-import [breakpoint-md-max, breakpoint-sm-max] from "@actionishope/shelley/styles/project.st.css";
 
 @st-import Text from "@actionishope/shelley/Text/text.st.css";
 

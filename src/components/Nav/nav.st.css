@@ -1,4 +1,4 @@
-@st-import [textVol] from "@actionishope/shelley/styles/default/mixins/textVol.st.css";
+@st-import [textVol] from "@actionishope/shelley/styles/mixins/textVol.st.css";
 /* @st-import [respScale] from "@actionishope/shelley/styles/formatters/common"; */
 @st-import Text from "@actionishope/shelley/Text/text.st.css";
 

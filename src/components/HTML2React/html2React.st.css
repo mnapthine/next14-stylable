@@ -1,4 +1,4 @@
-@st-import [--spacing-unit] from "@actionishope/shelley/styles/default/project.st.css";
+@st-import [--spacing-unit] from "@actionishope/shelley/styles/project.st.css";
 
 .root {}
 
