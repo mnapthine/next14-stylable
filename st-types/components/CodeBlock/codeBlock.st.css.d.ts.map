@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "file": "codeBlock.st.css.d.ts",
-    "sources": [
-        "../../../src/components/CodeBlock/codeBlock.st.css"
-    ],
-    "names": [],
-    "mappings": ";;;;mCAGE;;;;;IADF;IAKA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-}

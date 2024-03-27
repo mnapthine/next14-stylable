@@ -1,3 +1,4 @@
+@st-namespace "docsHeader";
 @st-import Header from "../components/Header/header.st.css";
 
 @st-import [ --bg-main] from "@actionishope/shelley/styles/project.st.css";
