@@ -28,11 +28,11 @@
     margin: 0;
     background-color: rgb(53, 115, 222);
     border-radius: 0 0 value(borderRadius) value(borderRadius);
-    text-wrap: pretty;
+    white-space: pre-wrap;
   }
 
   ReactLiveBlock::codeBlock pre {
-    text-wrap: pretty;
+    white-space: pre-wrap;
   }
 
   ReactLiveBlock::codeBlock,
@@ -43,7 +43,7 @@
     position: relative;
     margin: 0;
 
-    text-wrap: pretty;
+    white-space: pre-wrap;
   }
 
   CodeBlock::code {

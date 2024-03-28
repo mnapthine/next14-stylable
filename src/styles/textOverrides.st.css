@@ -1,10 +1,10 @@
 @st-namespace "docsText";
 @st-import Text from "@actionishope/shelley/Text/text.st.css";
 
-@st-import Shelley, [ --bg-main] from "@actionishope/shelley/styles/project.st.css";
+/* @st-import Shelley, [ --bg-main] from "@actionishope/shelley/styles/project.st.css";
 
 @st-scope Shelley {
   Text:vol(3) {
     line-height: 1.7;
   }
-}
+} */
