@@ -3,7 +3,7 @@
 
 @st-import Shelley, [ --bg-main] from "@actionishope/shelley/styles/project.st.css";
 
-@st-scope Shelley body {
+@st-scope Shelley {
   Text:vol(3) {
     line-height: 1.7;
   }
