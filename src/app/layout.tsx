@@ -1,7 +1,6 @@
 /** Main layout.tsx */
 import type { Metadata } from "next";
 import { root } from "@actionishope/shelley/styles";
-// import "@actionishope/shelley/styles/button.st.css";
 import "@/styles";
 import { Header } from "@/components/Header";
 
@@ -15,7 +14,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // console.log(classes);
   return (
     <html lang="en" className={root} data-theme="dark">
       <body>

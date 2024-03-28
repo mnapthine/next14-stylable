@@ -1,19 +1,19 @@
-import { Nav } from "@/components/Nav";
-// import { st, classes } from "@/theme/main.st.css";
 import { st, classes } from "./pageContent.st.css";
+import {
+  TableOfContents,
+  TableOfContentsProps,
+} from "@/components/TableOfContents";
 
 interface PageContentProps {
   children: React.ReactNode;
-  hasTOC?: boolean;
+  toc?: TableOfContentsProps["items"];
 }
-export function PageContent({ children, hasTOC = true }: PageContentProps) {
+export function PageContent({ children, toc }: PageContentProps) {
   return (
-    <div className={st(classes.root)}>
-      <div className={classes.grid}>
-        <div className={classes.sideBar}>
-          {/* <Nav className={st(classes.nav)} /> */}
-        </div>
-        {/* <main className={st(classes.main, { hasTOC })}>{children}</main> */}
+    <div className={st(classes.root, { hasTOC: Boolean(toc) })}>
+      <main className={classes.content}>{children}</main>
+      <div className={classes.sideBar}>
+        {toc && <TableOfContents items={toc} />}
       </div>
     </div>
   );

@@ -7,6 +7,8 @@ import { Button, ButtonGroup } from "@actionishope/shelley/Button";
 import { Icon } from "@actionishope/shelley/Icon";
 import { DialogTrigger, Dialog } from "@actionishope/shelley/Dialog";
 import { P, H2 } from "@actionishope/shelley/Text";
+import PreviewIcon from "@actionishope/shelley/icons/Preview";
+import AngleRightIcon from "@actionishope/shelley/icons/AngleRight";
 // import Lorem from 'react-lorem-component'
 // import * as Loaders from 'react-spinners'
 // import * as ReactTable from 'react-table'
@@ -24,6 +26,8 @@ const ReactLiveScope = {
   dialog,
   P,
   H2,
+  PreviewIcon,
+  AngleRightIcon,
 };
 
 export default ReactLiveScope;

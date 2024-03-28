@@ -1,6 +1,19 @@
-@st-import [--spacing-unit] from "@actionishope/shelley/styles/project.st.css";
+@st-import [
+  --spacing-unit,
+  --tone-info,
+  --tone-lead-rgb
+] from "@actionishope/shelley/styles/project.st.css";
 
-.root {}
+.root code {
+  color: var(--tone-info)
+}
+
+.root h2,
+.root h3,
+.root h4 {
+  padding-bottom: calc(var(--spacing-unit) * 0.5);
+  border-bottom: 2px solid rgba(var(--tone-lead-rgb), 0.2);
+}
 
 .root > p + p,
 .root > p + h4,
@@ -25,7 +38,7 @@
   margin-top: calc(var(--spacing-unit) * 6);
 }
 
-.root > p + h2 {
+.root > h2 {
   margin-top: calc(var(--spacing-unit) * 4);
 }
 

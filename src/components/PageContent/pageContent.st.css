@@ -1,28 +1,9 @@
-@st-import [
-  --spacing-unit,
-  breakpoint-md
-] from "@actionishope/shelley/styles/project.st.css";
+@st-namespace "pageContent";
 
 .root {
   -st-states: hasTOC;
 }
 
-@media value(breakpoint-md) {
-  .grid {
-    grid-template-columns: 260px 1fr;
-  }
+.content {}
 
-  .sideBar {
-    display: block;
-  }
-
-  .toc {
-    position: sticky;
-    top: 20px;
-  }
-
-  .root:hasTOC {
-    display: grid;
-    grid-template-columns: 1fr 200px;
-  }
-}
+.sideBar {}

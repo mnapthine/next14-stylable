@@ -1,0 +1,49 @@
+@st-namespace "docsTableOfContents";
+
+@st-import TableOfContents, [listItem, anchor] from "../components/TableOfContents/tableOfContents.st.css";
+@st-import Shelley, [
+  --spacing-unit,
+  --color-ui-rgb
+] from "@actionishope/shelley/styles/project.st.css";
+
+@st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/mixins/focus.st.css";
+@st-import [textVol1] from "@actionishope/shelley/styles/mixins/textVol.st.css";
+
+
+
+@st-scope Shelley {
+
+  TableOfContents::list {
+    margin: 0;
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  TableOfContents::listItem {
+    margin: 0
+  }
+
+  TableOfContents::anchor {
+    outline: none;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    padding: calc(var(--spacing-unit) / 4) calc(var(--spacing-unit) / 2);
+    margin-bottom: calc(var(--spacing-unit) / 3);
+    color: rgba(var(--color-ui-rgb), 0.8);
+    -st-mixin: textVol1
+  }
+
+
+  TableOfContents::anchor::before {
+    -st-mixin: pseudoFocus;
+  }
+
+  TableOfContents::anchor:focus-visible::before {
+    -st-mixin: pseudoFocusVisible
+  }
+
+  TableOfContents::listItem .listItem {
+    padding-left: calc(var(--spacing-unit) * 1);
+  }
+}

@@ -1,6 +1,8 @@
+@st-namespace "docsCodeBlocks";
+
 @st-import ReactLiveBlock from "../components/ReactLiveBlock/reactLiveBlock.st.css";
 @st-import CodeBlock from "../components/CodeBlock/codeBlock.st.css";
-@st-import [--spacing-unit, breakpoint-lg] from "@actionishope/shelley/styles/project.st.css";
+@st-import [--spacing-unit, breakpoint-xl] from "@actionishope/shelley/styles/project.st.css";
 
 :vars {
   borderColor: #383838;
@@ -12,9 +14,14 @@
 
   ReactLiveBlock {
     display: grid;
-    margin: calc(var(--spacing-unit) * 2) 0;
+    margin: calc(var(--spacing-unit) * 2) 0 calc(var(--spacing-unit) * 3);
     border: 1px solid value(borderColor);
     border-radius: value(borderRadius);
+  }
+
+  CodeBlock {
+    margin: calc(var(--spacing-unit) * 2) 0;
+    text-wrap: pretty;
   }
 
   ReactLiveBlock > pre {
@@ -25,14 +32,15 @@
   }
 
   ReactLiveBlock::codeBlock,
-  CodeBlock {
+  CodeBlock::code {
     padding: var(--spacing-unit);
     font-family: Menlo, monospace;
     background-color: black;
     position: relative;
+    margin: 0;
   }
 
-  CodeBlock {
+  CodeBlock::code {
     border-radius: value(borderRadius);
   }
 
@@ -48,7 +56,7 @@
   }
 
   ReactLiveBlock::preview {
-    padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+    padding: var(--spacing-unit);
     border-radius: value(borderRadius);
     /* border: 1px solid value(borderColor); */
     /* display: flex;
@@ -65,7 +73,6 @@
     width: 100%;
     top: -1.25em;
     top: 0;
-    /* border-radius: value(borderRadius) value(borderRadius) 0 0; */
     background: #011627;
     z-index: 0;
     letter-spacing: 1px;
@@ -77,7 +84,7 @@
     pointer-events: none;
   }
 
-  @media value(breakpoint-lg) {
+  @media value(breakpoint-xl) {
 
     ReactLiveBlock:twoColumn {
       grid-template-columns: 1fr 1fr;
@@ -88,7 +95,6 @@
     }
 
     ReactLiveBlock:twoColumn > pre {
-      /* border-bottom-right-radius: 0; */
       border-right: 1px solid value(borderColor);
     }
 

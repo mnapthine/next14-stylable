@@ -1,11 +1,12 @@
 import type { ReactNode } from "react";
 import Link from "next/link.js";
-// import { Tab, TabList, TabPanel, Tabs } from "./tabs.jsx";
-// app/[slug]/page.tsx
+import { PageContent } from "@/components/PageContent";
 import { H1, P } from "@actionishope/shelley/Text";
-// import { st, classes } from "@/app/theme/main.st.css";
-import { classes } from "../../../styles/main.st.css";
-// import { MDXContent } from "../../components/MDXContent";
+import {
+  classes as spacing,
+  st,
+} from "@actionishope/shelley/styles/spacing.st.css";
+// import { Tab, TabList, TabPanel, Tabs } from "./tabs.jsx";
 
 import { componentDocs } from "#site/content";
 
@@ -43,31 +44,28 @@ export default function Layout(props: {
   if (!component) throw new Error(`Post not found for slug: ${params.slug}`);
 
   return (
-    <>
-      <div>
-        <H1>{component.title}</H1>
+    <PageContent toc={component.toc}>
+      <H1 weight={5} className={st(spacing.mt1, spacing.mb2)}>
+        {component.title}
+      </H1>
+      <P className={spacing.mb2}>{component.description}</P>
+      <P className={spacing.mb2}>
+        <Link href={`/components/${component.slug}`}>Usage</Link> |{" "}
+        <Link href={`/components/${component.slug}/styling`}>Styling</Link>
+      </P>
 
-        <P>{component.description}</P>
-        {/* <MDXContent content={component.description?.code || ""} vol={{ p: 3 }} /> */}
+      {props.tabs}
 
-        <P>
-          <Link href={`/components/${component.slug}`}>Usage</Link> |{" "}
-          <Link href={`/components/${component.slug}/styling`}>Styling</Link>
-        </P>
-        <div className="wrapper">{props.tabs}</div>
-
-        <p>
-          Check out the{" "}
-          <Link href="/previews/tab-next-router" className="link">
-            trending posts
-          </Link>{" "}
-          or stay up to date with the{" "}
-          <Link href="/previews/tab-next-router/new" className="link">
-            latest posts
-          </Link>
-        </p>
-      </div>
-      <div>TOC</div>
-    </>
+      <p>
+        Check out the{" "}
+        <Link href="/previews/tab-next-router" className="link">
+          trending posts
+        </Link>{" "}
+        or stay up to date with the{" "}
+        <Link href="/previews/tab-next-router/new" className="link">
+          latest posts
+        </Link>
+      </p>
+    </PageContent>
   );
 }

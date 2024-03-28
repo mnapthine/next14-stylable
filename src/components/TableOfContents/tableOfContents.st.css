@@ -1,0 +1,13 @@
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
+
+.root {}
+
+.title {
+  -st-extends: Text;
+}
+
+.list {}
+
+.listItem {}
+
+.anchor {}

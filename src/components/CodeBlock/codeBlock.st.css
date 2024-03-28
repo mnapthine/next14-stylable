@@ -1,6 +1,8 @@
 @st-namespace "codeBlock";
 
-.root {
+.root {}
+
+.code {
   -st-states: hasLineNumbers;
   background-color: black;
 }

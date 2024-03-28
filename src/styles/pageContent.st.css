@@ -1,0 +1,38 @@
+@st-namespace "docsPageContent";
+
+@st-import PageContent from "../components/PageContent/pageContent.st.css";
+@st-import Shelley, [
+  --spacing-unit,
+  breakpoint-lg,
+  breakpoint-md
+] from "@actionishope/shelley/styles/project.st.css";
+
+
+@st-scope Shelley {
+  PageContent {
+    display: grid;
+    gap: var(--spacing-unit);
+  }
+
+  PageContent::sideBar {
+    display: none;
+  }
+
+  @media value(breakpoint-md) {
+    PageContent {
+      column-gap: 7vw;
+      grid-template-columns: minmax(0, 50em) 200px;
+      justify-self: center;
+
+    }
+
+    PageContent::content {}
+
+    PageContent::sideBar {
+      display: block;
+      height: 80vh;
+      position: sticky;
+      top: 100px;
+    }
+  }
+}

@@ -3,7 +3,6 @@ import { componentDocs } from "#site/content";
 // import { Sandpack } from "@codesandbox/sandpack-react";
 
 import { HTML2React } from "@/components/HTML2React";
-import { CodeBlock } from "@/components/CodeBlock";
 
 function getComponentBySlug(slug: string) {
   return componentDocs.find((component) => component.slug === slug);
@@ -34,7 +33,6 @@ export default function Page(props: { params: { slug: string } }) {
         }}
         template="react"
       /> */}
-      {component?.import && <CodeBlock code={component.import} />}
       <HTML2React dangerouslySetInnerHTML={{ __html: component.content }} />
     </>
   );

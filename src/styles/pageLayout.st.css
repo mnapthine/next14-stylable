@@ -1,5 +1,49 @@
+@st-namespace "docsPageLayout";
+
 @st-import PageLayout from "../components/PageLayout/pageLayout.st.css";
-@st-import [--spacing-unit, breakpoint-lg] from "@actionishope/shelley/styles/project.st.css";
+@st-import Shelley, [
+  --spacing-unit,
+  breakpoint-md,
+  breakpoint-xl,
+] from "@actionishope/shelley/styles/project.st.css";
 
 
-@st-scope {}
+@st-scope Shelley {
+  PageLayout {
+    width: 100%;
+    max-width: 70rem;
+    margin: auto;
+    padding: var(--spacing-unit)
+  }
+
+  PageLayout::grid {
+    display: grid;
+    gap: var(--spacing-unit);
+  }
+
+  PageLayout::sideBar {
+    display: none;
+  }
+
+  @media value(breakpoint-md) {
+    PageLayout::grid {
+      grid-template-columns: 200px 1fr;
+      gap: 4vw;
+    }
+
+    PageLayout::sideBar {
+      display: block;
+    }
+
+    PageLayout::nav {
+      position: sticky;
+      top: 100px;
+    }
+  }
+
+  @media value(breakpoint-xl) {
+    PageLayout::grid {
+      gap: 2vw;
+    }
+  }
+}

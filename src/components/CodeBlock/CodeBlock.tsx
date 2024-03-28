@@ -6,18 +6,20 @@ export function CodeBlock({
   code,
   language = "tsx",
   lineNumbers = false,
+  className: classNameProp,
 }: {
   code: string;
   language?: string;
   lineNumbers?: boolean;
+  className?: string;
 }) {
   return (
-    <Text elementType="div" vol={1}>
+    <Text elementType="div" vol={1} className={st(classes.root, classNameProp)}>
       <Highlight theme={themes.nightOwl} code={code.trim()} language={language}>
         {({ className, tokens, getLineProps, getTokenProps }) => (
           <pre
             className={st(
-              classes.root,
+              classes.code,
               {
                 hasLineNumbers: lineNumbers,
               },
