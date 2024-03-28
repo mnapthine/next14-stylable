@@ -11,6 +11,10 @@
 
 }
 
+Text:vol(3) {
+  line-height: 1.7 !important;
+}
+
 .root .title:vol(1):uppercase {
   /* -st-mixin:
     textVol(scale respScale(0.65em, 0.7em), max 0.7em, lineHeight 1.1); */
