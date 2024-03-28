@@ -20,7 +20,6 @@ export function TableOfContents(props: TableOfContentsProps) {
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, url: string) => {
-      console.log("handleClick");
       e.preventDefault();
       const element = document.querySelector(url) as HTMLElement;
       if (element) {

@@ -22,8 +22,6 @@ export interface HTML2ReactProps extends React.HTMLAttributes<HTMLDivElement> {
   dangerouslySetInnerHTML?: { __html: string };
 }
 
-const slugger = new GithubSlugger();
-
 function parseClassnameAndOptions(inputStr: string): {
   className?: string;
   options: { live?: boolean; preview?: boolean; twoCol?: boolean };
@@ -51,6 +49,8 @@ function parseClassnameAndOptions(inputStr: string): {
 
 function HTML2React(props: HTML2ReactProps, ref: React.Ref<HTMLDivElement>) {
   const { children, dangerouslySetInnerHTML, className, ...rest } = props;
+
+  const slugger = new GithubSlugger();
 
   return (
     <div className={st(classes.root, className)} ref={ref} {...rest}>
