@@ -21,7 +21,6 @@
 
   CodeBlock {
     margin: calc(var(--spacing-unit) * 2) 0;
-    text-wrap: pretty;
   }
 
   ReactLiveBlock > pre {
@@ -29,6 +28,11 @@
     margin: 0;
     background-color: rgb(53, 115, 222);
     border-radius: 0 0 value(borderRadius) value(borderRadius);
+    text-wrap: pretty;
+  }
+
+  ReactLiveBlock::codeBlock pre {
+    text-wrap: pretty;
   }
 
   ReactLiveBlock::codeBlock,
@@ -38,6 +42,8 @@
     background-color: black;
     position: relative;
     margin: 0;
+
+    text-wrap: pretty;
   }
 
   CodeBlock::code {
@@ -58,6 +64,7 @@
   ReactLiveBlock::preview {
     padding: var(--spacing-unit);
     border-radius: value(borderRadius);
+    overflow-x: auto;
     /* border: 1px solid value(borderColor); */
     /* display: flex;
     align-items: center; */
