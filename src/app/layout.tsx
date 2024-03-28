@@ -3,7 +3,11 @@ import type { Metadata } from "next";
 import { root } from "@actionishope/shelley/styles";
 import "@/styles";
 import { Header } from "@/components/Header";
-import Head from "next/head";
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#75eaff",
+};
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,9 +21,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={root} data-theme="dark">
-      <Head>
-        <meta name="theme-color" content="#75eaff" />
-      </Head>
       <body>
         <Header />
         {children}
