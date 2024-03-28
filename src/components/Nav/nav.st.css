@@ -8,11 +8,6 @@
 
 .title {
   -st-extends: Text;
-
-}
-
-Text:vol(3) {
-  line-height: 1.7 !important;
 }
 
 .root .title:vol(1):uppercase {
