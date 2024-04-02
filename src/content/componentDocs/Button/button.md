@@ -8,7 +8,6 @@ category: Buttons
 import: import { Button } from "@actionishope/shelley";
 ---
 
-
 ## Import
 
 ```
@@ -20,7 +19,7 @@ import { Button, ButtonGroup } from "@actionishope/shelley/Button"
 
 ## Adobe hooks
 
-The button component is built using the Adobe [useButton hook](https://react-spectrum.adobe.com/react-aria/useButton.html) which amoungst other things provides a [unified press event](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html).
+The button component is built using the Adobe [useButton hook](https://react-spectrum.adobe.com/react-aria/useButton.html){:target="_blank"} which amoungst other things provides a [unified press event](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html).
 
 ## Usage
 
@@ -117,5 +116,3 @@ Use the `icon` prop to add an Icon to the button and control its position with t
   </Button>
 </ButtonGroup>
 ```
-
-### Test deploy

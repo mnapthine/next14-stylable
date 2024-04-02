@@ -7,3 +7,9 @@
 }
 
 .nav {}
+
+.navLink {
+  -st-states: isActive, isActivePath;
+}
+
+.navLinkText {}

@@ -10,15 +10,23 @@
   -st-extends: Text;
 }
 
+.list {}
+
+.listItem {}
+
+.anchor {}
+
 .root .title:vol(1):uppercase {
   /* -st-mixin:
     textVol(scale respScale(0.65em, 0.7em), max 0.7em, lineHeight 1.1); */
 }
 
-.root .title:vol(1):uppercase {
+.root .title:vol(1) {
   color: lightblue;
   margin-bottom: 12px;
   padding: 0 10px;
+  font-weight: 600;
+  font-size: 12px !important;
 }
 
 .section {

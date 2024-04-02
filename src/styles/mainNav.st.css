@@ -1,0 +1,66 @@
+@st-namespace "docsMainNav";
+@st-import MainNav, [icon] from "../components/MainNav/mainNav.st.css";
+
+@st-import Shelley, [
+  --color-ui-inverse,
+  --spacing-unit,
+  --link-color,
+  --tone-support-rgb,
+  --bg-main
+] from "@actionishope/shelley/styles/project.st.css";
+@st-import [container] from "./mixins.st.css";
+
+@st-scope Shelley body {
+  MainNav {
+    margin-top: var(--spacing-unit);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  MainNav::list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  MainNav::li {
+    padding: 0
+  }
+
+  MainNav::navLink {
+    display: flex;
+    padding: 8px 0;
+    color: #aeaeae;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  MainNav::navLink:hover,
+  MainNav::navLink:focus {
+    color: var(--link-color);
+  }
+
+
+
+  MainNav::navLink:isActive {
+    /* background-color: rgba(0, 255, 255, 0.05); */
+  }
+
+  MainNav::linkText {
+    align-items: center;
+  }
+
+  MainNav::icon {
+    font-size: 1.1em;
+    border-radius: 4px;
+    border: 1px solid #42434a;
+    padding: 4px;
+    display: flex;
+    color: rgba(var(--tone-support-rgb), 0.8);
+    /* padding: 10px */
+  }
+
+  MainNav::navLink:isActivePath .icon {
+    color: var(--color-ui-inverse);
+    background-color: rgba(var(--tone-support-rgb), 0.8);
+  }
+}

@@ -2,11 +2,8 @@
 
 .root {}
 
-.code {}
-
 .code {
   -st-states: hasLineNumbers;
-  background-color: black;
 }
 
 .lineNumber {}

@@ -1,16 +1,25 @@
-name: Lei’s
-title: Lei’s personal website
-description: Lei’s personal website, apart from his classmates' spare time and nagging, is all about internet industry and IT technology content commentary
+name: Shelley
+title: Shelley UI
+description: React UI components library, built with Adobe a11y hooks, styled by Wix's 'stylable' CSS preprocessor allowing you to own and control the CSS.
 keywords:
-  - Blog
-  - Lei’s
-  - zce
-  - zce.me
+  - React
+  - Component library
+  - Adobe aria hooks
+  - a11y
+  - Accessibility
+  - Headless UI
+  - Stylable
 author:
-  name: zce
-  email: zce@example.me
-  url: https://zce.me
+  name: shelley
+  email: xxx@email.com
+  url: https://shelley.earth
 links:
+  - text: Home
+    link: /
+    type: navigation
+  - text: Getting Started
+    link: /getting-started
+    type: navigation
   - text: Components
     link: /components
     type: navigation

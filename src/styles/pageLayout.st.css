@@ -6,14 +6,13 @@
   breakpoint-md,
   breakpoint-xl,
 ] from "@actionishope/shelley/styles/project.st.css";
-
+@st-import [container] from "./mixins.st.css";
 
 @st-scope Shelley {
   PageLayout {
-    width: 100%;
-    max-width: 70rem;
-    margin: auto;
-    padding: var(--spacing-unit)
+    -st-mixin: container;
+    padding-top: var(--spacing-unit);
+    padding-bottom: var(--spacing-unit);
   }
 
   PageLayout::grid {
@@ -33,12 +32,12 @@
 
     PageLayout::sideBar {
       display: block;
+      position: sticky;
+      top: 85px;
+      height: calc(100vh - 190px);
     }
 
-    PageLayout::nav {
-      position: sticky;
-      top: 100px;
-    }
+    PageLayout::nav {}
   }
 
   @media value(breakpoint-xl) {

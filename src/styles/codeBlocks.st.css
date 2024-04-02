@@ -48,6 +48,7 @@
 
   CodeBlock::code {
     border-radius: value(borderRadius);
+    background-color: black;
   }
 
   ReactLiveBlock::codeBlock {

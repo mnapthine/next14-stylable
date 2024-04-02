@@ -1,0 +1,11 @@
+@st-import [
+  --spacing-unit
+] from "@actionishope/shelley/styles/project.st.css";
+
+.container {
+  width: 100%;
+  max-width: 70rem;
+  margin: auto;
+  padding-left: var(--spacing-unit);
+  padding-left: var(--spacing-unit);
+}

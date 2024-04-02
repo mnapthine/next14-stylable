@@ -13,6 +13,12 @@
 
 @st-scope Shelley {
 
+
+  TableOfContents::title {
+    margin-bottom: var(--spacing-unit);
+    font-weight: 600;
+  }
+
   TableOfContents::list {
     margin: 0;
     list-style-type: none;

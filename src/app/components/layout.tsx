@@ -6,5 +6,5 @@ export default function ComponentsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <PageLayout>{children}</PageLayout>;
+  return <PageLayout componentNav>{children}</PageLayout>;
 }

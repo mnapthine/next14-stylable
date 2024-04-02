@@ -1,0 +1,17 @@
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
+
+.root {}
+
+.list {}
+
+.li {}
+
+.navLink {
+  -st-states: isActive, isActivePath;
+}
+
+.icon {}
+
+.linkText {
+  -st-extends: Text;
+}

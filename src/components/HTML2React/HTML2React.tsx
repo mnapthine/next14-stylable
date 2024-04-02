@@ -1,5 +1,6 @@
 import type React from "react";
 import { forwardRef, type ReactNode } from "react";
+import Link from "next/link";
 import HTML2ReactParser from "react-html-string-parser/HTML2React";
 import GithubSlugger from "github-slugger";
 import {
@@ -102,6 +103,9 @@ function HTML2React(props: HTML2ReactProps, ref: React.Ref<HTMLDivElement>) {
             span: (props: Partial<TextProps>) => (
               <Text elementType="span" {...props} />
             ),
+            // a: (props: Partial<TextProps>) => (
+            //   <Text elementType="a" {...props} />
+            // ),
             pre: ({ children }) => {
               const { children: codeRaw, class: classNameProp = "" } =
                 children[0].props;

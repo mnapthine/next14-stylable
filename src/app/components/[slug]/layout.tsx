@@ -56,7 +56,7 @@ export default function Layout(props: {
 
       {props.tabs}
 
-      <p>
+      {/* <p>
         Check out the{" "}
         <Link href="/previews/tab-next-router" className="link">
           trending posts
@@ -65,7 +65,7 @@ export default function Layout(props: {
         <Link href="/previews/tab-next-router/new" className="link">
           latest posts
         </Link>
-      </p>
+      </p> */}
     </PageContent>
   );
 }

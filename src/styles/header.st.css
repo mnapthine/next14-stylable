@@ -1,37 +1,31 @@
 @st-namespace "docsHeader";
 @st-import Header from "../components/Header/header.st.css";
 
-@st-import Shelley, [ --bg-main] from "@actionishope/shelley/styles/project.st.css";
+@st-import Shelley, [
+  --spacing-unit,
+  --bg-main
+] from "@actionishope/shelley/styles/project.st.css";
+@st-import [container] from "./mixins.st.css";
 
-@st-scope Shelley {
+@st-scope Shelley body {
   Header {
     position: sticky;
     top: 0;
     z-index: 11;
     background-color: var(--bg-main);
     border-bottom: 1px solid #75eaff61;
-  }
-
-  Header::nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  Header::nav a {
-    color: #aeaeae;
-    text-decoration: none;
-    background-color: rgba(0, 255, 255, 0.205);
+    padding: 0;
   }
 
   Header::container {
+    -st-mixin: container;
     display: flex;
-    max-width: 60rem;
-    margin: auto;
     align-items: center;
-    justify-content: space-between;
-    width: -webkit-fill-available;
+    /* justify-content: space-between; */
+    gap: 100px;
+    padding-left: calc(var(--spacing-unit) + 8px);
+    height: 60px;
+    /* width: -webkit-fill-available; */
   }
+
 }

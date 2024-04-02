@@ -86,8 +86,12 @@ const pages = defineCollection({
   schema: s
     .object({
       title: s.string().max(99),
+      description: s.string().max(999).optional(),
+      urlPath: s.string(),
       slug: s.slug("global", ["admin", "login"]),
+      weight: s.number().default(0),
       body: s.mdx(),
+      toc: s.toc(),
     })
     .transform((data, { meta }) => ({
       ...data,
@@ -102,6 +106,7 @@ const posts = defineCollection({
   schema: s
     .object({
       title: s.string().max(99),
+      // path: s.path({ removeIndex: true }),
       slug: s.slug("post"),
       date: s.isodate(),
       updated: s.isodate().optional(),
@@ -129,7 +134,7 @@ const componentDocs = defineCollection({
       slug: s.slug("component"),
       import: s.string().max(999).optional(),
       description: s.string().max(999).optional(),
-      category: s.string().optional(),
+      category: s.string(),
       meta: meta,
       toc: s.toc(),
       metadata: s.metadata(),

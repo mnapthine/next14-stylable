@@ -23,7 +23,6 @@
       column-gap: 7vw;
       grid-template-columns: minmax(0, 50em) 200px;
       justify-self: center;
-
     }
 
     PageContent::content {}
@@ -32,7 +31,7 @@
       display: block;
       height: 80vh;
       position: sticky;
-      top: 100px;
+      top: 172px;
     }
   }
 }
