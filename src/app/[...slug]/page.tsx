@@ -57,14 +57,14 @@ export const generateMetadata = ({ params }: MetadataParams) => {
   };
 };
 
-// export const generateStaticParams = async () =>
-//   pages.map((page) => {
-//     let urlPath = page.urlPath.split("/");
-//     urlPath.push(page.slug);
-//     return {
-//       slug: urlPath,
-//     };
-//   });
+export const generateStaticParams = async () =>
+  pages.map((page) => {
+    let urlPath = page.urlPath === "/" ? [] : page.urlPath.split("/");
+    urlPath.push(page.slug);
+    return {
+      slug: urlPath,
+    };
+  });
 
 export default function Page(props: { params: { slug: string[] } }) {
   const { params } = props;
