@@ -39,28 +39,32 @@ function getNav(path: string[]) {
   return nav;
 }
 
-export const generateMetadata = ({
-  params,
-}: {
-  children: ReactNode;
-  params: { slug: string };
-}) => {
+interface MetadataParams {
+  params: {
+    slug: string[];
+  };
+}
+
+export const generateMetadata = ({ params }: MetadataParams) => {
+  // Assuming `pages` is defined elsewhere and accessible in this context
   const page = pages.find((page) => page.slug === params.slug[0]);
-  if (!page) return notFound();
+
+  if (!page) return notFound(); // Ensure `notFound` is properly handled in this context
+
   return {
     title: page.title,
     description: page.description || "",
   };
 };
 
-export const generateStaticParams = async () =>
-  pages.map((page) => {
-    let urlPath = page.urlPath.split("/");
-    urlPath.push(page.slug);
-    return {
-      slug: urlPath,
-    };
-  });
+// export const generateStaticParams = async () =>
+//   pages.map((page) => {
+//     let urlPath = page.urlPath.split("/");
+//     urlPath.push(page.slug);
+//     return {
+//       slug: urlPath,
+//     };
+//   });
 
 export default function Page(props: { params: { slug: string[] } }) {
   const { params } = props;
@@ -68,8 +72,7 @@ export default function Page(props: { params: { slug: string[] } }) {
   const page = getPageBySlug(params.slug[params.slug.length - 1]);
   if (page == null) notFound();
   const nav = getNav(params.slug);
-  console.log("NAV", nav);
-  console.log("NESTEDNAV", nestNavItems(nav));
+
   return (
     <PageLayout pagesNav={nestNavItems(nav)}>
       <PageContent toc={page.toc}>
