@@ -1,6 +1,7 @@
 export interface NavItem {
   title: string;
   url: string;
+  menuTitle?: string | false; // Optional title for the menu
   weight: number; // Added to specify the order of navigation items
 }
 
@@ -11,6 +12,7 @@ export interface NestedNavItem extends NavItem {
 export function nestNavItems(items: NavItem[]): NestedNavItem[] {
   const root: NestedNavItem = {
     title: "Root",
+    menuTitle: false,
     url: "",
     weight: 0,
     children: [],
@@ -33,7 +35,13 @@ export function nestNavItems(items: NavItem[]): NestedNavItem[] {
       let child = currentLevel.children.find((c) => c.url === path);
 
       if (!child) {
-        child = { title: "", url: path, weight: item.weight, children: [] };
+        child = {
+          title: "",
+          menuTitle: item.menuTitle || false,
+          url: path,
+          weight: item.weight,
+          children: [],
+        };
         currentLevel.children.push(child);
       }
 

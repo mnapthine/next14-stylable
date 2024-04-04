@@ -86,6 +86,7 @@ const pages = defineCollection({
   schema: s
     .object({
       title: s.string().max(99),
+      menuTitle: s.string().max(99).optional(),
       description: s.string().max(999).optional(),
       urlPath: s.string(),
       slug: s.slug("global", ["admin", "login"]),

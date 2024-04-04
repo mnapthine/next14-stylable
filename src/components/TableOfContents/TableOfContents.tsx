@@ -55,7 +55,7 @@ export function TableOfContents(props: TableOfContentsProps) {
   return (
     <nav className={st(classes.root, className)}>
       <H2 vol={1} className={classes.title} uppercase>
-        Contents
+        Page Contents
       </H2>
       {<ol className={classes.list}>{renderListItems(items)}</ol>}
     </nav>

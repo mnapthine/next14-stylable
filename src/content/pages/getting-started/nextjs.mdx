@@ -1,0 +1,82 @@
+---
+title: NextJS
+urlPath: getting-started
+slug: next-js
+weight: -1
+---
+
+There are a few steps you need to follow to integrate Stylable into your NextJS project.
+
+## Install
+
+Install the stylable webpack plugin as a `devDependency`.
+
+```
+npm i @stylable/webpack-plugin --save-dev
+```
+
+## Config
+
+1. Create a `next.config.js` file.
+2. Exclude other CSS loaders from loading Stylable (`*.st.css`) files.
+3. Add the Stylable plugin to the webpack configuration.
+
+### App Directory
+
+Example of App directory config:
+
+```js
+// Import necessary modules from the stylable webpack plugin
+
+import {
+  StylableWebpackPlugin,
+  applyWebpackConfigStylableExcludes,
+} from "@stylable/webpack-plugin";
+import { StylableOptimizer } from "@stylable/optimizer";
+
+// Initialize a single StylableOptimizer instance
+const stylableOptimizer = new StylableOptimizer();
+
+// Next.js configuration with TypeScript support for webpack function
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  transpilePackages: ["@actionishope/shelley"],
+  webpack: (config, { isServer }) => {
+    // Apply stylable configuration exclusions
+    applyWebpackConfigStylableExcludes(config);
+    // Add the Stylable plugin to the webpack configuration
+    config.plugins.push(
+      new StylableWebpackPlugin({
+        stcConfig: true,
+
+        // Let Next.js handle assets
+        filterAssets: () => false,
+
+        // Output CSS location
+        filename: "static/css/stylable.[contenthash].css",
+
+        // Use shared optimizer instance
+        optimizer: stylableOptimizer,
+
+        // Serve CSS as a bundled asset
+        cssInjection: "css",
+
+        // Attach CSS to all chunks
+        experimentalAttachCssToContainingChunks: true,
+
+        // Mute specific diagnostics
+        unsafeMuteDiagnostics: { DUPLICATE_MODULE_NAMESPACE: true },
+      })
+    );
+
+    // Add any additional plugins, like VeliteWebpackPlugin if needed
+    // config.plugins.push();
+
+    return config;
+  },
+};
+
+// Export the configuration using ESM syntax
+export default nextConfig;
+```

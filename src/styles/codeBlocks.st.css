@@ -11,6 +11,7 @@
 
 @st-scope {
 
+  /* CodeBlock :global(.language-bash) {} */
 
   ReactLiveBlock {
     display: grid;

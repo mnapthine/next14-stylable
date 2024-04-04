@@ -39,8 +39,6 @@
     color: var(--link-color);
   }
 
-
-
   MainNav::navLink:isActive {
     /* background-color: rgba(0, 255, 255, 0.05); */
   }
@@ -56,7 +54,6 @@
     padding: 4px;
     display: flex;
     color: rgba(var(--tone-support-rgb), 0.8);
-    /* padding: 10px */
   }
 
   MainNav::navLink:isActivePath .icon {

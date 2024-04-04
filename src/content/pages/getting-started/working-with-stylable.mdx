@@ -1,0 +1,47 @@
+---
+title: Working with Styable
+urlPath: getting-started
+slug: working-with-stylable
+weight: -3
+---
+
+Stylable offers a [boilerplate utility](https://stylable.io/docs/getting-started/boilerplate) that can be used to bootstrap new projects from a list of templates.
+
+## Tooling
+
+### Stylable Intelligence
+
+Install the [stylable-intelligence VSCode extension](https://marketplace.visualstudio.com/items?itemName=wix.stylable-intelligence) which supports code completions, diagnostics, go to definitions, syntax highlighting and more. It's a must have for working with Stylable.
+
+### Stylable config file
+
+The `stylable.config.js` file acts as a central place where you can write your top level configuration for the entire project, so that they are re-used across builds and integrations, and reduce code duplications.
+
+The configuration file should be located in the project root directory in order to be picked up automatically.
+
+```js
+// stylable.config.js
+const { stcConfig } = require("@stylable/cli");
+
+// use the `stcConfig` function to get type completion and validation
+exports.stcConfig = stcConfig({
+  // build type definitions for all stylesheets into the st-types directory
+  options: {
+    srcDir: "./src",
+    outDir: "./st-types",
+    dts: true,
+  },
+});
+```
+
+See [stylable-config docs](https://stylable.io/docs/getting-started/stylable-config)
+
+### Stylable CLI
+
+Depending on your integration you would have installed [@stylable/cli](https://stylable.io/docs/getting-started/tooling/cli) as a dependancy. The CLI (Command Line Interface) is a low-level utility used for working with Stylable projects directly.
+
+**Example:** Use the CLI to watch for `.st.css` file changes and build the stylable types.
+
+```bash
+npx stc --cjs false --dts -w
+```

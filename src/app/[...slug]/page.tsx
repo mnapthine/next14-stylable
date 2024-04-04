@@ -1,20 +1,23 @@
 import { notFound } from "next/navigation";
 import { pages } from "#site/content";
-import { MDXContent } from "@/components/MDXContent";
+import { MDX2React } from "@/components/Code2React";
 import { PageLayout } from "@/components/PageLayout";
 import { PageContent } from "@/components/PageContent";
-import { nestNavItems } from "@/utils/nestNavItems";
-import { ReactNode } from "react";
-
+import { nestNavItems, NavItem } from "@/utils/nestNavItems";
+import { classes } from "../../styles/mixins.st.css";
+import {
+  classes as spacing,
+  st,
+} from "@actionishope/shelley/styles/spacing.st.css";
+import { H1 } from "@actionishope/shelley/Text";
 function getPageBySlug(slug: string) {
   return pages.find((page) => page.slug === slug);
 }
 
 function getNav(path: string[]) {
-  let nav: { title: string; url: string; weight: number }[] = [];
+  let nav: NavItem[] = [];
   path.forEach((slug) => {
     pages.map((page): void => {
-      console.log("SLUG", page.urlPath);
       page.urlPath.includes(slug) || page.slug === slug
         ? nav.push({
             title: page.title,
@@ -23,6 +26,7 @@ function getNav(path: string[]) {
                 ? `/${page.urlPath}/${page.slug}`
                 : `/${page.slug}`,
             weight: page.weight,
+            menuTitle: page?.menuTitle || false,
           })
         : null;
     });
@@ -30,11 +34,6 @@ function getNav(path: string[]) {
     const page = pages.filter(
       (page) => page.urlPath.includes(slug) || page.slug === slug
     );
-    //   (page) => page.urlPath.includes(slug[0]) || page.slug === slug[0]
-    // );
-    // console.log("PAGE", page);
-    // const page = getPageBySlug(slug);
-    // page && nav.push({ title: page.title, url: page.urlPath });
   });
   return nav;
 }
@@ -72,11 +71,13 @@ export default function Page(props: { params: { slug: string[] } }) {
   const page = getPageBySlug(params.slug[params.slug.length - 1]);
   if (page == null) notFound();
   const nav = getNav(params.slug);
-
   return (
     <PageLayout pagesNav={nestNavItems(nav)}>
       <PageContent toc={page.toc}>
-        <MDXContent code={page.body} />
+        <H1 weight={5} className={st(spacing.mt1, spacing.mb2)}>
+          {page?.menuTitle || page.title}
+        </H1>
+        <MDX2React code={page.body} className={classes.format} />
       </PageContent>
     </PageLayout>
   );

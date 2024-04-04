@@ -1,0 +1,48 @@
+@st-namespace "docsNav";
+
+@st-import Nav, [list, listItem] from "../components/Nav/nav.st.css";
+@st-import Shelley, [ --spacing-unit ] from "@actionishope/shelley/styles/project.st.css";
+
+@st-import [
+  container,
+  navSection,
+  navTitle,
+  navList,
+  navListItem,
+  navAnchor
+] from "./mixins.st.css";
+
+@st-scope Shelley body {
+  Nav {
+    margin-top: var(--spacing-unit);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  Nav::section {
+    -st-mixin: navSection;
+  }
+
+  Nav::title:uppercase {
+    -st-mixin: navTitle;
+  }
+
+  Nav::list {
+    -st-mixin: navList;
+  }
+
+  Nav::listItem {
+    -st-mixin: navListItem;
+  }
+
+  Nav::listItem:has(.list):not(:first-child) {
+    margin-top: 20px
+  }
+
+  Nav::listItem .listItem {
+    padding-left: calc(var(--spacing-unit) * 0.75);
+  }
+
+  Nav::anchor {
+    -st-mixin: navAnchor;
+  }
+}

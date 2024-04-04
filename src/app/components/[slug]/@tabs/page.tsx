@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 import { componentDocs } from "#site/content";
 // import { Sandpack } from "@codesandbox/sandpack-react";
 
-import { HTML2React } from "@/components/HTML2React";
+import { HTML2React } from "@/components/Code2React";
+import { classes } from "../../../../styles/mixins.st.css";
 
 function getComponentBySlug(slug: string) {
   return componentDocs.find((component) => component.slug === slug);
@@ -33,7 +34,10 @@ export default function Page(props: { params: { slug: string } }) {
         }}
         template="react"
       /> */}
-      <HTML2React dangerouslySetInnerHTML={{ __html: component.content }} />
+      <HTML2React
+        className={classes.format}
+        dangerouslySetInnerHTML={{ __html: component.content }}
+      />
     </>
   );
 }

@@ -1,4 +1,3 @@
-// import { MDXContent } from "@/components/MDXContent";
 // import {
 //   componentDetails as allComponentDetails,
 //   components as allComponents,
@@ -22,7 +21,6 @@ export default function Page(props: { params: { slug: string } }) {
   return (
     <>
       <p>/hgjhgjgj</p>
-      {/* <MDXContent code={componentDetails?.body ?? ""} /> */}
     </>
   );
 }

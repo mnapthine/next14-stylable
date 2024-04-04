@@ -2,7 +2,7 @@
 import {
   StylableWebpackPlugin,
   applyWebpackConfigStylableExcludes,
-  bundleServerLibs, // Uncomment if you're going to use it
+  // bundleServerLibs, // Uncomment if you're going to use it
 } from "@stylable/webpack-plugin";
 import { StylableOptimizer } from "@stylable/optimizer";
 

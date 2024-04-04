@@ -44,7 +44,10 @@ export function Nav(props: NavProps) {
   return (
     <>
       {props.componentNav && (
-        <nav className={st(classes.root, props?.className)}>
+        <nav
+          className={st(classes.root, props?.className)}
+          aria-label="Component Navigation"
+        >
           {Object.entries(categorisedComponents).map(
             ([category, components]) => (
               <div key={category} className={classes.section}>
@@ -52,7 +55,11 @@ export function Nav(props: NavProps) {
                   {category}
                 </H2>
                 {components.map((component, idx) => (
-                  <Link key={idx} href={`/components/${component.slug}`}>
+                  <Link
+                    key={idx}
+                    className={classes.anchor}
+                    href={`/components/${component.slug}`}
+                  >
                     {component.title}
                   </Link>
                 ))}
@@ -63,15 +70,18 @@ export function Nav(props: NavProps) {
       )}
 
       {props.pagesNav && (
-        <nav className={st(classes.root, props?.className)}>
+        <nav
+          className={st(classes.root, props?.className)}
+          aria-label="Section Navigation"
+        >
           <div className={classes.section}>
             <H2 vol={1} className={classes.title} uppercase>
-              Pages
+              {props.pagesNav[0].title}
             </H2>
             <ol className={classes.list}>
-              <li>
-                <Link href={props.pagesNav[0].url}>
-                  {props.pagesNav[0].title}
+              <li className={classes.listItem}>
+                <Link className={classes.anchor} href={props.pagesNav[0].url}>
+                  {props.pagesNav[0]?.menuTitle || props.pagesNav[0].title}
                 </Link>
               </li>
               {renderListItems(props.pagesNav[0].children)}
