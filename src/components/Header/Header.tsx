@@ -1,50 +1,40 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { options } from "#site/content";
-import { H2, Text } from "@actionishope/shelley/Text";
 import { st, classes } from "./header.st.css";
 import { AppBar } from "@actionishope/shelley/AppBar";
-import { RiCompassLine } from "react-icons/ri";
+import { RiContrast2Fill } from "react-icons/ri";
+import { IconButton } from "@actionishope/shelley/Button";
+import { H2 } from "@actionishope/shelley/Text";
+import { Menu, MenuTrigger } from "@actionishope/shelley/Menu";
+import { Item } from "@actionishope/shelley/Item";
+import { useTheme } from "next-themes";
+import Link from "next/link";
 interface HeaderProps {
   className?: string;
   content?: string;
 }
 
 export function Header(props: HeaderProps) {
-  const pathname = usePathname();
+  const { setTheme, theme } = useTheme();
   return (
-    <AppBar className={st(classes.root)} elementType="header">
+    <AppBar className={st(classes.root, props.className)} elementType="header">
       <H2 uppercase vol={3}>
-        Shelley
+        <Link href="/">Shelley</Link>
       </H2>
-      {/* <nav className={classes.nav}>
-        {options.links.map(
-          (link, idx) =>
-            link.type === "navigation" && (
-              <Link
-                key={idx}
-                href={`${link.link}`}
-                className={st(classes.navLink, {
-                  isActive: link.link === pathname,
-                  isActivePath: Boolean(
-                    pathname.includes(link.link) && link.link !== pathname
-                  ),
-                })}
-              >
-                <Text
-                  className={classes.navLinkText}
-                  elementType="span"
-                  vol={1}
-                  weight={6}
-                  startAdornment={<RiCompassLine />}
-                >
-                  {link.text}
-                </Text>
-              </Link>
-            )
-        )}
-      </nav> */}
+
+      <MenuTrigger>
+        <IconButton>
+          <RiContrast2Fill />
+        </IconButton>
+        <Menu
+          selectedKeys={[`${theme}`]}
+          selectionMode="single"
+          onAction={(value) => setTheme(value as string)}
+        >
+          <Item key="system">system</Item>
+          <Item key="light">light</Item>
+          <Item key="dark">dark</Item>
+        </Menu>
+      </MenuTrigger>
     </AppBar>
   );
 }

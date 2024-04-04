@@ -4,6 +4,7 @@ import { root } from "@actionishope/shelley/styles";
 import "@/styles";
 import { Header } from "@/components/Header";
 import type { Viewport } from "next";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const viewport: Viewport = {
   themeColor: "#75eaff",
@@ -20,10 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={root} data-theme="dark">
+    <html lang="en" className={root}>
       <body>
-        <Header />
-        {children}
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

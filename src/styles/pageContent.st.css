@@ -18,6 +18,10 @@
     display: none;
   }
 
+  PageContent::content {
+    padding-bottom: 50vh;
+  }
+
   @media value(breakpoint-md) {
     PageContent {
       column-gap: 7vw;
@@ -25,7 +29,7 @@
       justify-self: center;
     }
 
-    PageContent::content {}
+
 
     PageContent::sideBar {
       display: block;

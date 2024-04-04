@@ -12,7 +12,6 @@ interface MainNavProps {
 
 export function MainNav(props: MainNavProps) {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <nav
       className={st(classes.root, props?.className)}
