@@ -1,5 +1,5 @@
 import { PageContent } from "@/components/PageContent";
-import { H1, P } from "@actionishope/shelley/Text";
+import { H1, P, Text } from "@actionishope/shelley/Text";
 import {
   st,
   classes as spacing,
@@ -15,6 +15,21 @@ export default function Page() {
         user interfaces with full control over the CSS to cater to your design
         system.
       </P>
+
+      <Text elementType="ul">
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+      </Text>
     </PageContent>
   );
 }

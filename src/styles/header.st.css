@@ -3,6 +3,7 @@
 
 @st-import Shelley, [
   --spacing-unit,
+  --link-color,
   --bg-main
 ] from "@actionishope/shelley/styles/project.st.css";
 @st-import [container] from "./mixins.st.css";
@@ -26,6 +27,15 @@
     padding-left: calc(var(--spacing-unit) + 8px);
     height: 60px;
     /* width: -webkit-fill-available; */
+  }
+
+  Header::homeLink {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  Header::homeLink:hover {
+    color: var(--link-color)
   }
 
 }

@@ -18,11 +18,13 @@ export function Header(props: HeaderProps) {
   return (
     <AppBar className={st(classes.root, props.className)} elementType="header">
       <H2 uppercase vol={3}>
-        <Link href="/">Shelley</Link>
+        <Link href="/" className={classes.homeLink}>
+          Shelley
+        </Link>
       </H2>
 
       <MenuTrigger>
-        <IconButton>
+        <IconButton tone={"contrast"}>
           <RiContrast2Fill />
         </IconButton>
         <Menu
