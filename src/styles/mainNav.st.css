@@ -3,6 +3,7 @@
 
 @st-import Shelley, [
   --color-ui-inverse,
+  --color-ui-rgb,
   --spacing-unit,
   --link-color,
   --tone-support-rgb,
@@ -29,7 +30,7 @@
   MainNav::anchor {
     display: flex;
     padding: 8px 0;
-    color: #aeaeae;
+    color: rgba(var(--color-ui-rgb), 0.85);
     text-decoration: none;
     transition: color 0.2s;
   }
@@ -59,5 +60,6 @@
   MainNav::anchor:isActivePath .icon {
     color: var(--color-ui-inverse);
     background-color: rgba(var(--tone-support-rgb), 0.8);
+    border-color: #22e4c3;
   }
 }

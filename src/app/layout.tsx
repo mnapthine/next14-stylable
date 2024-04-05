@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={root}>
+    <html lang="en" className={root} suppressHydrationWarning>
       <body>
         <ThemeProvider
           attribute="data-theme"
