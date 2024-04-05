@@ -1,9 +1,11 @@
 "use client";
 
 import { Canvas, useLoader } from "@react-three/fiber";
+import { useScroll, motion, useMotionValueEvent } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 
 import { TextureLoader } from "three/src/loaders/TextureLoader.js";
-
+import { classes, st } from "./earth.st.css";
 interface EarthProps {
   className?: string;
   content?: string;
@@ -16,15 +18,36 @@ function Earth(props: EarthProps) {
     "assets/occlusion.jpeg",
   ]);
 
+  const scene = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: scene,
+    offset: ["start end", "end start"],
+  });
+
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    console.log("scrollY", scrollY);
+  }, [scrollY]);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setScrollY(latest);
+    console.log("Page scroll: ", latest);
+  });
+
   return (
-    <Canvas>
-      <ambientLight intensity={0.1} />
-      <directionalLight intensity={3.5} position={[1, 0, -0.25]} />
-      <mesh scale={2.5}>
-        <sphereGeometry args={[1, 64, 64]} />
-        <meshStandardMaterial map={color} normalMap={normal} aoMap={aoMap} />
-      </mesh>
-    </Canvas>
+    <div className={st(classes.root)}>
+      <Canvas ref={scene}>
+        {/* <motion.mesh scale={2.5} rotation-y={scrollYProgress} /> */}
+        <ambientLight intensity={0.9} />
+        <directionalLight intensity={6.5} position={[2, 0, -0.25]} />
+        <mesh scale={2.5} rotation-y={scrollY + 4.1} rotation-x={0.6}>
+          <sphereGeometry args={[1, 64, 64]} />
+          <meshStandardMaterial map={color} normalMap={normal} aoMap={aoMap} />
+        </mesh>
+      </Canvas>
+    </div>
   );
 }
 
