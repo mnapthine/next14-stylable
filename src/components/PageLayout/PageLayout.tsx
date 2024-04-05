@@ -1,11 +1,10 @@
-import { Nav } from "@/components/Nav";
+import { Nav, NavItem } from "@/components/Nav";
 import { st, classes } from "./pageLayout.st.css";
 import { MainNav } from "@/components/MainNav";
-import { NestedNavItem } from "@/utils/nestNavItems";
 
 interface PageLayoutProps {
   children: React.ReactNode;
-  pagesNav?: NestedNavItem[];
+  pagesNav?: NavItem[];
   componentNav?: boolean;
 }
 export function PageLayout({

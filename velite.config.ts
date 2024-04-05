@@ -87,6 +87,7 @@ const pages = defineCollection({
     .object({
       title: s.string().max(99),
       menuTitle: s.string().max(99).optional(),
+      category: s.string().optional(),
       description: s.string().max(999).optional(),
       urlPath: s.string(),
       slug: s.slug("global", ["admin", "login"]),
@@ -133,6 +134,7 @@ const componentDocs = defineCollection({
     .object({
       title: s.string().max(99),
       slug: s.slug("component"),
+      weight: s.number().default(0),
       import: s.string().max(999).optional(),
       description: s.string().max(999).optional(),
       category: s.string(),

@@ -3,39 +3,46 @@ import { pages } from "#site/content";
 import { MDX2React } from "@/components/Code2React";
 import { PageLayout } from "@/components/PageLayout";
 import { PageContent } from "@/components/PageContent";
-import { nestNavItems, NavItem } from "@/utils/nestNavItems";
 import { classes } from "../../styles/mixins.st.css";
 import {
   classes as spacing,
   st,
 } from "@actionishope/shelley/styles/spacing.st.css";
 import { H1 } from "@actionishope/shelley/Text";
+import { NavItem } from "@/components/Nav";
+
 function getPageBySlug(slug: string) {
   return pages.find((page) => page.slug === slug);
 }
 
-function getNav(path: string[]) {
-  let nav: NavItem[] = [];
-  path.forEach((slug) => {
-    pages.map((page): void => {
-      page.urlPath.includes(slug) || page.slug === slug
-        ? nav.push({
-            title: page.title,
-            url:
-              page.urlPath !== "/"
-                ? `/${page.urlPath}/${page.slug}`
-                : `/${page.slug}`,
-            weight: page.weight,
-            menuTitle: page?.menuTitle || false,
-          })
-        : null;
-    });
+function getNavItemsFromURLPath(path: string[]): NavItem[] {
+  let navItems: NavItem[] = [];
 
-    const page = pages.filter(
-      (page) => page.urlPath.includes(slug) || page.slug === slug
-    );
+  path.forEach((part) => {
+    pages.forEach((page) => {
+      // CHeck if page is related to the current path
+      if (page.urlPath.includes(part) || page.slug === part) {
+        // Construct the URL for the nav item
+        const url =
+          page.urlPath !== "/"
+            ? `/${page.urlPath}/${page.slug}`
+            : `/${page.slug}`;
+
+        // Check if the item already exists in the navItems array to avoid duplicates
+        if (!navItems.some((item) => item.url === url)) {
+          navItems.push({
+            title: page.title,
+            url: url,
+            weight: page.weight,
+            menuTitle: page.menuTitle || false,
+            category: page.category || "",
+          });
+        }
+      }
+    });
   });
-  return nav;
+
+  return navItems;
 }
 
 interface MetadataParams {
@@ -70,9 +77,10 @@ export default function Page(props: { params: { slug: string[] } }) {
 
   const page = getPageBySlug(params.slug[params.slug.length - 1]);
   if (page == null) notFound();
-  const nav = getNav(params.slug);
+  const nav = getNavItemsFromURLPath(params.slug);
+
   return (
-    <PageLayout pagesNav={nestNavItems(nav)}>
+    <PageLayout pagesNav={nav}>
       <PageContent toc={page.toc}>
         <H1 weight={5} className={st(spacing.mt1, spacing.mb2)}>
           {page?.menuTitle || page.title}

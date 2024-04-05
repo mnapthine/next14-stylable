@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { PageLayout } from "@/components/PageLayout";
 import { ShelleyBanner } from "@/components/ShelleyBanner";
-import { H1, P, Text } from "@actionishope/shelley/Text";
+import { P } from "@actionishope/shelley/Text";
 import { PageContent } from "@/components/PageContent";
 export default function Home() {
   return (

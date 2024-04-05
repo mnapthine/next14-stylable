@@ -37,7 +37,7 @@ export function nestNavItems(items: NavItem[]): NestedNavItem[] {
       if (!child) {
         child = {
           title: "",
-          menuTitle: item.menuTitle || false,
+          menuTitle: item.menuTitle,
           url: path,
           weight: item.weight,
           children: [],

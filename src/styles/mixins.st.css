@@ -91,6 +91,7 @@
 
 .format > p + p,
 .format > p + h4,
+.format > ul + h4,
 .format > p + h5,
 .format > h2 + p,
 .format > h3 + p,

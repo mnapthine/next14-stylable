@@ -1,52 +1,53 @@
 import Link from "next/link";
 import { componentDocs } from "#site/content";
-import { H2, Text } from "@actionishope/shelley/Text";
+import { H2 } from "@actionishope/shelley/Text";
 import { st, classes } from "./nav.st.css";
-import { NestedNavItem } from "@/utils/nestNavItems";
+
+export interface NavItem {
+  title: string;
+  url: string;
+  menuTitle?: string | false; // Optional title for the menu
+  weight: number; // Added to specify the order of navigation items
+  category: string; // Added to specify the category of navigation items
+}
 
 interface NavProps {
   className?: string;
   content?: string;
-  pagesNav?: NestedNavItem[];
+  pagesNav?: NavItem[];
   componentNav?: boolean;
 }
 
-interface CategorisedComponents {
-  [category: string]: typeof componentDocs;
+function organiseItemsByCategory<
+  T extends { category?: string; weight: number }
+>(items: T[]): { [category: string]: T[] } {
+  const grouped = items.reduce((acc: { [key: string]: T[] }, item: T) => {
+    const category: string = item.category || "";
+    acc[category] = acc[category] || [];
+    acc[category].push(item);
+    return acc;
+  }, {});
+
+  Object.keys(grouped).forEach((category: string) => {
+    grouped[category].sort((a: T, b: T) => a.weight - b.weight);
+  });
+
+  return grouped;
 }
 
 export function Nav(props: NavProps) {
-  // Organise components by category dynamically
-  const categorisedComponents: CategorisedComponents = componentDocs.reduce(
-    (acc, comp) => {
-      if (!acc[comp.category]) {
-        acc[comp.category] = [];
-      }
-      acc[comp.category].push(comp);
-      return acc;
-    },
-    {} as CategorisedComponents // Add index signature to the type of acc
-  );
-
-  const renderListItems = (items: NestedNavItem[]) => {
-    return items.map((item) => (
-      <li key={item.url} className={classes.listItem}>
-        <Link href={`${item.url}`} className={classes.anchor}>
-          {item.title}
-        </Link>
-        {item.children && item.children.length > 0 && (
-          <ol className={classes.list}>{renderListItems(item.children)}</ol>
-        )}
-      </li>
-    ));
-  };
+  const { pagesNav, componentNav, className } = props;
+  // Organise components by category
+  const categorisedComponents = organiseItemsByCategory(componentDocs);
+  // Organise pages by category
+  const categorisedPages = pagesNav && organiseItemsByCategory(pagesNav);
 
   return (
     <>
-      {props.componentNav && (
+      {componentNav && (
         <nav
-          className={st(classes.root, props?.className)}
-          aria-label="Component Navigation"
+          className={st(classes.root, className)}
+          aria-label="Components Navigation"
         >
           {Object.entries(categorisedComponents).map(
             ([category, components]) => (
@@ -69,24 +70,24 @@ export function Nav(props: NavProps) {
         </nav>
       )}
 
-      {props.pagesNav && (
+      {pagesNav && (
         <nav
-          className={st(classes.root, props?.className)}
+          className={st(classes.root, className)}
           aria-label="Section Navigation"
         >
-          <div className={classes.section}>
-            <H2 vol={1} className={classes.title} uppercase>
-              {props.pagesNav[0].title}
-            </H2>
-            <ol className={classes.list}>
-              <li className={classes.listItem}>
-                <Link className={classes.anchor} href={props.pagesNav[0].url}>
-                  {props.pagesNav[0]?.menuTitle || props.pagesNav[0].title}
-                </Link>
-              </li>
-              {renderListItems(props.pagesNav[0].children)}
-            </ol>
-          </div>
+          {categorisedPages &&
+            Object.entries(categorisedPages).map(([category, pages]) => (
+              <div key={category} className={classes.section}>
+                <H2 vol={1} className={classes.title} uppercase>
+                  {category === "" ? pages[0].title : category}
+                </H2>
+                {pages.map((page, idx) => (
+                  <Link key={idx} className={classes.anchor} href={page.url}>
+                    {page.menuTitle || page.title}
+                  </Link>
+                ))}
+              </div>
+            ))}
         </nav>
       )}
     </>
