@@ -9,7 +9,7 @@ interface EarthProps {
   content?: string;
 }
 
-export function Earth(props: EarthProps) {
+function Earth(props: EarthProps) {
   const [color, normal, aoMap] = useLoader(TextureLoader, [
     "assets/color.jpeg",
     "assets/normal.png",
@@ -27,3 +27,5 @@ export function Earth(props: EarthProps) {
     </Canvas>
   );
 }
+
+export default Earth;
