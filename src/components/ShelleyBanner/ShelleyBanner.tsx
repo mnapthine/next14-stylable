@@ -15,7 +15,7 @@ export const ShelleyBanner = ({
         .earth
       </P>
 
-      <Logo className={classes.logoPosition} />
+      {/* <Logo className={classes.logoPosition} /> */}
 
       <P className={classes.tagline} vol={2} uppercase>
         {/* Stylable <abbr title="User Interface">UI</abbr> blocks */}A{" "}

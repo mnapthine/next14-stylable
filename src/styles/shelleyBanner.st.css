@@ -17,7 +17,7 @@
     /* margin: -35px 0 0; */
     margin-top: var(--spacing-unit);
     padding-top: 0;
-    padding-bottom: 90px;
+    padding-bottom: 0;
 
     display: grid;
     justify-items: center;
@@ -62,8 +62,8 @@
   }
 
   Banner::tld {
-    grid-row: 2;
-    grid-column-start: 2;
+    grid-row: 3;
+    grid-column-start: 1;
     align-self: end;
     font-size: 12px;
     letter-spacing: 16px;
