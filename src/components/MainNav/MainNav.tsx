@@ -21,10 +21,10 @@ export function MainNav(props: MainNavProps) {
         {options.links.map(
           (link, idx) =>
             link.type === "navigation" && (
-              <li key={idx} className={classes.li}>
+              <li key={idx} className={classes.listItem}>
                 <Link
                   href={`${link.link}`}
-                  className={st(classes.navLink, {
+                  className={st(classes.anchor, {
                     isActive: link.link === pathname,
                     isActivePath:
                       Boolean(pathname.includes(link.link)) &&

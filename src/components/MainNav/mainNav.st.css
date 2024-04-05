@@ -4,9 +4,9 @@
 
 .list {}
 
-.li {}
+.listItem {}
 
-.navLink {
+.anchor {
   -st-states: isActive, isActivePath;
 }
 

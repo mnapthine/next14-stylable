@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { componentDocs } from "#site/content";
 import { H2 } from "@actionishope/shelley/Text";
 import { st, classes } from "./nav.st.css";
@@ -36,6 +38,7 @@ function organiseItemsByCategory<
 }
 
 export function Nav(props: NavProps) {
+  const pathname = usePathname();
   const { pagesNav, componentNav, className } = props;
   // Organise components by category
   const categorisedComponents = organiseItemsByCategory(componentDocs);
@@ -55,15 +58,24 @@ export function Nav(props: NavProps) {
                 <H2 vol={1} className={classes.title} uppercase>
                   {category}
                 </H2>
-                {components.map((component, idx) => (
-                  <Link
-                    key={idx}
-                    className={classes.anchor}
-                    href={`/components/${component.slug}`}
-                  >
-                    {component.title}
-                  </Link>
-                ))}
+                {components.map((component, idx) => {
+                  const pageURL = `/components/${component.slug}`;
+                  return (
+                    <Link
+                      key={idx}
+                      // className={classes.anchor}
+                      className={st(classes.anchor, {
+                        isActive: pageURL === pathname,
+                        isActivePath:
+                          Boolean(pathname.includes(pageURL)) &&
+                          pageURL !== "/",
+                      })}
+                      href={pageURL}
+                    >
+                      {component.title}
+                    </Link>
+                  );
+                })}
               </div>
             )
           )}
@@ -82,7 +94,16 @@ export function Nav(props: NavProps) {
                   {category === "" ? pages[0].title : category}
                 </H2>
                 {pages.map((page, idx) => (
-                  <Link key={idx} className={classes.anchor} href={page.url}>
+                  <Link
+                    key={idx}
+                    className={st(classes.anchor, {
+                      isActive: page.url === pathname,
+                      isActivePath:
+                        Boolean(pathname.includes(page.url)) &&
+                        page.url !== "/",
+                    })}
+                    href={page.url}
+                  >
                     {page.menuTitle || page.title}
                   </Link>
                 ))}

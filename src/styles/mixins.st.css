@@ -3,6 +3,7 @@
   --link-color,
   --tone-info,
   --tone-lead-rgb,
+  --tone-support-rgb,
   --color-ui-rgb
 ] from "@actionishope/shelley/styles/project.st.css";
 @st-import [textVol1] from "@actionishope/shelley/styles/mixins/textVol.st.css";
@@ -72,6 +73,10 @@
   color: var(--link-color);
 }
 
+.navAnchorisActive {
+  color: rgba(var(--tone-support-rgb), 0.9);
+  background-color: rgba(var(--tone-support-rgb), 0.1);
+}
 
 
 /*= Formatting =*/

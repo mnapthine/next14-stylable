@@ -9,7 +9,8 @@
   navTitle,
   navList,
   navListItem,
-  navAnchor
+  navAnchor,
+  navAnchorisActive
 ] from "./mixins.st.css";
 
 @st-scope Shelley body {
@@ -44,5 +45,9 @@
 
   Nav::anchor {
     -st-mixin: navAnchor;
+  }
+
+  Nav::anchor:isActive {
+    -st-mixin: navAnchorisActive;
   }
 }

@@ -22,11 +22,11 @@
     list-style: none;
   }
 
-  MainNav::li {
+  MainNav::listItem {
     padding: 0
   }
 
-  MainNav::navLink {
+  MainNav::anchor {
     display: flex;
     padding: 8px 0;
     color: #aeaeae;
@@ -34,12 +34,12 @@
     transition: color 0.2s;
   }
 
-  MainNav::navLink:hover,
-  MainNav::navLink:focus {
+  MainNav::anchor:hover,
+  MainNav::anchor:focus {
     color: var(--link-color);
   }
 
-  MainNav::navLink:isActive {
+  MainNav::anchor:isActive {
     /* background-color: rgba(0, 255, 255, 0.05); */
   }
 
@@ -56,7 +56,7 @@
     color: rgba(var(--tone-support-rgb), 0.8);
   }
 
-  MainNav::navLink:isActivePath .icon {
+  MainNav::anchor:isActivePath .icon {
     color: var(--color-ui-inverse);
     background-color: rgba(var(--tone-support-rgb), 0.8);
   }
