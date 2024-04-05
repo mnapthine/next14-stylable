@@ -1,9 +1,7 @@
 "use client";
-
 import { Canvas, useLoader } from "@react-three/fiber";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import { useState, useRef } from "react";
-
 import { TextureLoader } from "three/src/loaders/TextureLoader.js";
 import { classes, st } from "./earth.st.css";
 interface EarthProps {
