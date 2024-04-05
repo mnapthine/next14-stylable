@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { componentDocs } from "#site/content";
 import { H2 } from "@actionishope/shelley/Text";
 import { st, classes } from "./nav.st.css";
@@ -37,8 +37,8 @@ function organiseItemsByCategory<
 }
 
 export function Nav(props: NavProps) {
-  // const pathname = usePathname();
-  const pathname = "components";
+  const pathname = usePathname();
+  // const pathname = "components";
   const { pagesNav, componentNav, className } = props;
   // Organise components by category
   const categorisedComponents = organiseItemsByCategory(componentDocs);

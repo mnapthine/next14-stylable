@@ -1,8 +1,8 @@
 "use client";
 
 import { Canvas, useLoader } from "@react-three/fiber";
-import { useScroll, motion, useMotionValueEvent } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useState, useRef } from "react";
 
 import { TextureLoader } from "three/src/loaders/TextureLoader.js";
 import { classes, st } from "./earth.st.css";
@@ -27,19 +27,13 @@ function Earth(props: EarthProps) {
 
   const [scrollY, setScrollY] = useState(0);
 
-  useEffect(() => {
-    console.log("scrollY", scrollY);
-  }, [scrollY]);
-
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     setScrollY(latest);
-    console.log("Page scroll: ", latest);
   });
 
   return (
     <div className={st(classes.root)}>
       <Canvas ref={scene}>
-        {/* <motion.mesh scale={2.5} rotation-y={scrollYProgress} /> */}
         <ambientLight intensity={0.9} />
         <directionalLight intensity={6.5} position={[2, 0, -0.25]} />
         <mesh scale={2.5} rotation-y={scrollY + 4.1} rotation-x={0.6}>
