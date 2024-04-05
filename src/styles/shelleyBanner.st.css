@@ -15,10 +15,10 @@
 @st-scope Shelley {
   Banner {
     /* margin: -35px 0 0; */
-    margin-top: var(--spacing-unit);
+    margin-top: calc(var(--spacing-unit) * 6);
     padding-top: 0;
     padding-bottom: 0;
-
+    margin-bottom: calc(var(--spacing-unit) * 6);
     display: grid;
     justify-items: center;
 
@@ -32,15 +32,23 @@
   @media value(breakpoint-md) {
     Banner {
       column-gap: 7vw;
-      grid-template-columns: minmax(0, 50em) 200px;
+      grid-template-columns: 1fr;
       justify-self: center;
     }
   }
 
+  Banner::btnGroup a {
+    width: 120px;
+    justify-content: center;
+  }
+
+  Banner::btnGroup {
+    /* grid-row: 2; */
+  }
 
   Banner::logoPosition {
-    grid-row: 1;
-    grid-column-start: 2;
+    /* grid-row: 1; */
+    /* grid-column-start: 2; */
     font-size: 1.25em;
     font-size: calc(var(--spacing-unit) * 1.2);
   }
@@ -54,16 +62,16 @@
   }
 
   Banner Text.tagline {
-    grid-row: 2;
-    grid-column-start: 1;
+    grid-row: 3;
+    /* grid-column-start: 1; */
     /* justify-self: start; */
     justify-self: center;
     align-self: center;
   }
 
   Banner::tld {
-    grid-row: 3;
-    grid-column-start: 1;
+    /* grid-row: 3; */
+    /* grid-column-start: 1; */
     align-self: end;
     font-size: 12px;
     letter-spacing: 16px;

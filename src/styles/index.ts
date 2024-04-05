@@ -1,3 +1,4 @@
+import "./project.st.css";
 import "./codeBlocks.st.css";
 import "./header.st.css";
 import "./mainNav.st.css";

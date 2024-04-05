@@ -2,12 +2,34 @@ import type React from "react";
 import { Logo } from "@/components/Logo";
 import { H1, P } from "@actionishope/shelley/Text";
 import { st, classes } from "./shelleyBanner.st.css";
+import { ButtonGroup, Button } from "@actionishope/shelley/Button";
+import Link from "next/link";
 
 export const ShelleyBanner = ({
   className: classNameProp,
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div className={st(classes.root, classNameProp)}>
+      <ButtonGroup className={classes.btnGroup} vol={4}>
+        <Button
+          tone="support"
+          variant="primary"
+          isCta
+          elementType={Link}
+          href={"/getting-started"}
+        >
+          Docs
+        </Button>
+        <Button
+          tone="support"
+          variant="secondary"
+          isCta
+          elementType={"a"}
+          href={"#"}
+        >
+          GitHub
+        </Button>
+      </ButtonGroup>
       <H1 className={classes.title} uppercase vol={9}>
         Shelley
       </H1>
