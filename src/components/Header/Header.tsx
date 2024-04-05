@@ -17,7 +17,7 @@ export function Header(props: HeaderProps) {
   const { setTheme, theme } = useTheme();
   return (
     <AppBar className={st(classes.root, props.className)} elementType="header">
-      <H2 uppercase vol={3}>
+      <H2 uppercase vol={2} weight={5}>
         <Link href="/" className={classes.homeLink}>
           Shelley
         </Link>
