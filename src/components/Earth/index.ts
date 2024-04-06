@@ -1,2 +1,2 @@
 export * from "./Earth";
-export * from "./EarthPlaceHolder";
+export * from "./EarthBanner";

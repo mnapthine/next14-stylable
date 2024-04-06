@@ -5,7 +5,6 @@ import { useState, useRef } from "react";
 import { TextureLoader } from "three/src/loaders/TextureLoader.js";
 import { MeshPhysicalMaterial, Mesh } from "three";
 import { classes, st } from "./earth.st.css";
-import { H2, P } from "@actionishope/shelley/Text";
 
 extend({ MeshPhysicalMaterial });
 
@@ -23,9 +22,6 @@ function Earth(props: EarthProps) {
 
   const scene = useRef(null);
   const meshRef = useRef<Mesh>(null);
-
-  // Convert 23.5 degrees to radians for the axial tilt
-  const axialTilt = 23.5 * (Math.PI / 180);
 
   const { scrollYProgress } = useScroll({
     target: scene,
@@ -46,7 +42,7 @@ function Earth(props: EarthProps) {
   });
 
   return (
-    <div ref={scene} className={st(classes.root)}>
+    <div ref={scene} className={st(classes.root, props.className)}>
       <Canvas>
         <ambientLight intensity={0.9} />
         <directionalLight intensity={6.5} position={[2, 0, -0.25]} />
@@ -70,12 +66,6 @@ function Earth(props: EarthProps) {
           />
         </mesh>
       </Canvas>
-      <div className={classes.treeware}>
-        <H2 vol={1} uppercase className={classes.header}>
-          <a href="https://treeware.earth">Treeware</a>&nbsp;-&nbsp;
-        </H2>
-        <P vol={1}>If you use for free then buy the World a tree.</P>
-      </div>
     </div>
   );
 }
