@@ -15,17 +15,23 @@
 @property st-global(--vh);
 
 @st-scope Shelley {
-  Banner {
+
+
+  Banner::grid {
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 84px;
     margin-top: calc(var(--spacing-unit) * 6);
-    padding-top: 0;
-    padding-bottom: 0;
     margin-bottom: calc(var(--spacing-unit) * 6);
   }
 
   @media value(breakpoint-sm-max) {
     Banner {
-      margin-top: calc(var(--spacing-unit) * 10);
       height: calc(var(--vh, 1vh) * 100 - 60px);
+    }
+
+    Banner::grid {
+      margin-top: calc(var(--spacing-unit) * 10);
     }
 
     Banner::btnGroup {
@@ -33,18 +39,10 @@
     }
   }
 
-
-  Banner::grid {
-    display: grid;
-    justify-items: center;
-    grid-row-gap: 84px;
-  }
-
   Banner::btnGroup a {
     min-width: 140px;
     justify-content: center;
   }
-
 
   @media value(breakpoint-md) {
     Banner::btnGroup a {
