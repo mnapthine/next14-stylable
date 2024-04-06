@@ -6,7 +6,7 @@ import { useEffect } from "react";
  * this is useful for mobile browsers that hide the address bar
  * on scroll. Usage:
  * - set @property st-global(--vh); in your stylable stylesheet.
- * - then use `var(--vh)` to get the value as usual
+ * - then use calc(var(--vh, 1vh) * 100) to set the height of an element.
  * @returns null
  */
 export function SetViewportHeight() {

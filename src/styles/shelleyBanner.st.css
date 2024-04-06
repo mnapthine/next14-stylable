@@ -4,6 +4,7 @@
   --spacing-unit,
   --tone-support,
   breakpoint-md,
+  breakpoint-sm-max,
   breakpoint-xl,
 ] from "@actionishope/shelley/styles/project.st.css";
 
@@ -11,30 +12,39 @@
 
 @st-import Text from "@actionishope/shelley/Text/text.st.css";
 
+@property st-global(--vh);
 
 @st-scope Shelley {
   Banner {
-    /* margin: -35px 0 0; */
     margin-top: calc(var(--spacing-unit) * 6);
     padding-top: 0;
     padding-bottom: 0;
     margin-bottom: calc(var(--spacing-unit) * 6);
-    display: grid;
-    justify-items: center;
+  }
 
-    /* grid-row-gap: 24px;
-    grid-template-columns: 8fr 4fr; */
+  @media value(breakpoint-sm-max) {
+    Banner {
+      margin-top: calc(var(--spacing-unit) * 10);
+      height: calc(var(--vh, 1vh) * 100 - 60px);
+    }
 
-    grid-row-gap: 84px;
+    Banner::btnGroup {
+      margin-top: 10vh;
+    }
   }
 
 
-
+  Banner::grid {
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 84px;
+  }
 
   Banner::btnGroup a {
     min-width: 140px;
     justify-content: center;
   }
+
 
   @media value(breakpoint-md) {
     Banner::btnGroup a {
@@ -44,13 +54,6 @@
 
   Banner::btnGroup {
     /* grid-row: 2; */
-  }
-
-  Banner::logoPosition {
-    /* grid-row: 1; */
-    /* grid-column-start: 2; */
-    font-size: 1.25em;
-    font-size: calc(var(--spacing-unit) * 1.2);
   }
 
   Banner Text.title.uppercase {
