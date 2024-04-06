@@ -22,6 +22,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={root} suppressHydrationWarning>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            try {
+              const vh = window.innerHeight * 0.01;
+              document.documentElement.style.setProperty('--vh', \`\${vh}px\`);
+              window.addEventListener("resize", () => {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty("--vh", \`\${vh}px\`);
+              });
+            } catch (_) {}
+          `,
+        }}
+      ></script>
       <body>
         <ThemeProvider
           attribute="data-theme"

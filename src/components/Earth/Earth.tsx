@@ -72,7 +72,7 @@ function Earth(props: EarthProps) {
       </Canvas>
       <div className={classes.treeware}>
         <H2 vol={1} uppercase className={classes.header}>
-          <a href="#">Treeware</a>&nbsp;-&nbsp;
+          <a href="https://treeware.earth">Treeware</a>&nbsp;-&nbsp;
         </H2>
         <P vol={1}>If you use for free then buy the World a tree.</P>
       </div>
