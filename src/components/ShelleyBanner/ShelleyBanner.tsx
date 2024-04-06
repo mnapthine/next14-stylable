@@ -33,7 +33,7 @@ export const ShelleyBanner = ({
             elementType={Link}
             href={"/getting-started"}
           >
-            Getting Started
+            Get Started
           </Button>
           <Button
             tone="lead"
