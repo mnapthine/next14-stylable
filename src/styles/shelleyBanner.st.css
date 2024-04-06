@@ -26,20 +26,20 @@
     grid-template-columns: 8fr 4fr; */
 
     grid-row-gap: 84px;
-    grid-template-columns: 7fr 5fr;
+  }
+
+
+
+
+  Banner::btnGroup a {
+    min-width: 140px;
+    justify-content: center;
   }
 
   @media value(breakpoint-md) {
-    Banner {
-      column-gap: 7vw;
-      grid-template-columns: 1fr;
-      justify-self: center;
+    Banner::btnGroup a {
+      min-width: 160px;
     }
-  }
-
-  Banner::btnGroup a {
-    width: 120px;
-    justify-content: center;
   }
 
   Banner::btnGroup {
@@ -65,13 +65,17 @@
     grid-row: 3;
     /* grid-column-start: 1; */
     /* justify-self: start; */
+    line-height: 2;
+    text-align: center;
     justify-self: center;
     align-self: center;
+    padding: 0 calc(var(--spacing-unit) * 2)
   }
 
   Banner::tld {
     /* grid-row: 3; */
     /* grid-column-start: 1; */
+    margin-top: -30px;
     align-self: end;
     font-size: 12px;
     letter-spacing: 16px;

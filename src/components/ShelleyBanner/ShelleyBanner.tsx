@@ -10,7 +10,22 @@ export const ShelleyBanner = ({
 }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div className={st(classes.root, classNameProp)}>
-      <ButtonGroup className={classes.btnGroup} vol={4}>
+      <H1 className={classes.title} uppercase vol={9}>
+        Shelley
+      </H1>
+      <P className={classes.tld} vol={2} weight={5}>
+        .earth
+      </P>
+
+      {/* <Logo className={classes.logoPosition} /> */}
+
+      <P className={classes.tagline} vol={2} uppercase weight={5}>
+        {/* Stylable <abbr title="User Interface">UI</abbr> blocks */}A{" "}
+        {/* <a href="http://jhdjdii.com">Stylable</a> User Interface */}
+        Stylable User Interface
+      </P>
+
+      <ButtonGroup className={classes.btnGroup} vol={1}>
         <Button
           tone="support"
           variant="primary"
@@ -18,10 +33,10 @@ export const ShelleyBanner = ({
           elementType={Link}
           href={"/getting-started"}
         >
-          Docs
+          Getting Started
         </Button>
         <Button
-          tone="support"
+          tone="lead"
           variant="secondary"
           isCta
           elementType={"a"}
@@ -30,20 +45,6 @@ export const ShelleyBanner = ({
           GitHub
         </Button>
       </ButtonGroup>
-      <H1 className={classes.title} uppercase vol={9}>
-        Shelley
-      </H1>
-      <P className={classes.tld} vol={2}>
-        .earth
-      </P>
-
-      {/* <Logo className={classes.logoPosition} /> */}
-
-      <P className={classes.tagline} vol={2} uppercase>
-        {/* Stylable <abbr title="User Interface">UI</abbr> blocks */}A{" "}
-        {/* <a href="http://jhdjdii.com">Stylable</a> User Interface */}
-        Stylable User Interface
-      </P>
     </div>
   );
 };
