@@ -8,14 +8,15 @@
   background-color: var(--bg-dark);
   margin-bottom: 60vh;
   position: relative;
-}
 
-.inner {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column-reverse;
   height: calc(var(--vh, 1vh) * 100 - 60px);
 }
+
+.inner {}
 
 .earth {
   height: 50vh;
@@ -24,6 +25,10 @@
 }
 
 @media value(breakpoint-sm) {
+  .root {
+    height: auto;
+  }
+
   .earth {
     height: 50vh;
     padding: 0 0 40px;
@@ -43,9 +48,10 @@
 }
 
 .treeware {
-  position: absolute;
+  position: sticky;
+  width: 100%;
   z-index: 30;
-  top: 0;
+  top: 130px;
   left: 0;
   right: 0;
   height: 40px;
@@ -62,6 +68,7 @@
 
 @media value(breakpoint-sm) {
   .treeware {
+    position: absolute;
     top: auto;
     bottom: 0;
   }

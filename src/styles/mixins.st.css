@@ -78,6 +78,19 @@
   background-color: rgba(var(--tone-support-rgb), 0.1);
 }
 
+/*= Snap scrolling =*/
+
+/* .snapScrollY {
+  scroll-snap-type: y;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.snapSection {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+} */
+
 
 /*= Formatting =*/
 .format {}

@@ -23,15 +23,15 @@ interface EarthBannerProps {
 
 export function EarthBanner(props: EarthBannerProps) {
   return (
-    <div className={st(classes.root)}>
-      <div className={classes.inner}>
-        <Earth className={classes.earth} />
-        <div className={classes.treeware}>
-          <H2 vol={1} uppercase className={classes.header}>
-            <a href="https://treeware.earth">Treeware</a>&nbsp;-&nbsp;
-          </H2>
-          <P vol={1}>If you use for free then buy the World a tree.</P>
-        </div>
+    <div className={st(classes.root, props.className)}>
+      {/* <div className={classes.inner}> */}
+      <Earth className={classes.earth} />
+      <div className={classes.treeware}>
+        <H2 vol={1} uppercase className={classes.header}>
+          <a href="https://treeware.earth">Treeware</a>&nbsp;-&nbsp;
+        </H2>
+        <P vol={1}>If you use for free then buy the World a tree.</P>
+        {/* </div> */}
       </div>
     </div>
   );

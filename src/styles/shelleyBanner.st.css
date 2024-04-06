@@ -31,7 +31,7 @@
     }
 
     Banner::grid {
-      margin-top: calc(var(--spacing-unit) * 10);
+      margin-top: calc(var(--spacing-unit) * 8);
     }
 
     Banner::btnGroup {
