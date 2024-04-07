@@ -1,3 +1,20 @@
+@st-import Shelley, [
+  --color-ui,
+  --bg-main,
+  --spacing-unit,
+  --link-color,
+  --tone-support-rgb,
+  --bg-main
+] from "@actionishope/shelley/styles/project.st.css";
+
+@st-import Checkbox from "@actionishope/shelley/Checkbox/checkbox.st.css";
+
 :root {
   --bg-dark: #0e0f16
+}
+
+@st-scope body {
+  Checkbox::text {
+    /* color: green; */
+  }
 }

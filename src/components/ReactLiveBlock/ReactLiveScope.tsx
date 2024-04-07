@@ -5,6 +5,7 @@ import { classes as spacing } from "@actionishope/shelley/styles/spacing.st.css"
 
 import { Radio, RadioGroup } from "@actionishope/shelley/Radio";
 import { Checkbox, CheckboxGroup } from "@actionishope/shelley/Checkbox";
+import { TextField } from "@actionishope/shelley/TextField";
 import { Button, ButtonGroup } from "@actionishope/shelley/Button";
 import { Switch } from "@actionishope/shelley/Switch";
 import { Icon } from "@actionishope/shelley/Icon";
@@ -28,6 +29,7 @@ const ReactLiveScope = {
   Icon,
   DialogTrigger,
   Dialog,
+  TextField,
   dialog,
   P,
   H2,

@@ -12,21 +12,25 @@ That doesn't mean we don't have a base theme for you to start with, it just mean
 
 If you are a fan of CSS and like/need to control the CSS used in your project then Shelley might be for you. if this idea repulses you then maybe go for something like Material UI which actually does have an unstyled option these days. Adobe Spectrum looks good too.
 
-## Configure
+## Appraoches to styling
 
-As indicated in the Stylable docs there two main ways of starting with Stylable, boilerplates and manual config.
+- Traditional
 
-**Boilerplates:**
+For projects that require significant changes via theming a traditional approach to styling is recommended. Utility classes are great but can be limiting when you need to make significant changes to the design of your app via theme defaultOverrides.
 
-- [Create Stylable App](/getting-started/create-stylable-app) - webpack and rollup templates provided by Wix.
+- Modern
 
-**Manual:**
+Utility first has its appeal. It's quick and easy to get started with and can be a great way to get a project off the ground and one can certianly see the benefits of not having to dive into the CSS but relying solely on this could be limiting, depends on the project.
 
-- [NextJS](/getting-started/next-js)
-- [Webpack](https://stylable.io/docs/getting-started/webpack-integration)
+If you are building an application for instance and you want to be able to offer full CSS customisation then a traditional approach might serve you well.
 
-## Themes
+Like most things in this world however it would seem that a hybrid approach is the best way to go, politically 'on the fence' or perhaps its just FOMO.
 
-Shelley can be used numerious ways depending on your needs and desires.
+Start with utility classes and then move to a more traditional approach as the project grows??
+Whatever works for you.
 
-Check out the styling section on how to set up the styles and themes.
+I guess we tend to do things in a more traditional way and rethemablity around one core HTML is often required for use. In these cases we would use the props less and instead use classes to style the components allowing us to swap the CSS out for a different theme.
+
+## Tailwind
+
+You can use Tailwind with Shelley,

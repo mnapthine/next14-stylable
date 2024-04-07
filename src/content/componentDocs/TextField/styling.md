@@ -1,5 +1,5 @@
 ---
-component: button
+component: text-field
 ---
 
 ## Anatomy

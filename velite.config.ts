@@ -143,8 +143,25 @@ const componentDocs = defineCollection({
       metadata: s.metadata(),
       excerpt: s.excerpt(),
       content: s.markdown(),
+      styling: s
+        .object({
+          component: s.slug(),
+          content: s.markdown(),
+          toc: s.toc(),
+        })
+        .optional(),
     })
     .transform((data) => ({ ...data, permalink: `/components/${data.slug}` })),
+});
+
+const componentDocsStyling = defineCollection({
+  name: "ComponentDoc",
+  pattern: "componentDocs/**/styling.md",
+  schema: s.object({
+    component: s.slug(),
+    content: s.markdown(),
+    toc: s.toc(),
+  }),
 });
 
 export default defineConfig({
@@ -156,47 +173,70 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { options, categories, tags, pages, posts, componentDocs },
+  collections: {
+    options,
+    categories,
+    tags,
+    pages,
+    posts,
+    componentDocs,
+    componentDocsStyling,
+  },
   // markdown: { rehypePlugins: [rehypePrettyCode] },
-  prepare: ({ categories, tags, posts }) => {
-    const docs = posts.filter(
-      (i) => process.env.NODE_ENV !== "production" || !i.draft
-    );
-
-    // missing categories, tags from posts or courses inlined
-    const categoriesFromDoc = Array.from(
-      new Set(docs.map((item) => item.categories).flat())
-    ).filter((i) => categories.find((j) => j.name === i) == null);
-    categories.push(
-      ...categoriesFromDoc.map((name) => ({
-        name,
-        slug: slugify(name),
-        permalink: "",
-        count: { total: 0, posts: 0 },
-      }))
-    );
-    categories.forEach((i) => {
-      i.count.posts = posts.filter((j) => j.categories.includes(i.name)).length;
-      i.count.total = i.count.posts;
-      i.permalink = `/${i.slug}`;
+  prepare: ({
+    categories,
+    tags,
+    posts,
+    componentDocs,
+    componentDocsStyling,
+  }) => {
+    componentDocs.forEach((comp) => {
+      return (comp.styling = componentDocsStyling.find(
+        (item) => item.component === comp.slug
+      ));
+      // i.count.posts = posts.filter((j) => j.categories.includes(i.name)).length;
+      // i.count.total = i.count.posts;
+      // i.permalink = `/${i.slug}`;
     });
 
-    const tagsFromDoc = Array.from(
-      new Set(docs.map((item) => item.tags).flat())
-    ).filter((i) => tags.find((j) => j.name === i) == null);
-    tags.push(
-      ...tagsFromDoc.map((name) => ({
-        name,
-        slug: slugify(name),
-        permalink: "",
-        count: { total: 0, posts: 0 },
-      }))
-    );
-    tags.forEach((i) => {
-      i.count.posts = posts.filter((j) => j.tags.includes(i.name)).length;
-      i.count.total = i.count.posts;
-      i.permalink = `/${i.slug}`;
-    });
+    // const docs = posts.filter(
+    //   (i) => process.env.NODE_ENV !== "production" || !i.draft
+    // );
+
+    // // missing categories, tags from posts or courses inlined
+    // const categoriesFromDoc = Array.from(
+    //   new Set(docs.map((item) => item.categories).flat())
+    // ).filter((i) => categories.find((j) => j.name === i) == null);
+    // categories.push(
+    //   ...categoriesFromDoc.map((name) => ({
+    //     name,
+    //     slug: slugify(name),
+    //     permalink: "",
+    //     count: { total: 0, posts: 0 },
+    //   }))
+    // );
+    // categories.forEach((i) => {
+    //   i.count.posts = posts.filter((j) => j.categories.includes(i.name)).length;
+    //   i.count.total = i.count.posts;
+    //   i.permalink = `/${i.slug}`;
+    // });
+
+    // const tagsFromDoc = Array.from(
+    //   new Set(docs.map((item) => item.tags).flat())
+    // ).filter((i) => tags.find((j) => j.name === i) == null);
+    // tags.push(
+    //   ...tagsFromDoc.map((name) => ({
+    //     name,
+    //     slug: slugify(name),
+    //     permalink: "",
+    //     count: { total: 0, posts: 0 },
+    //   }))
+    // );
+    // tags.forEach((i) => {
+    //   i.count.posts = posts.filter((j) => j.tags.includes(i.name)).length;
+    //   i.count.total = i.count.posts;
+    //   i.permalink = `/${i.slug}`;
+    // });
 
     // return false // return false to prevent velite from writing data to disk
   },

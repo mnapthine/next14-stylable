@@ -142,6 +142,10 @@
   margin-top: calc(var(--spacing-unit) * 4);
 }
 
+.format > h3 {
+  margin-top: calc(var(--spacing-unit) * 4);
+}
+
 .format > p + Text.vol4 {
   margin-top: calc(var(--spacing-unit) * 8);
 }
@@ -149,11 +153,6 @@
 .format > ul + h3,
 .format > ol + h3 {
   margin-top: calc(var(--spacing-unit) * 3.5);
-}
-
-.format > p + h3,
-.format > h2 + h3 {
-  margin-top: calc(var(--spacing-unit) * 4);
 }
 
 .format > p + h6 {

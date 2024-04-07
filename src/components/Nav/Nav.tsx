@@ -91,9 +91,11 @@ export function Nav(props: NavProps) {
           {categorisedPages &&
             Object.entries(categorisedPages).map(([category, pages]) => (
               <div key={category} className={classes.section}>
-                <H2 vol={1} className={classes.title} uppercase>
-                  {category === "" ? pages[0].title : category}
-                </H2>
+                {category !== "" && (
+                  <H2 vol={1} className={classes.title} uppercase>
+                    {category}
+                  </H2>
+                )}
                 {pages.map((page, idx) => (
                   <Link
                     key={idx}
