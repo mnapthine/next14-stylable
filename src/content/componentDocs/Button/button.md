@@ -5,13 +5,12 @@ thumbnail: /assets/getting-started.jpeg
 title: Button
 description: Button is a foundational component that allows users to execute actions such as submitting forms, starting processes, or changing settings, translating user intentions into actions within an application. 🚀🎉
 category: Buttons
-import: import { Button } from "@actionishope/shelley";
 ---
 
 ## Import
 
 ```
-import { Button, ButtonGroup } from "@actionishope/shelley/Button"
+import { Button, ButtonGroup } from "@actionishope/shelley/Button";
 ```
 
 - **Button**: The button supporting various visual states and icons.
@@ -19,7 +18,7 @@ import { Button, ButtonGroup } from "@actionishope/shelley/Button"
 
 ## Adobe hooks
 
-The button component is built using the Adobe [useButton hook](https://react-spectrum.adobe.com/react-aria/useButton.html) which amoungst other things provides a [unified press event](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html).
+The Button component is built using the Adobe [useButton hook](https://react-spectrum.adobe.com/react-aria/useButton.html) which amoungst other things provides a [unified press event](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html).
 
 ## Usage
 

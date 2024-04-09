@@ -10,7 +10,7 @@ category: Inputs
 ## Import
 
 ```
-import { Checkbox, CheckboxGroup } from "@actionishope/shelley/Checkbox"
+import { Checkbox, CheckboxGroup } from "@actionishope/shelley/Checkbox";
 ```
 
 - **Checkbox**: The checkbox supporting label positioning and checkmark size.

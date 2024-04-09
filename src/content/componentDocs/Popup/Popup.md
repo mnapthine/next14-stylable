@@ -1,198 +1,125 @@
 ---
-slug: text-field
-title: TextField
-description: Allows our wonderful users to tell us something interesting by inputting some text into a little box.
-category: Inputs
-import: import { TextField } from "@actionishope/shelley";
+date: "2021-11-25"
+slug: popup
+thumbnail: /assets/getting-started.jpeg
+title: Popup
+description: A Popup can be used to display some content on top of another; used internally in components like MenuTrigger and DialogTrigger.
+category: Overlays
 ---
 
 ## Import
 
 ```
-import { TextField } from "@actionishope/shelley/TextField"
+import { Popup } from "@actionishope/shelley/Popup";
+import { Portal } from "@actionishope/shelley/Portal";
 ```
+
+- **Popup**: The popup supporting various visual states and icons.
+- **Portal**: Used to inject content into a specificed node.
 
 ## Adobe hooks
 
-The TextField component is built using the Adobe [useTextField hook](https://react-spectrum.adobe.com/react-aria/useTextField.html).
+The Popup component is built using the Adobe [`useOverlay`](https://react-spectrum.adobe.com/react-aria/useOverlay.html) and [`useOverlayPosition`](https://react-spectrum.adobe.com/react-aria/useOverlayPosition.html) hooks.
+
+
+
+- Doesn't provide `is-labelledby` or type/role of modal, this would be provided by useMenu, useDialog etc.
+- When rendering into a portal ensure the portal is wrapped by the main theme classes else it will appear unstyled.
+- When using `shouldCloseOnBlur` don't expect `isDismissable={false}` to work.
+
 
 ## Usage
 
 ```jsx{live:true}
-<TextField label="Name" />
+<Button>Button</Button>
 ```
 
-### Value
+### Button variants
 
-A TextField's `value` is empty by default, but an initial, uncontrolled, value can be provided using the `defaultValue` prop. Alternatively, a controlled value can be provided using the `value` prop.
+Use the `variant` prop to change the visual style of the Button. By default you can set the value `primary`, `secondary` or `quiet` but you can extend this list to suit your needs.
 
 ```jsx{live:true}
-
-() => {
-  const [value, setValue] = React.useState("me@email.com");
-
-  return (
-    <div style={{
-      display: "grid",
-      gap: "30px"
-    }}>
-      <TextField
-        label="Email (Uncontrolled)"
-        defaultValue="me@email.com"
-      />
-
-      <TextField
-        label="Email (Controlled)"
-        value={value}
-        onChange={setValue}
-      />
-    </div>
-  );
-};
+<ButtonGroup>
+  <Button variant="primary">Button</Button>
+  <Button variant="secondary">Button</Button>
+  <Button variant="quiet">Button</Button>
+</ButtonGroup>
 ```
 
-### Events
+#### Call to Action (CTA)
 
-TextField accepts an `onChange` prop which is triggered whenever the value is edited by the user.
-
-TextField is intrincically either an input or a textarea so all usual events are supported if not documented in the props tables.
-
-The example below uses `onChange` to update a separate pre element with the same text entered into the TextField.
+In addition Button supports an `isCta` state allowing you to have a more 'press me!' version of a button when you need.
 
 ```jsx{live:true}
-() => {
-  const [text, setText] = React.useState("");
-
-  return (
-    <>
-      <TextField label="Your text" onChange={setText}  />
-      <P vol={1} className={spacing.mt2}>Mirrored text: {text}</P>
-    </>
-  );
-};
+<ButtonGroup>
+  <Button variant="primary" isCta>Button</Button>
+  <Button variant="secondary" isCta>Button</Button>
+  <Button variant="quiet" isCta>Button</Button>
+</ButtonGroup>
 ```
 
-### Type and rows
+### Button volume/size
 
-Standard text based input types supported (password, number etc) with the option to choose `textarea` and `rows` to define the number of rows to start with.
+Use the `vol` prop to control the volume with a numeric value `1-6`.
+
 
 ```jsx{live:true}
 <div style={{
-  display: "grid",
-  gap: "30px"
+  display: "flex", 
+  alignItems: "start",
+  flexDirection: "column",
+  gap: 12
 }}>
-  <TextField type="password" label="Password" />
-  <TextField type="textarea" label="Textarea" />
-  <TextField type="textarea" label="Textarea" rows={1} />
-  <TextField type="textarea" label="Textarea" rows={4} />
+  <Button vol={1}>Button</Button>
+  <Button vol={2}>Button</Button>
+  <Button vol={3}>Button</Button>
+  <Button vol={4}>Button</Button>
+  <Button vol={5}>Button</Button>
+  <Button vol={6}>Button</Button>
 </div>
 ```
 
-### Input Adornments
+### Button tone
 
-The main way is with an `InputAdornment`. This can be used to add a prefix, a suffix, or an action to an input. For instance, you can use an icon button to hide or reveal the password.
+Use the `tone` prop to 'set the tone' of the button. By default you can set the value to be `lead`, `support`, `info`, `success`, `warning`, `alert`, `light`, `dark` or `contrast` but you can add more depending on your needs.
 
-```jsx{live:true}
-<TextField label="Amount" startAdornment="$" />
-```
-
-### Disabled
-
-A text field in a `isDisabled` state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
-
-```jsx{live:true}
-<TextField label="Label" defaultValue="Disabled" isDisabled />
-```
-
-### Readonly
-
-The `isReadOnly` boolean prop makes the TextField's text content immutable. Unlike `disabled`, the TextField remains focusable and the contents can still be copied. See the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
-
-```jsx{live:true}
-<TextField label="Label" defaultValue="Read only" isReadOnly />
-```
-
-### Variants
-
-TextField is a complete form control including a label, input, and help text. It comes with three variants:
-
-- `outlined` (default)
-- `filled`
-- `quiet`
 
 ```jsx{live:true}
 <div style={{
-  display: "grid",
-  gap: "30px"
+  display: "flex", 
+  alignItems: "start",
+  flexWrap: "wrap",
+  gap: 12
 }}>
-  <TextField variant="outlined" label="Outlined" />
-  <TextField variant="filled" label="Filled" />
-  <TextField variant="quiet" label="Quiet" placeholder="Shhhhhh" rows={1} />
+  <Button variant="primary" tone="lead">Lead</Button>
+  <Button variant="primary" tone="support">Support</Button>
+  <Button variant="primary" tone="info">Info</Button>
+  <Button variant="primary" tone="success">Success</Button>
+  <Button variant="primary" tone="warning">Warning</Button>
+  <Button variant="primary" tone="alert">Alert</Button>
+  <Button variant="primary" tone="light">Light</Button>
+  <Button variant="primary" tone="dark">Dark</Button>
+  <Button variant="primary" tone="contrast">Contrast</Button>
 </div>
 ```
 
-If you want a clean base to create a new variant from (styled via className) then set variant to `false`.
+### Button with Icon
 
-### Label position
-
-Set the position of the label to either `side`, `top` (default), `over`.
+Use the `icon` prop to add an Icon to the button and control its position with the `iconPos` prop.
 
 ```jsx{live:true}
-<div style={{
-  display: "grid",
-  gap: "30px"
-}}>
-  <TextField label="Side" labelPosition="side"/>
-  <TextField label="Top" labelPosition="top"/>
-  <TextField label="Over" labelPosition="over"/>
-</div>
+<ButtonGroup>
+  <Button variant="primary" iconPos="start" icon={<PreviewIcon />}>
+    Preview
+  </Button>
+  <Button variant="secondary" icon={<AngleRightIcon />}>
+    This way
+  </Button>
+  <Button variant="quiet" icon={
+    <Icon>
+      <path d="M14 7h-5v-5h-2v5h-5v2h5v5h2v-5h5v-2z"></path>
+    </Icon>}>
+    Add Media
+  </Button>
+</ButtonGroup>
 ```
-
-### Volume
-
-Change the size of an TextField via the `vol` prop.
-
-```jsx{live:true}
-<div style={{
-  display: "grid",
-  gap: "30px"
-}}>
-  <TextField
-    label="Name"
-    vol={1}
-    placeholder="volume 1"
-  />
-  <TextField
-    label="Name"
-    vol={6}
-    placeholder="volume 6"
-  />
-</div>
-```
-
-## HelpText
-
-Both a description and an error message can be supplied to a TextField. The description is always visible unless an error message is provided and `isInvalid` is set. The error message can be used to help the user fix their input quickly and should be specific to the detected error. 
-
-All strings should be localised.
-
-```jsx{live:true}
-() => {
-  const [value, setValue] = React.useState("0");
-  const isValid = React.useMemo(() => /^\d$/.test(value), [value]);
-  return (
-    <TextField
-      isInvalid={!isValid}
-      value={value}
-      onChange={setValue}
-      label="Favorite number"
-      maxLength={1}
-      description="Enter a single digit number."
-      errorMessage={
-        value === ""
-          ? "Empty input not allowed."
-          : "Single digit numbers are 0-9."
-      }
-    />
-  );
-};

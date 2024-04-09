@@ -1,5 +1,6 @@
 ---
-component: text-field
+component: popup
+category: styling
 ---
 
 ## Anatomy

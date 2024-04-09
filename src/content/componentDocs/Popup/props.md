@@ -1,5 +1,5 @@
 ---
-component: button
+component: popup
 category: props
 ---
 
