@@ -13,6 +13,10 @@
   --bg-dark: #0e0f16
 }
 
+.classMe {
+  -st-extends: Checkbox;
+}
+
 @st-scope body {
   Checkbox::text {
     /* color: green; */

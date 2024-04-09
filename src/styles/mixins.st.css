@@ -19,6 +19,19 @@
 }
 
 
+/*= Page Title =*/
+.pageTitle {
+  margin-top: var(--spacing-unit);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+/* Top level landing pages have an internal span for an inner sub title.*/
+.pageTitle > span {
+  margin-top: calc(var(--spacing-unit) / 2);
+  display: block;
+  font-size: 0.8em;
+}
+
 
 
 /*= Nav =*/
@@ -157,6 +170,11 @@
 
 .format > p + h6 {
   margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.format a:has(svg) {
+  display: inline-flex;
+  align-items: center;
 }
 
 .format a > svg {

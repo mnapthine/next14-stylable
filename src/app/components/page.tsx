@@ -1,13 +1,10 @@
 import { PageContent } from "@/components/PageContent";
 import { H1, P, Text } from "@actionishope/shelley/Text";
-import {
-  st,
-  classes as spacing,
-} from "@actionishope/shelley/styles/spacing.st.css";
+import { classes as mixins } from "../../styles/mixins.st.css";
 export default function Page() {
   return (
     <PageContent>
-      <H1 className={st(spacing.mt1, spacing.mb2)} vol={8} weight={5}>
+      <H1 className={mixins.pageTitle} vol={8} weight={5}>
         Componets
       </H1>
       <P>
