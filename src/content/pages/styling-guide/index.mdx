@@ -1,0 +1,135 @@
+---
+title: Styling Guide
+menuTitle: Overview
+urlPath: /
+slug: styling-guide
+weight: -5
+---
+
+Shelley is an unstyled first UI library, meaning that it ships with a very minimal set of styles giving you complete control of your styling strategy.
+
+That doesn't mean we don't have a base theme for you to start with, it just means that you have complete control over your styles and how they are put together.
+
+If you are a fan of CSS and and like/need to control the CSS used in your project then Shelley might be for you. if this idea repulses you then maybe go for something else, there is a lot of choice out there.
+
+## Visual props
+
+Do we want to sacrifice the ability to give CSS exclusive control over presentation?
+
+Components like buttons come with your more presentational type classes and they are applied via the props.
+
+```jsx
+<Button tone="primary" size="large" vol={3} />
+```
+
+However, the more you rely on visual props to apply style the less control you have in the CSS. For instance if we have a button in a `Hero` and we set the `tone` of the button via the prop then it will mean we are changing markup to change the style of the button not the CSS.
+
+If you work in situations where you have to re-theme without changing the markup then you might consider setting the tone to `false` and use a class or contextual selector to style the button inside your hero stylesheet. This will allow you to change the tone of the button without changing the markup from theme to theme, you could define all your button styles as classes and apply/mix them as you need them inside your hero and other component stylesheets.
+
+Else you will end up doing things, things you will dislike such as like contradicting the value of the prop in an override.
+
+```css
+@st scope ThemeName {
+  /** theme override */
+  Hero::button:tone(brand) {
+    color: var(--tone-other);
+  }
+}
+```
+
+Instead consider setting up mixins for your button styles and applying them as needed in your theme files forgoing the convenience of the props. This will keep your markup cleaner and allow you full re-themeability.
+
+```css
+@st scope ThemeName {
+  /** theme override */
+  Hero::button {
+    color: var(--tone-other);
+  }
+}
+```
+
+If you don't use the props or you re-purpose some but not all then be sure to remove any redundant CSS from your theme and optionally re-export the components interfaces to remove unrequired props.
+
+### Atomic CSS
+
+Full monty 'atomic' CSS will go a step further than our visual props and would advocate for using presentational classes for everything.
+
+Hmmmm, atomic CSS is a bit of a mixed bag. I guess it can be great for getting started and can be a good way to get a project off the ground but it can be limiting when you need to make significant changes to the design of your app via theme. But also I feel like you need to know CSS quite well if you are to use it well and in that case... why not just use CSS?
+
+It couples the HTML directly to the CSS and this might be fine for you but in many ways it feels so very wrong. I mean it did used to be coupled together right, we decoupled it, now we are coupling it again? Shelley is British so I guess we do go for a bit of flip-flopping from time to time.
+
+I get it, page speed insights continuously tells us to inline our CSS or that we could save 12k if we removed some amount of of CSS. We are hounded by such things but then again, it's only 12k and because it is CSS then in fairness it is cached and if that's the lot then nothing else is coming down the wire, all styles have been delivered captain, via a stylesheet!
+
+Imagine if we spent as much time and effort removing analytics and tracking scripts as we do optimising our 12kb of CSS. Just saying.
+
+Some alignment classes are really useful where component meet components, usually some `mt2` or `mb3` used on the `pages` and `layouts` if you use NextJS but if you start littering them all over the place within a component then maybe just use a targetted CSS selector instead.
+
+Other projects will cater better for the 'full monty' atomic CSS approach but I would imagine there might be some that would like a hybrid model and nothing is stopping you from creating a subset of atomic classes that fit your project. They can be very useful prototyping and experimenting with ideas and documentation examples!
+
+Shelley, for the most part longs a time when there was art in CSS rather than tanglement in markup.
+
+### Making re-themable components
+
+If you are building a component library then adding classes to the all component children will enable other developers to target the all of the parts in their styles. This forms what you can think of as your components 'style api'.
+
+A Hero component with a button with class of `button` can be targetted like so:
+
+```css
+/* some theme file */
+Hero::button {
+}
+```
+
+Where children are other components, either of Shelley or your library be sure to extend that class via `-st-extends`:
+
+```css
+/* yourHero.st.css - style api */
+@st-import Button from "@actionishope/shelley/Button/button.st.css";
+.button {
+  -st-extends: Button;
+}
+```
+
+By extending our `button` class we now enable the ability to target the inner parts of the button component.
+
+```css
+/* some theme file */
+Hero::button::inner {
+}
+```
+
+If you are last in the chain and nobody else will be using the component then just add the classes that you need to style it how you want. No dramas.
+
+### Smaller projects
+
+If you are wanting to try something new, to learn CSS or making something like a personal blog then you can just keep things basic.
+
+- @todo Basic Boilerplate/Theme really bare bones basic example scaffold.
+
+### Layout
+
+We don't really deal with layout so much in Shelley, it's so easy now with CSS grid for your project to define the layouts grids. If you keep repeating the same pattern then move it to a mixin or have a custom grid component with variants for your typical layouts. Whatever works for you.
+
+We've toyed with the idea of a Grid/Flex components but it just seems so pointless when you can just go to the [utopia grid calculator](https://utopia.fyi/grid/calculator) and define your own. Working in CSS with grids just feels so much more natural then editing CSS via HTML classes and allows for the most flexibility.
+
+```css
+:root {
+  --grid-max-width: 77.5rem;
+  --grid-gutter: var(
+    --space-s-l,
+    clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem)
+  );
+  --grid-columns: 12;
+}
+
+.u-container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+.u-grid {
+  display: grid;
+  gap: var(--grid-gutter);
+}
+```

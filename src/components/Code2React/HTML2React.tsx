@@ -2,7 +2,7 @@ import type React from "react";
 import { forwardRef, type ReactNode } from "react";
 import HTML2ReactParser from "react-html-string-parser/HTML2React";
 import { st, classes } from "./code2React.st.css";
-import { components } from "./helpers";
+import { components } from "./componentMap";
 
 export interface HTML2ReactProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;

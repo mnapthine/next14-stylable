@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { componentDocs } from "#site/content";
 import { H2 } from "@actionishope/shelley/Text";
 import { st, classes } from "./nav.st.css";
@@ -38,8 +38,8 @@ function organiseItemsByCategory<
 }
 
 export function Nav(props: NavProps) {
-  // const pathname = usePathname();
-  const pathname = "components";
+  const pathname = usePathname();
+  // const pathname = "components";
   const { pagesNav, componentNav, className } = props;
   // Organise components by category
   const categorisedComponents = organiseItemsByCategory(componentDocs);
@@ -91,9 +91,11 @@ export function Nav(props: NavProps) {
           {categorisedPages &&
             Object.entries(categorisedPages).map(([category, pages]) => (
               <div key={category} className={classes.section}>
-                <H2 vol={1} className={classes.title} uppercase>
-                  {category === "" ? pages[0].title : category}
-                </H2>
+                {category !== "" && (
+                  <H2 vol={1} className={classes.title} uppercase>
+                    {category}
+                  </H2>
+                )}
                 {pages.map((page, idx) => (
                   <Link
                     key={idx}

@@ -4,6 +4,7 @@
   --spacing-unit,
   --tone-support,
   breakpoint-md,
+  breakpoint-sm-max,
   breakpoint-xl,
 ] from "@actionishope/shelley/styles/project.st.css";
 
@@ -11,38 +12,46 @@
 
 @st-import Text from "@actionishope/shelley/Text/text.st.css";
 
+@property st-global(--vh);
 
 @st-scope Shelley {
-  Banner {
-    /* margin: -35px 0 0; */
-    margin-top: var(--spacing-unit);
-    padding-top: 0;
-    padding-bottom: 90px;
 
+
+  Banner::grid {
     display: grid;
     justify-items: center;
-
-    /* grid-row-gap: 24px;
-    grid-template-columns: 8fr 4fr; */
-
     grid-row-gap: 84px;
-    grid-template-columns: 7fr 5fr;
+    margin-top: calc(var(--spacing-unit) * 6);
+    margin-bottom: calc(var(--spacing-unit) * 6);
   }
 
-  @media value(breakpoint-md) {
+  @media value(breakpoint-sm-max) {
     Banner {
-      column-gap: 7vw;
-      grid-template-columns: minmax(0, 50em) 200px;
-      justify-self: center;
+      height: calc(var(--vh, 1vh) * 100 - 60px);
+    }
+
+    Banner::grid {
+      margin-top: calc(var(--spacing-unit) * 8);
+    }
+
+    Banner::btnGroup {
+      margin-top: 2vh;
     }
   }
 
+  Banner::btnGroup a {
+    min-width: 140px;
+    justify-content: center;
+  }
 
-  Banner::logoPosition {
-    grid-row: 1;
-    grid-column-start: 2;
-    font-size: 1.25em;
-    font-size: calc(var(--spacing-unit) * 1.2);
+  @media value(breakpoint-md) {
+    Banner::btnGroup a {
+      min-width: 160px;
+    }
+  }
+
+  Banner::btnGroup {
+    /* grid-row: 2; */
   }
 
   Banner Text.title.uppercase {
@@ -54,16 +63,20 @@
   }
 
   Banner Text.tagline {
-    grid-row: 2;
-    grid-column-start: 1;
+    grid-row: 3;
+    /* grid-column-start: 1; */
     /* justify-self: start; */
+    line-height: 2;
+    text-align: center;
     justify-self: center;
     align-self: center;
+    padding: 0 calc(var(--spacing-unit) * 2)
   }
 
   Banner::tld {
-    grid-row: 2;
-    grid-column-start: 2;
+    /* grid-row: 3; */
+    /* grid-column-start: 1; */
+    margin-top: -30px;
     align-self: end;
     font-size: 12px;
     letter-spacing: 16px;

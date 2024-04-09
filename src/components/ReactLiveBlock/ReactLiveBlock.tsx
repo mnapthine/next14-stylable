@@ -36,7 +36,8 @@ export function ReactLiveBlock({
         <LivePreview className={classes.preview} />
         {editable && (
           <Text elementType="div" vol={1} className={classes.codeBlock}>
-            <div className={classes.editableNotice}>Editable</div>
+            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+            <div className={classes.editableNotice}>/*= Editable =*/</div>
             <LiveEditor onChange={onChange} tabMode="focus" />
           </Text>
         )}

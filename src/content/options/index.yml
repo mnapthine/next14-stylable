@@ -17,8 +17,8 @@ links:
   - text: Getting Started
     link: /getting-started
     type: navigation
-  - text: Styling
-    link: /styling
+  - text: Styling Guide
+    link: /styling-guide
     type: navigation
   - text: Components
     link: /components

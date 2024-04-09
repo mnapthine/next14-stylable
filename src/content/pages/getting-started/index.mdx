@@ -1,44 +1,38 @@
 ---
 title: Getting started
-menuTitle: Installation
+menuTitle: Overview
 urlPath: /
 slug: getting-started
 weight: -5
 ---
 
-## Stylable
+## Introduction
 
-Shelley uses [Stylable](https://stylable.io) as its styling solution, so we need to set that up first.
+Shelley is a headless (unstyled) component library for React that leverages Adobes react-aria hooks for to maintain `a11y` standards and [Stylable](https://stylable.io) as its styling solution.
 
-Stylable is a CSS preprocessor developed by Wix Engineering and helps power 50 million user websites within Wix.
+It offers you full control of the CSS and as such is more [CSS Zen Garden](https://csszengarden.com/) over [Atomic/Utility](https://acss.io/) as a fundermental.
 
-If you don't know much about Stylable (no problem) we suggest that you get familar with the [Stylable docs](https://stylable.io/docs/getting-started/intro) to get a feel for it.
+There is nothing stopping you from using atomic/utility classes for some alignment but if you want full blown tailwind then more composable libraries like [Adobe's React Aria](https://react-spectrum.adobe.com/react-aria/components.html) (using the same hooks) are gonna be a better fit for you.
 
-### Configure
+### What is Stylable?
 
-As indicated in the Stylable docs there two main ways of starting with Stylable, boilerplates and manual config.
+Stylable is a CSS preprocessor developed by Wix Engineering and helps power 50 million user websites within Wix. If you don't know much about Stylable _(no problem)_ we suggest that you get familar with the [Stylable docs](https://stylable.io/docs/getting-started/intro) to get a feel for it.
 
-**Boilerplates:**
+Some highlights of Stylable include:
 
-- [Create Stylable App](/getting-started/create-stylable-app) - webpack and rollup templates provided by Wix.
+- Scoped component styles to stop leakage.
+- Abilty to define a component CSS API defining its state and its parts.
+- 'In the spirit of CSS' pseudo selectors to target state and parts from outside.
+- A type system aiming to do for CSS what TypeScript did for JavaScript.
+- Developer tooling offering language-intelligence and code completion.
+- A powerful CLI, a low-level utility for working with Stylable projects directly.
 
-**Manual:**
+To be able to pierce the component and target its parts from outside is a killer feature of Stylable. Much like Mary Shelley's Frankenstein, Shelley is all about it's parts!
 
-- [NextJS](/getting-started/next-js)
-- [Webpack](https://stylable.io/docs/getting-started/webpack-integration)
+Special shout out to the [Wix Engineering](https://www.wix.engineering/) crew for their support and work on Stylable and more recently [Codux](https://www.codux.com/) which aims to make a space for designers and developers to collaborate.
 
-## Shelley
+## Where to next?
 
-### Install
-
-When our project is 'up and ready' with Stylable we can go ahead and install Shelley.
-
-```
-npm i @actionishope/shelley
-```
-
-### Styling
-
-Shelley can be used numerious ways depending on your needs and desires.
-
-Check out the styling section on how to set up the styles and themes.
+- [Installation](/getting-started/installation) - Get Shelley installed in your project.
+- [Why Shelley](/getting-started/why-shelley) - Not convienced? Here are some reasons to consider.
+- [Styling Guide](/styling-guide) - Checkout the Styling guide

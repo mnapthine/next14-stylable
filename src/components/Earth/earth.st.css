@@ -1,3 +1,9 @@
 @st-namespace "earth";
 
-.root {}
+@st-import [--bg-dark] from "../../styles/project.st.css";
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
+@st-import Shelley, [breakpoint-sm] from "@actionishope/shelley/styles/project.st.css";
+
+.root {
+  /* background-color: var(--bg-dark); */
+}
