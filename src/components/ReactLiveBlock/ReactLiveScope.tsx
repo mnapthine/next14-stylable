@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-// import FocusLock from "react-focus-lock";
+import React from "react";
 import { classes as dialog } from "@actionishope/shelley/Dialog/dialog.st.css";
 import { classes as spacing } from "@actionishope/shelley/styles/spacing.st.css";
 
@@ -33,10 +32,10 @@ const ReactLiveScope = {
   dialog,
   P,
   H2,
-  PreviewIcon,
-  AngleRightIcon,
   Switch,
   spacing,
+  PreviewIcon,
+  AngleRightIcon,
 };
 
 export default ReactLiveScope;
