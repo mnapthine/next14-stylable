@@ -11,13 +11,13 @@ import {
 } from "@actionishope/shelley/styles/spacing.st.css";
 import { classes } from "../../../../styles/mixins.st.css";
 
-export const generateMetadata = ({
-  params,
-}: {
-  tabs: ReactNode;
-  children: ReactNode;
+type MetaDataType = {
+  // tabs: ReactNode;
+  // children: ReactNode;
   params: { slug: string };
-}) => {
+};
+
+export const generateMetadata = ({ params }: MetaDataType) => {
   const component = componentDocs.find(
     (component) => component.slug === params.slug
   );
