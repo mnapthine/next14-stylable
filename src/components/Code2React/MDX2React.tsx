@@ -1,6 +1,6 @@
 import * as runtime from "react/jsx-runtime";
 import Image from "next/image";
-import { components as baseComponents } from "./helpers";
+import { components as baseComponents } from "./componentMap";
 import { st, classes } from "./code2React.st.css";
 import { forwardRef } from "react";
 interface MDX2ReactProps extends React.HTMLAttributes<HTMLDivElement> {

@@ -1,0 +1,83 @@
+@st-namespace "earthBanner";
+
+@st-import [--bg-dark] from "../../styles/project.st.css";
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
+@st-import Shelley, [breakpoint-sm] from "@actionishope/shelley/styles/project.st.css";
+
+.root {
+  background-color: var(--bg-dark);
+  margin-bottom: 60vh;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  height: calc(var(--vh, 1vh) * 100 - 60px);
+}
+
+.inner {}
+
+.earth {
+  height: 50vh;
+  position: relative;
+  z-index: 20;
+}
+
+@media value(breakpoint-sm) {
+  .root {
+    height: auto;
+  }
+
+  .earth {
+    height: 50vh;
+    padding: 0 0 40px;
+  }
+}
+
+.root canvas {
+  width: 100vw !important;
+}
+
+.fallbackImage {
+  height: 50vh;
+  width: 100%;
+  padding: 20px;
+  margin-top: 0;
+  object-fit: cover;
+}
+
+.treeware {
+  position: sticky;
+  width: 100%;
+  z-index: 30;
+  top: 130px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #0000004d;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+@media value(breakpoint-sm) {
+  .treeware {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+  }
+}
+
+.header {
+  -st-extends: Text;
+}
+
+.header:vol(1):uppercase {
+  font-size: 14px;
+}

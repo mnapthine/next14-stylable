@@ -3,11 +3,7 @@ import { pages } from "#site/content";
 import { MDX2React } from "@/components/Code2React";
 import { PageLayout } from "@/components/PageLayout";
 import { PageContent } from "@/components/PageContent";
-import { classes } from "../../styles/mixins.st.css";
-import {
-  classes as spacing,
-  st,
-} from "@actionishope/shelley/styles/spacing.st.css";
+import { classes as mixins } from "../../styles/mixins.st.css";
 import { H1 } from "@actionishope/shelley/Text";
 import { NavItem } from "@/components/Nav";
 
@@ -82,10 +78,11 @@ export default function Page(props: { params: { slug: string[] } }) {
   return (
     <PageLayout pagesNav={nav}>
       <PageContent toc={page.toc}>
-        <H1 weight={5} className={st(spacing.mt1, spacing.mb2)}>
-          {page?.menuTitle || page.title}
+        <H1 weight={5} className={mixins.pageTitle}>
+          {page?.menuTitle ? page.menuTitle : page.title}
+          {/* {page?.menuTitle && <span>{page.menuTitle}</span>} */}
         </H1>
-        <MDX2React code={page.body} className={classes.format} />
+        <MDX2React code={page.body} className={mixins.format} />
       </PageContent>
     </PageLayout>
   );

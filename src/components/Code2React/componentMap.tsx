@@ -11,43 +11,15 @@ import {
 } from "@actionishope/shelley/Text";
 import { ReactLiveBlock } from "../ReactLiveBlock";
 import { CodeBlock } from "../CodeBlock";
-import { slug } from "github-slugger";
-import { ReactNode, ReactElement, HTMLProps } from "react";
+import { ReactElement, HTMLProps } from "react";
 import Link from "next/link";
 import { RiShareBoxLine } from "react-icons/ri";
 import { VisuallyHidden } from "@actionishope/shelley/VisuallyHidden";
-
-const isExternalLink = (url: string): boolean =>
-  /^(http:\/\/|https:\/\/)/.test(url);
-
-const slugFromNode = (children?: ReactNode) => {
-  return children ? slug(children.toString()) : undefined;
-};
-
-function parseClassnameAndOptions(inputStr: string): {
-  className?: string;
-  options: { live?: boolean; preview?: boolean; twoCol?: boolean };
-} {
-  // Extract the classname and optionsString encased in {}
-  const [className, optionsString] = inputStr.split(/\{(.+?)\}$/);
-
-  let options = null;
-  if (optionsString) {
-    // Format optionsString into valid JSON format
-    const jsonStr = `{${optionsString.replace(/(\w+):/g, '"$1":')}}`;
-    try {
-      // Parse the corrected JSON string into an object
-      options = JSON.parse(jsonStr);
-    } catch (e) {
-      console.error("Parsing error:", e);
-    }
-  }
-
-  return {
-    className: className?.trim(),
-    options: options,
-  };
-}
+import {
+  isExternalLink,
+  slugFromNode,
+  parseClassnameAndOptions,
+} from "./utils";
 
 export const components = {
   h1: H1,

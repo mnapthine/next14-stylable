@@ -28,7 +28,13 @@ At a minimum you will need to update your `ts.config` and setup a `stylable.conf
 2. Exclude other CSS loaders from loading Stylable (`*.st.css`) files.
 3. Add the Stylable plugin to the webpack configuration.
 
+### Pages Directory
+
+@todo: grab the config from meerkat as it is an example of a next pages directory setup.
+
 ### App Directory
+
+Note: When installing we would recommend installing into the `src` directory, as we had trouble getting TypeScript to pick up our `st-type` directory. You are given the option on installation but you can [change it afterwards](https://nextjs.org/docs/app/building-your-application/configuring/src-directory) as well.
 
 Example of App directory config:
 
@@ -87,3 +93,8 @@ const nextConfig = {
 // Export the configuration using ESM syntax
 export default nextConfig;
 ```
+
+#### Known Issues
+
+- We see `DUPLICATE_MODULE_NAMESPACE` errors by default which seems to be triggered by the way NextJS handles development bundles. We have muted this error in the example above.
+- Likley related we see a doubling up of styles at times in development mode (a reload will resolve). This is not an issue in production.

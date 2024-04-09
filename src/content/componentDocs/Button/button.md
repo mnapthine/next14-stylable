@@ -51,7 +51,7 @@ In addition Button supports an `isCta` state allowing you to have a more 'press 
 </ButtonGroup>
 ```
 
-### Button volume/size
+### Volume
 
 Use the `vol` prop to control the volume with a numeric value `1-6`.
 
@@ -72,7 +72,7 @@ Use the `vol` prop to control the volume with a numeric value `1-6`.
 </div>
 ```
 
-### Button tone
+### Tone
 
 Use the `tone` prop to 'set the tone' of the button. By default you can set the value to be `lead`, `support`, `info`, `success`, `warning`, `alert`, `light`, `dark` or `contrast` but you can add more depending on your needs.
 
@@ -96,7 +96,7 @@ Use the `tone` prop to 'set the tone' of the button. By default you can set the 
 </div>
 ```
 
-### Button with Icon
+### Use Icon
 
 Use the `icon` prop to add an Icon to the button and control its position with the `iconPos` prop.
 
@@ -116,3 +116,13 @@ Use the `icon` prop to add an Icon to the button and control its position with t
   </Button>
 </ButtonGroup>
 ```
+
+### Disabled
+
+Disabled the button with `isDisabled`.
+
+```jsx{live:true}
+<Button variant="primary" tone="lead" isDisabled>Disabled</Button>
+```
+
+

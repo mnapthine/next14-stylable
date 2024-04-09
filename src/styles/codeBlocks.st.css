@@ -2,7 +2,7 @@
 
 @st-import ReactLiveBlock from "../components/ReactLiveBlock/reactLiveBlock.st.css";
 @st-import CodeBlock from "../components/CodeBlock/codeBlock.st.css";
-@st-import [--spacing-unit, breakpoint-xl] from "@actionishope/shelley/styles/project.st.css";
+@st-import [--spacing-unit, breakpoint-xl, --tone-info-rgb] from "@actionishope/shelley/styles/project.st.css";
 
 :vars {
   borderColor: #383838;
@@ -16,7 +16,7 @@
   ReactLiveBlock {
     display: grid;
     margin: calc(var(--spacing-unit) * 2) 0 calc(var(--spacing-unit) * 3);
-    border: 1px solid value(borderColor);
+    /* border: 1px solid value(borderColor); */
     border-radius: value(borderRadius);
   }
 
@@ -40,7 +40,7 @@
   CodeBlock::code {
     padding: var(--spacing-unit);
     font-family: Menlo, monospace;
-    background-color: black;
+    background-color: #0d0f14;
     position: relative;
     margin: 0;
 
@@ -49,11 +49,11 @@
 
   CodeBlock::code {
     border-radius: value(borderRadius);
-    background-color: black;
+    /* background-color: black; */
   }
 
   ReactLiveBlock::codeBlock {
-    border-top: 1px solid value(borderColor);
+    /* border-top: 1px solid value(borderColor); */
     border-radius: 0 0 value(borderRadius) value(borderRadius);
   }
 
@@ -61,11 +61,14 @@
 
   ReactLiveBlock:editable::codeBlock {
     padding-top: calc(var(--spacing-unit) * 2.5);
+    padding-bottom: calc(var(--spacing-unit) * 2.5);
   }
 
   ReactLiveBlock::preview {
     padding: var(--spacing-unit);
-    border-radius: value(borderRadius);
+    padding-top: calc(var(--spacing-unit) * 2);
+    border-radius: value(borderRadius) value(borderRadius) 0 0;
+    background-color: #0d0f14;
     overflow-x: auto;
     /* border: 1px solid value(borderColor); */
     /* display: flex;
@@ -82,14 +85,15 @@
     width: 100%;
     top: -1.25em;
     top: 0;
-    background: #011627;
     z-index: 0;
-    letter-spacing: 1px;
-    color: lightblue;
+    /* color: rgba(var(--tone-info-rgb), 0.8); */
+    /* comment color picked from prism theme */
+    color: rgb(99, 119, 119);
+    font-family: Menlo, monospace;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
-    text-transform: uppercase;
+    -webkit-font-smoothing: auto;
     pointer-events: none;
   }
 

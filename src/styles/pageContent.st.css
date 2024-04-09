@@ -1,6 +1,6 @@
 @st-namespace "docsPageContent";
 
-@st-import PageContent from "../components/PageContent/pageContent.st.css";
+@st-import PageContent, [pageTitle] from "../components/PageContent/pageContent.st.css";
 @st-import Shelley, [
   --spacing-unit,
   breakpoint-lg,
@@ -9,6 +9,7 @@
 
 
 @st-scope Shelley {
+
   PageContent {
     display: grid;
     gap: var(--spacing-unit);

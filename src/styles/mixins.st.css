@@ -19,6 +19,19 @@
 }
 
 
+/*= Page Title =*/
+.pageTitle {
+  margin-top: var(--spacing-unit);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+/* Top level landing pages have an internal span for an inner sub title.*/
+.pageTitle > span {
+  margin-top: calc(var(--spacing-unit) / 2);
+  display: block;
+  font-size: 0.8em;
+}
+
 
 
 /*= Nav =*/
@@ -78,6 +91,19 @@
   background-color: rgba(var(--tone-support-rgb), 0.1);
 }
 
+/*= Snap scrolling =*/
+
+/* .snapScrollY {
+  scroll-snap-type: y;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.snapSection {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+} */
+
 
 /*= Formatting =*/
 .format {}
@@ -129,6 +155,10 @@
   margin-top: calc(var(--spacing-unit) * 4);
 }
 
+.format > h3 {
+  margin-top: calc(var(--spacing-unit) * 4);
+}
+
 .format > p + Text.vol4 {
   margin-top: calc(var(--spacing-unit) * 8);
 }
@@ -138,13 +168,13 @@
   margin-top: calc(var(--spacing-unit) * 3.5);
 }
 
-.format > p + h3,
-.format > h2 + h3 {
-  margin-top: calc(var(--spacing-unit) * 4);
-}
-
 .format > p + h6 {
   margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.format a:has(svg) {
+  display: inline-flex;
+  align-items: center;
 }
 
 .format a > svg {
