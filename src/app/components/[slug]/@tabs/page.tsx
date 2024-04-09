@@ -12,8 +12,6 @@ import {
 import { classes } from "../../../../styles/mixins.st.css";
 
 type MetaDataType = {
-  // tabs: ReactNode;
-  // children: ReactNode;
   params: { slug: string };
 };
 
