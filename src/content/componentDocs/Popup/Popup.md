@@ -1,24 +1,32 @@
 ---
 date: "2021-11-25"
-slug: button
+slug: popup
 thumbnail: /assets/getting-started.jpeg
-title: Button
-description: Button is a foundational component that allows users to execute actions such as submitting forms, starting processes, or changing settings, translating user intentions into actions within an application. 🚀🎉
-category: Buttons
+title: Popup
+description: A Popup can be used to display some content on top of another; used internally in components like MenuTrigger and DialogTrigger.
+category: Overlays
 ---
 
 ## Import
 
 ```
-import { Button, ButtonGroup } from "@actionishope/shelley/Button";
+import { Popup } from "@actionishope/shelley/Popup";
+import { Portal } from "@actionishope/shelley/Portal";
 ```
 
-- **Button**: The button supporting various visual states and icons.
-- **ButtonGroup**: Used to group related buttons.
+- **Popup**: The popup supporting various visual states and icons.
+- **Portal**: Used to inject content into a specificed node.
 
 ## Adobe hooks
 
-The Button component is built using the Adobe [useButton hook](https://react-spectrum.adobe.com/react-aria/useButton.html) which amoungst other things provides a [unified press event](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html).
+The Popup component is built using the Adobe [`useOverlay`](https://react-spectrum.adobe.com/react-aria/useOverlay.html) and [`useOverlayPosition`](https://react-spectrum.adobe.com/react-aria/useOverlayPosition.html) hooks.
+
+
+
+- Doesn't provide `is-labelledby` or type/role of modal, this would be provided by useMenu, useDialog etc.
+- When rendering into a portal ensure the portal is wrapped by the main theme classes else it will appear unstyled.
+- When using `shouldCloseOnBlur` don't expect `isDismissable={false}` to work.
+
 
 ## Usage
 
