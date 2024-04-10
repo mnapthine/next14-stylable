@@ -6,6 +6,9 @@ import { TextureLoader } from "three/src/loaders/TextureLoader.js";
 import { MeshPhysicalMaterial, Mesh } from "three";
 import { classes, st } from "./earth.st.css";
 
+// Many thanks to Olivier Larose for the original tutorial
+// https://blog.olivierlarose.com/tutorials/3d-earth
+
 extend({ MeshPhysicalMaterial });
 
 interface EarthProps {

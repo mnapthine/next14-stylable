@@ -63,8 +63,12 @@ export const components = {
     const classNameProp = isMDX
       ? (children as ReactElement).props.className
       : (children as any)[0].props.class;
-
-    const code = isMDX ? codeRaw : codeRaw[0].replace(/&#x3C;/g, "<");
+    // Converts certain HTML entities to their respective characters.
+    const code: string = isMDX
+      ? (codeRaw as string)
+      : (codeRaw as string[])[0]
+          .replace(/&#x3C;/g, "<")
+          .replace(/&#x26;/g, "&");
     const { className, options } = parseClassnameAndOptions(
       classNameProp || ""
     );

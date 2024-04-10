@@ -3,9 +3,11 @@ date: "2021-11-25"
 slug: popup
 thumbnail: /assets/getting-started.jpeg
 title: Popup
-description: A Popup can be used to display some content on top of another; used internally in components like MenuTrigger and DialogTrigger.
+description: A Popup can be used to display some content on top of another.
 category: Overlays
 ---
+
+Most often you will not need a Popup directly but you will use it indirectly on other components DialogTrigger and MenuTrigger but you *can* use it as part of a custom component.
 
 ## Import
 
@@ -19,107 +21,156 @@ import { Portal } from "@actionishope/shelley/Portal";
 
 ## Adobe hooks
 
-The Popup component is built using the Adobe [`useOverlay`](https://react-spectrum.adobe.com/react-aria/useOverlay.html) and [`useOverlayPosition`](https://react-spectrum.adobe.com/react-aria/useOverlayPosition.html) hooks.
-
-
-
-- Doesn't provide `is-labelledby` or type/role of modal, this would be provided by useMenu, useDialog etc.
-- When rendering into a portal ensure the portal is wrapped by the main theme classes else it will appear unstyled.
-- When using `shouldCloseOnBlur` don't expect `isDismissable={false}` to work.
+The Popup component is built using the Adobe [useOverlay](https://react-spectrum.adobe.com/react-aria/useOverlay.html) and [useOverlayPosition](https://react-spectrum.adobe.com/react-aria/useOverlayPosition.html) hooks.
 
 
 ## Usage
 
+To simply open and close an inline (renders where it exists) Popup we can use a simple Button as a trigger.
+
+
 ```jsx{live:true}
-<Button>Button</Button>
+
+() => {
+  const triggerRef = React.useRef(null);
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <div>
+      <Button
+        ref={triggerRef}
+        variant="secondary"
+        onPress={() => setIsOpen(!isOpen)}
+        aria-expanded = {isOpen ? "true" : "false"}
+        aria-controls = "customPopup"
+      >
+        Trigger Popup
+      </Button>
+      {isOpen && (
+        <Popup
+          id="customPopup"
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          offset={8}
+          triggerRef={triggerRef}
+        >
+          <P vol={1}>Popup Content</P>
+        </Popup>
+      )}
+    </div>
+  );
+};
 ```
 
-### Button variants
+### Accessibility
 
-Use the `variant` prop to change the visual style of the Button. By default you can set the value `primary`, `secondary` or `quiet` but you can extend this list to suit your needs.
+Pay attention to the trigger of the Popup so you can ensure you have manually set the following aria attributes. These will tell a screen reader that the button and Popup are related.
+
+- `aria-expanded`
+- `aria-controls`
+- `id`
+
+Popup doesn't provide `is-labelledby` or type/role of modal, you will need to provide this.
+
+### FocusOn
+
+Internally Popup uses `FocusOn` from [react-focus-on](https://github.com/theKashey/react-focus-on#api) to manage aria compliant focus locks which is accessible via `focusOnProps`.
+
+TIP: A 'focus lock' is where we purposely 'lock' a user in an area so when they hit tab they can only access focusable element in that area and don't go wandering off behind modals and other places. A focus lock must always offer a way out of the lock (e.g a modal close button).
+
+### Positioning
+
+The Popup will be positioned relative to the `triggerRef`.
+
+### Portal
+
+Often you will not want an inline Popup and it can cause a headache in terms of being clipped or hidden because of where it is. Use Portal to render content in a different location, usually in the root of `body`.
+
+When rendering into a portal ensure the portal is wrapped by the main theme classes else it will appear unstyled.
 
 ```jsx{live:true}
-<ButtonGroup>
-  <Button variant="primary">Button</Button>
-  <Button variant="secondary">Button</Button>
-  <Button variant="quiet">Button</Button>
-</ButtonGroup>
+
+() => {
+  const triggerRef = React.useRef(null);
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <div>
+      <Button
+        ref={triggerRef}
+        variant="secondary"
+        onPress={() => setIsOpen(!isOpen)}
+        aria-expanded = {isOpen ? "true" : "false"}
+        aria-controls = "customPopup"
+      >
+        Trigger Popup
+      </Button>
+      {isOpen && (
+        <Portal selector="body">
+          <Popup
+            id="customPopup"
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}
+            offset={8}
+            triggerRef={triggerRef}
+          >
+            <P vol={1}>Popup Content</P>
+          </Popup>
+        </Portal>
+      )}
+    </div>
+  );
+};
 ```
 
-#### Call to Action (CTA)
+### Using with Abobe hooks
 
-In addition Button supports an `isCta` state allowing you to have a more 'press me!' version of a button when you need.
-
-```jsx{live:true}
-<ButtonGroup>
-  <Button variant="primary" isCta>Button</Button>
-  <Button variant="secondary" isCta>Button</Button>
-  <Button variant="quiet" isCta>Button</Button>
-</ButtonGroup>
-```
-
-### Button volume/size
-
-Use the `vol` prop to control the volume with a numeric value `1-6`.
-
+We can use Adobes hooks with Popup as well so be sure to checkout their docs.
 
 ```jsx{live:true}
-<div style={{
-  display: "flex", 
-  alignItems: "start",
-  flexDirection: "column",
-  gap: 12
-}}>
-  <Button vol={1}>Button</Button>
-  <Button vol={2}>Button</Button>
-  <Button vol={3}>Button</Button>
-  <Button vol={4}>Button</Button>
-  <Button vol={5}>Button</Button>
-  <Button vol={6}>Button</Button>
-</div>
-```
 
-### Button tone
+() => {
+  const triggerRef = React.useRef(null);
+  // Changed to adobe trigger state
+  const state = useOverlayTriggerState({});
+  // Add ref for overlay
+  const overlayRef = React.useRef(null);
 
-Use the `tone` prop to 'set the tone' of the button. By default you can set the value to be `lead`, `support`, `info`, `success`, `warning`, `alert`, `light`, `dark` or `contrast` but you can add more depending on your needs.
+  // Added Adobes useOverlayTrigger giving us aria props to spread.
+  const { triggerProps, overlayProps } = useOverlayTrigger(
+    {
+      type: "dialog",
+    },
+    state,
+    triggerRef
+  );
 
-
-```jsx{live:true}
-<div style={{
-  display: "flex", 
-  alignItems: "start",
-  flexWrap: "wrap",
-  gap: 12
-}}>
-  <Button variant="primary" tone="lead">Lead</Button>
-  <Button variant="primary" tone="support">Support</Button>
-  <Button variant="primary" tone="info">Info</Button>
-  <Button variant="primary" tone="success">Success</Button>
-  <Button variant="primary" tone="warning">Warning</Button>
-  <Button variant="primary" tone="alert">Alert</Button>
-  <Button variant="primary" tone="light">Light</Button>
-  <Button variant="primary" tone="dark">Dark</Button>
-  <Button variant="primary" tone="contrast">Contrast</Button>
-</div>
-```
-
-### Button with Icon
-
-Use the `icon` prop to add an Icon to the button and control its position with the `iconPos` prop.
-
-```jsx{live:true}
-<ButtonGroup>
-  <Button variant="primary" iconPos="start" icon={<PreviewIcon />}>
-    Preview
-  </Button>
-  <Button variant="secondary" icon={<AngleRightIcon />}>
-    This way
-  </Button>
-  <Button variant="quiet" icon={
-    <Icon>
-      <path d="M14 7h-5v-5h-2v5h-5v2h5v5h2v-5h5v-2z"></path>
-    </Icon>}>
-    Add Media
-  </Button>
-</ButtonGroup>
+  return (
+    <div>
+      {/* Whatever you use as a trigger will need an onPress prop... */}
+      <Button
+        {...triggerProps} // Spread triggerProps
+        ref={triggerRef}
+        isDisabled={state.isOpen} // Updated state
+      >
+        Click me
+      </Button>
+      {state.isOpen && ( // Updated state
+        // <Portal selector="body">
+          <Popup
+            {...overlayProps} // Spread overlayProps
+            isOpen={state.isOpen} // Updated state
+            onClose={() => state.close()}
+            offset={8}
+            ref={overlayRef}
+            triggerRef={triggerRef}
+            placement="end"
+          >
+            <Dialog size="small">Children</Dialog>
+          </Popup>
+        // </Portal>
+      )}
+    </div>
+  );
+};
 ```

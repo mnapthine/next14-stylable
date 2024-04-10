@@ -8,6 +8,7 @@
 ] from "@actionishope/shelley/styles/project.st.css";
 
 @st-import Checkbox from "@actionishope/shelley/Checkbox/checkbox.st.css";
+@st-import Dialog from "@actionishope/shelley/Dialog/dialog.st.css";
 
 :root {
   --bg-dark: #0e0f16
@@ -17,8 +18,12 @@
   -st-extends: Checkbox;
 }
 
-@st-scope body {
+@st-scope Shelley {
   Checkbox::text {
     /* color: green; */
+  }
+
+  Dialog:size(small) {
+    width: 300px;
   }
 }

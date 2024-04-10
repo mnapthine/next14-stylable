@@ -11,6 +11,8 @@ import { Switch } from "@actionishope/shelley/Switch";
 import { Text, P, H2 } from "@actionishope/shelley/Text";
 // External
 import { FocusOn } from "react-focus-on";
+import { useOverlayTriggerState } from "@react-stately/overlays";
+import { useOverlayTrigger } from "react-aria";
 // Icons @todo: swap for react-icons
 import PreviewIcon from "@actionishope/shelley/icons/Preview";
 import AngleRightIcon from "@actionishope/shelley/icons/AngleRight";
@@ -38,6 +40,8 @@ const ReactLiveScope = {
   RadioGroup,
   // External
   FocusOn,
+  useOverlayTriggerState, // popup
+  useOverlayTrigger, // popup
   //Icons - @todo: swap for react-icons
   PreviewIcon,
   AngleRightIcon,

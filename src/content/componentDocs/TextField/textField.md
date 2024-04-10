@@ -3,7 +3,6 @@ slug: text-field
 title: TextField
 description: Allows our wonderful users to tell us something interesting by inputting some text into a little box.
 category: Inputs
-import: import { TextField } from "@actionishope/shelley";
 ---
 
 ## Import
