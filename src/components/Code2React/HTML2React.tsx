@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import HTML2ReactParser from "react-html-string-parser/HTML2React";
 import { st, classes } from "./code2React.st.css";
 import { components as baseComponents } from "./componentMap";
-import { wrapSections } from "./utils";
+// import { wrapSections } from "./utils";
 
 export interface HTML2ReactProps extends React.HTMLAttributes<HTMLDivElement> {
   code: string;
@@ -15,7 +15,8 @@ function HTML2React(props: HTML2ReactProps, ref: React.Ref<HTMLDivElement>) {
   return (
     <div className={st(classes.root, className)} ref={ref} {...rest}>
       <HTML2ReactParser
-        html={wrapSections(code)}
+        html={code}
+        // html={wrapSections(code)}
         components={{ ...baseComponents, ...components }}
       />
     </div>
