@@ -1,60 +1,61 @@
 ---
 date: "2021-11-25"
-slug: checkbox
+slug: radio
 thumbnail: /assets/getting-started.jpeg
-title: Checkbox
-description: Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.
+title: Radio
+description: Radio buttons allow users to select a single option from a list of mutually exclusive options. All possible options are exposed up front for users to compare.
 category: Inputs
 ---
 
 ## Import
 
 ```
-import { Checkbox, CheckboxGroup } from "@actionishope/shelley/Checkbox";
+import { Radio, RadioGroup } from "@actionishope/shelley/Radio";
 ```
-
-- **Checkbox**: The checkbox supporting label positioning and checkmark size.
-- **CheckboxGroup**: Provides a `Field` wrapper around multiple checkboxes and manages the checked state.
 
 ## Adobe hooks
 
-The checkbox components are built using the Adobe aria [useCheckbox](https://react-spectrum.adobe.com/react-aria/useCheckbox.html) and [useCheckboxGroup](https://react-spectrum.adobe.com/react-aria/useCheckboxGroup.html) hooks.
+Radio and RadioGroup are built using the Adobe aria [useRadio](https://react-spectrum.adobe.com/react-aria/useRadio.html) and [useRadioGroup](https://react-spectrum.adobe.com/react-aria/useRadioGroup.html) hooks.
 
-## Checkbox usage
+## Radio usage
 
 ```jsx{live:true}
-<Checkbox defaultSelected>Subscribe</Checkbox>
+<RadioGroup label="Favorite sport">
+  <Radio value="rugby">Rugby</Radio>
+  <Radio value="cricket">Cricket</Radio>
+  <Radio value="fooball">Football</Radio>
+</RadioGroup>
 ```
+
+> Note: A Radio cannot be used outside of a RadioGroup.
 
 ### Value
 
-Checkboxes are not selected by default. The `defaultSelected` prop can be used to set the default state (uncontrolled).
+An initial, uncontrolled value can be provided to the RadioGroup using the `defaultValue` prop, which accepts a value corresponding with the `value` prop of each Radio.
 
-Alternatively, the `isSelected` prop can be used to make the selected state controlled.
+Alternatively, a controlled `value` can be provided using the value prop, which accepts a value corresponding with the value prop of each Radio. The `onChange` event is fired when the user selects a radio.
 
-
-```jsx{live:true}
+```tsx{live:true}
 () => {
-  const [selected, setSelected] = React.useState(true);
+  const [selected, setSelected] = React.useState("wizard");
   return (
     <>
-      <Checkbox defaultSelected>
-        Subscribe (uncontrolled)
-      </Checkbox>
-      <Checkbox isSelected={selected} onChange={setSelected}>
-        Subscribe (controlled)
-      </Checkbox>
+      <RadioGroup label="Are you a wizard?" defaultValue="yes">
+        <Radio value="yes">Yes</Radio>
+        <Radio value="no">No</Radio>
+      </RadioGroup>
+
+      <RadioGroup
+        label="Favorite avatar (controlled)"
+        value={selected}
+        onChange={setSelected}
+      >
+        <Radio value="wizard">Wizard</Radio>
+        <Radio value="dragon">Dragon</Radio>
+      </RadioGroup>
     </>
   );
 };
-```
-
-### Indeterminate
-
-A Checkbox can be in an indeterminate state, controlled using the `isIndeterminate` prop. This overrides the appearance of the Checkbox, whether selection is controlled or uncontrolled. The Checkbox will visually remain indeterminate until the `isIndeterminate` prop is set to `false`, regardless of user interaction.
-
-```jsx{live:true}
-<Checkbox isIndeterminate>Mixed</Checkbox>
 ```
 
 ### Size
@@ -62,46 +63,55 @@ A Checkbox can be in an indeterminate state, controlled using the `isIndetermina
 Use the `size` prop to adjust the size of the checkmark.
 
 ```jsx{live:true}
-<>
-  <Checkbox size={1}>1</Checkbox>
-  <Checkbox size={2}>2</Checkbox>
-  <Checkbox size={3}>3</Checkbox>
-  <Checkbox size={4}>4</Checkbox>
-  <Checkbox size={5}>5</Checkbox>
-  <Checkbox size={6}>6</Checkbox>
+<RadioGroup label="Sizes" defaultValue={1}>
+  <Radio size={1} value={1}>1</Radio>
+  <Radio size={2} value={2}>2</Radio>
+  <Radio size={3} value={3}>3</Radio>
+  <Radio size={4} value={4}>4</Radio>
+  <Radio size={5} value={5}>5</Radio>
+  <Radio size={6} value={6}>6</Radio>
 </>
 ```
 
 ### Events
 
-Checkboxes accept a user defined `onChange` prop, triggered whenever the Checkbox is clicked. The example below uses `onChange` to alert the user to changes in the checkbox's state.
+RadioGroup accepts an `onChange` prop, which is triggered when a user changes the selected value. The example below uses `onChange` to log how the user is interacting with the component.
 
 
 ```jsx{live:true}
 () => {
-  const [selected, setSelection] = React.useState(false);
+  const [selected, setSelected] = React.useState(false);
   return (
-    <CheckboxGroup 
-      description={`You have ${selected ? "accepted" : "not accepted"}`}
-      vol={3}
-    >
-      <Checkbox isSelected={selected} onChange={setSelection}>
-        Accept terms
-      </Checkbox>
-    </CheckboxGroup>
+    <>
+      <RadioGroup
+        label="Favorite sport"
+        value={selected}
+        onChange={setSelected}
+      >
+        <Radio value="rugby">Rugby</Radio>
+        <Radio value="cricket">Cricket</Radio>
+        <Radio value="fooball">Football</Radio>
+      </RadioGroup>
+      <P vol={1}>You have selected: {selected}</P>
+    </>
   );
 }
 ```
 
 ### Validation
 
-Implement your own validation logic in your app and set the `isInvalid` prop on the Checkbox.
+Implement your own validation logic in your app and set the `isInvalid` prop on the Checkbox and `errorMessage`.
 
 
 ```jsx{live:true}
-<Checkbox isInvalid>
-  I accept the terms and conditions
-</Checkbox>
+<RadioGroup 
+  label="Cats or Dogs?" 
+  errorMessage="You must answer, 'both' is not an option, you will be judged!" 
+  isInvalid
+>
+  <Radio value="dogs">Dogs</Radio>
+  <Radio value="cats">Cats</Radio>
+</RadioGroup>
 ```
 
 ### Disabled

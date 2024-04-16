@@ -4,6 +4,7 @@ import { H2 } from "@actionishope/shelley/Text";
 import { st, classes } from "./tableOfContents.st.css";
 
 export interface TableOfContentsProps {
+  id?: string;
   className?: string;
   items: Item[];
 }
@@ -15,7 +16,7 @@ interface Item {
 }
 
 export function TableOfContents(props: TableOfContentsProps) {
-  const { items, className } = props;
+  const { className, id, items } = props;
   const headerHeight = 130;
 
   const handleClick = useCallback(
@@ -53,7 +54,7 @@ export function TableOfContents(props: TableOfContentsProps) {
   };
 
   return (
-    <nav className={st(classes.root, className)}>
+    <nav className={st(classes.root, className)} id={id}>
       <H2 vol={1} className={classes.title} uppercase>
         Page Contents
       </H2>

@@ -80,7 +80,11 @@ TIP: A 'focus lock' is where we purposely 'lock' a user in an area so when they 
 
 ### Positioning
 
-The Popup will be positioned relative to the `triggerRef`.
+The Popup will be positioned relative to the `triggerRef`. Use the `placement` prop to change the position. Defaults to `top`.
+
+### Flip
+
+The Popup will flip itself when approaching the edge of the screen you can disable it by setting `shouldFlip` to false.
 
 ### Portal
 
@@ -156,7 +160,7 @@ We can use Adobes hooks with Popup as well so be sure to checkout their docs.
         Click me
       </Button>
       {state.isOpen && ( // Updated state
-        // <Portal selector="body">
+        <Portal selector="body">
           <Popup
             {...overlayProps} // Spread overlayProps
             isOpen={state.isOpen} // Updated state
@@ -164,11 +168,11 @@ We can use Adobes hooks with Popup as well so be sure to checkout their docs.
             offset={8}
             ref={overlayRef}
             triggerRef={triggerRef}
-            placement="end"
+            placement="bottom"
           >
             <Dialog size="small">Children</Dialog>
           </Popup>
-        // </Portal>
+        </Portal>
       )}
     </div>
   );

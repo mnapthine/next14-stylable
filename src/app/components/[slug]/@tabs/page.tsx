@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { componentDocs } from "#site/content";
 import { PageContent } from "@/components/PageContent";
@@ -48,10 +47,7 @@ export default function Page(props: { params: { slug: string } }) {
 
       <P className={spacing.mb2}>{component.description}</P>
 
-      <HTML2React
-        className={classes.format}
-        dangerouslySetInnerHTML={{ __html: component.content }}
-      />
+      <HTML2React className={classes.format} code={component.content} />
     </PageContent>
   );
 }
