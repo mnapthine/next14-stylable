@@ -39,9 +39,7 @@ export default function Page(props: { params: { slug: string } }) {
         </P>
         <HTML2React
           className={classes.format}
-          dangerouslySetInnerHTML={{
-            __html: component?.styling?.content || "",
-          }}
+          code={component?.styling?.content || ""}
         />
       </PageContent>
 
