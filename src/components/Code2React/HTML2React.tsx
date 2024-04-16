@@ -16,8 +16,7 @@ function HTML2React(props: HTML2ReactProps, ref: React.Ref<HTMLDivElement>) {
     <div className={st(classes.root, className)} ref={ref} {...rest}>
       <HTML2ReactParser
         html={code}
-        // html={wrapSections(code)}
-        components={{ ...baseComponents, ...components }}
+        components={{ ...baseComponents(), ...components }}
       />
     </div>
   );

@@ -1,11 +1,14 @@
 import { slug } from "github-slugger";
+import GithubSlugger from "github-slugger";
+
 import { ReactNode } from "react";
 
 export const isExternalLink = (url: string): boolean =>
   /^(http:\/\/|https:\/\/)/.test(url);
 
 export const slugFromNode = (children?: ReactNode) => {
-  return children ? slug(children.toString()) : undefined;
+  const slugger = new GithubSlugger();
+  return children ? slugger.slug(children.toString()) : undefined;
 };
 
 export function parseClassnameAndOptions(inputStr: string): {
@@ -34,44 +37,36 @@ export function parseClassnameAndOptions(inputStr: string): {
 }
 
 export function wrapSections(html: string): string {
+  const slugger = new GithubSlugger();
+  const sectionedHtml = [];
   const lines = html.split("\n");
-  const result: string[] = [];
-  const stack: string[] = []; // Stack to keep track of opened tags
+  let inSection = false;
 
   lines.forEach((line) => {
-    // Check for heading start
-    const startMatch = line.match(/<(h[2345])>/);
-    if (startMatch) {
-      const currentLevel = parseInt(startMatch[1].substring(1), 10);
-
-      // Close all tags until we find a level that is less than current or the stack is empty
-      while (
-        stack.length > 0 &&
-        getLevel(stack[stack.length - 1]) >= currentLevel
-      ) {
-        const lastTag = stack.pop();
-        result.push(lastTag === "h2" ? "</section>" : "</div>");
+    const headingMatch = line.match(/<(h[2345])>(.*?)<\/\1>/); // Match the heading and capture its content
+    if (headingMatch) {
+      if (inSection) {
+        sectionedHtml.push("</div>"); // Close previous div if in section
       }
-
-      // Open new wrapper tag based on the heading
-      const newTag = currentLevel === 2 ? "<section>" : "<div>";
-      stack.push(startMatch[1]); // Push current tag to stack for tracking
-      result.push(newTag);
+      const headingContent = headingMatch[2].trim();
+      const id = slugger.slug(headingContent); // Generate an ID from heading content
+      sectionedHtml.push(`<div id="${id}">`); // Use generated ID in the div
+      sectionedHtml.push(line);
+      inSection = true;
+    } else {
+      if (line.match(/<\/h[2345]>/) && inSection) {
+        sectionedHtml.push(line);
+        sectionedHtml.push("</div>"); // Close div on heading close
+        inSection = false;
+      } else if (inSection) {
+        sectionedHtml.push(line);
+      }
     }
-
-    result.push(line);
   });
 
-  // Close any remaining opened tags
-  while (stack.length > 0) {
-    const lastTag = stack.pop();
-    result.push(lastTag === "h2" ? "</section>" : "</div>");
+  if (inSection) {
+    sectionedHtml.push("</div>"); // Ensure closing div if still open
   }
 
-  return result.join("\n");
-}
-
-// Helper function to get numerical level from tag
-function getLevel(tag: string): number {
-  return parseInt(tag[1], 10);
+  return sectionedHtml.join("\n");
 }

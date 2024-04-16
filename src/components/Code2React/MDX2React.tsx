@@ -27,7 +27,7 @@ function MDX2React(props: MDX2ReactProps, ref: React.Ref<HTMLDivElement>) {
       <Component
         components={{
           Image,
-          ...baseComponents,
+          ...baseComponents(),
           ...mdxComponents,
           ...components,
         }}
