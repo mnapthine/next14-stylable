@@ -15,50 +15,15 @@ import { ReactElement, HTMLProps } from "react";
 import Link from "next/link";
 import { RiShareBoxLine } from "react-icons/ri";
 import { VisuallyHidden } from "@actionishope/shelley/VisuallyHidden";
-import {
-  isExternalLink,
-  slugFromNode,
-  parseClassnameAndOptions,
-} from "./utils";
-import GithubSlugger from "github-slugger";
+import { isExternalLink, parseClassnameAndOptions } from "./utils";
 
 export const components = () => {
-  const slugger = new GithubSlugger();
-
   return {
     h1: H1,
-    h2: (props: Partial<TextProps>) => (
-      <H2
-        vol={5}
-        weight={6}
-        id={slugger.slug(props.children?.toString() || "")}
-        {...props}
-      />
-    ),
-    h3: (props: Partial<TextProps>) => (
-      <H3
-        vol={4}
-        weight={6}
-        id={slugger.slug(props.children?.toString() || "")}
-        {...props}
-      />
-    ),
-    h4: (props: Partial<TextProps>) => (
-      <H4
-        vol={3}
-        weight={6}
-        id={slugger.slug(props.children?.toString() || "")}
-        {...props}
-      />
-    ),
-    h5: (props: Partial<TextProps>) => (
-      <H5
-        vol={3}
-        weight={6}
-        id={slugger.slug(props.children?.toString() || "")}
-        {...props}
-      />
-    ),
+    h2: (props: Partial<TextProps>) => <H2 vol={5} weight={6} {...props} />,
+    h3: (props: Partial<TextProps>) => <H3 vol={4} weight={6} {...props} />,
+    h4: (props: Partial<TextProps>) => <H4 vol={3} weight={6} {...props} />,
+    h5: (props: Partial<TextProps>) => <H5 vol={3} weight={6} {...props} />,
     h6: H6,
     p: P,
     a: (props: HTMLProps<HTMLAnchorElement>) => {
