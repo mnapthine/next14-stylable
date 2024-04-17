@@ -1,5 +1,5 @@
 // import rehypePrettyCode from 'rehype-pretty-code'
-import rehypeWrapSections from "./rehype-test";
+import rehypeWrapSections from "./src/utils/rehypeWrapSections";
 import { defineCollection, defineConfig, s } from "velite";
 
 const slugify = (input: string) =>
