@@ -24,7 +24,7 @@ export function Header(props: HeaderProps) {
       </H2>
 
       <MenuTrigger>
-        <IconButton tone={"contrast"}>
+        <IconButton tone={"contrast"} aria-label="Theme setting">
           <RiContrast2Fill />
         </IconButton>
         <Menu
