@@ -2,9 +2,10 @@ import { componentDocs } from "#site/content";
 import { notFound } from "next/navigation";
 import { HTML2React } from "@/components/Code2React";
 import Link from "next/link.js";
-import { PageContent } from "@/components/PageContent";
 import { H1, P } from "@actionishope/shelley/Text";
-import { classes } from "../../../../../styles/mixins.st.css";
+import { PageContent } from "@/components/PageContent";
+import { PageTabNav } from "@/components/PageTabNav";
+import { classes as mixins } from "../../../../../styles/mixins.st.css";
 import {
   classes as spacing,
   st,
@@ -33,10 +34,13 @@ export default function Page(props: { params: { slug: string } }) {
         <H1 weight={5} className={st(spacing.mt1, spacing.mb2)}>
           {component.title} <code style={{ fontSize: "0.7em" }}>styling</code>
         </H1>
-        <P className={spacing.mb2}>
-          <Link href={`/components/${component.slug}`}>Usage</Link> |{" "}
-          <Link href={`/components/${component.slug}/style-api`}>Styling</Link>
-        </P>
+
+        <PageTabNav
+          className={spacing.mb2}
+          componentUrl={`/components/${component.slug}`}
+          activeTab="styling"
+        />
+
         <HTML2React code={component?.styling?.content || ""} />
       </PageContent>
 

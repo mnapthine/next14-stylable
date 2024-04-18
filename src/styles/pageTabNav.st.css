@@ -1,0 +1,63 @@
+@st-namespace "docsPageTabNav";
+@st-import PageTabNav from "../components/PageTabNav/pageTabNav.st.css";
+
+@st-import Shelley, [
+  --bg-secondary,
+  --color-ui-inverse,
+  --color-ui-rgb,
+  --spacing-unit,
+  --link-color,
+  --tone-support-rgb,
+  --tone-support,
+  --tone-lead,
+] from "@actionishope/shelley/styles/project.st.css";
+@st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/mixins/focus.st.css";
+@st-import [textVol1] from "@actionishope/shelley/styles/mixins/textVol.st.css";
+
+
+@st-scope Shelley {
+  PageTabNav {
+    display: flex;
+    gap: calc(var(--spacing-unit) / 2);
+    border-bottom: 2px solid var(--bg-secondary);
+    position: relative;
+  }
+
+  PageTabNav::tab {
+    -st-mixin: textVol1;
+    padding: var(--spacing-unit);
+    outline: 0;
+    position: relative;
+    margin-right: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: inherit;
+  }
+
+  PageTabNav::tab::before {
+    -st-mixin: pseudoFocus;
+    bottom: -2px
+  }
+
+  PageTabNav::tab:focus-visible::before {
+    -st-mixin: pseudoFocusVisible;
+  }
+
+  PageTabNav::tab::after {
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    margin-top: 0;
+    position: absolute;
+    transition: background-color 150ms;
+    background-color: transparent;
+  }
+
+  PageTabNav::tab:isActive::after {
+    background-color: var(--tone-support);
+  }
+}

@@ -6,6 +6,7 @@ import "./nav.st.css";
 import "./textOverrides.st.css";
 import "./logo.st.css";
 import "./pageContent.st.css";
+import "./pageTabNav.st.css";
 import "./pageLayout.st.css";
 import "./shelleyBanner.st.css";
 import "./tableOfContents.st.css";

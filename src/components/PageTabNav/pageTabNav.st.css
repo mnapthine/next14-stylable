@@ -1,0 +1,7 @@
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
+
+.root {}
+
+.tab {
+  -st-states: isActive;
+}
