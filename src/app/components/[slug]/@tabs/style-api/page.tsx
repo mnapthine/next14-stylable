@@ -37,10 +37,7 @@ export default function Page(props: { params: { slug: string } }) {
           <Link href={`/components/${component.slug}`}>Usage</Link> |{" "}
           <Link href={`/components/${component.slug}/style-api`}>Styling</Link>
         </P>
-        <HTML2React
-          className={classes.format}
-          code={component?.styling?.content || ""}
-        />
+        <HTML2React code={component?.styling?.content || ""} />
       </PageContent>
 
       {/* <Sandpack
