@@ -34,9 +34,8 @@ export default function Page() {
             {components.map((component, idx) => {
               const pageURL = `/components/${component.slug}`;
               return (
-                <li>
+                <li key={pageURL}>
                   <Link
-                    key={idx}
                     // className={classes.anchor}
                     // className={st(classes.anchor)}
                     href={pageURL}
