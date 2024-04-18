@@ -11,8 +11,8 @@ interface PageContentProps {
 }
 export function PageContent({ children, toc }: PageContentProps) {
   return (
-    <div className={st(classes.root, { hasTOC: Boolean(toc) })}>
-      <main className={classes.content}>
+    <div id="tocContent" className={st(classes.root, { hasTOC: Boolean(toc) })}>
+      <main className={st(classes.content, mixins.format)}>
         <a href="#toc" className={mixins.skipLink}>
           Skip to page navigation
         </a>

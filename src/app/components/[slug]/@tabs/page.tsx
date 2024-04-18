@@ -8,7 +8,6 @@ import {
   classes as spacing,
   st,
 } from "@actionishope/shelley/styles/spacing.st.css";
-import { classes } from "../../../../styles/mixins.st.css";
 
 type MetaDataType = {
   params: { slug: string };
@@ -47,7 +46,7 @@ export default function Page(props: { params: { slug: string } }) {
 
       <P className={spacing.mb2}>{component.description}</P>
 
-      <HTML2React className={classes.format} code={component.content} />
+      <HTML2React code={component.content} />
     </PageContent>
   );
 }

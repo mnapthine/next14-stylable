@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { H2 } from "@actionishope/shelley/Text";
 import { st, classes } from "./tableOfContents.st.css";
 
@@ -19,12 +19,27 @@ export function TableOfContents(props: TableOfContentsProps) {
   const { className, id, items } = props;
   const headerHeight = 130;
 
+  useEffect(() => {
+    let scopes = "";
+    const tocContentContainer = document.querySelector("#tocContent");
+    const tocContent = tocContentContainer?.querySelectorAll("div[id]");
+    // Add the view-timeline-name: {id} to each section
+    tocContent &&
+      tocContent.forEach((section, i) => {
+        section.setAttribute("style", `view-timeline-name: --${section.id};`);
+        scopes += `--${section.id}`;
+        scopes += i === tocContent.length - 1 ? "" : ", ";
+      });
+    // Add the timeline-scope: {id}, {id},... on the container
+    tocContentContainer?.setAttribute("style", `timeline-scope: ${scopes}`);
+  }, []);
+
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, url: string) => {
       e.preventDefault();
       const element = document.querySelector(url) as HTMLElement;
       if (element) {
-        const offsetTop = element.offsetTop - headerHeight;
+        const offsetTop = element.offsetTop - headerHeight - 200;
         window.scrollTo({
           top: offsetTop,
           behavior: "smooth",
@@ -36,12 +51,21 @@ export function TableOfContents(props: TableOfContentsProps) {
     [headerHeight]
   );
 
+  /**
+   *
+   * @param items
+   * @returns
+   */
+
   const renderListItems = (items: Item[]) => {
     return items.map((item) => (
       <li key={item.url} className={classes.listItem}>
         <a
           href={item.url}
           className={classes.anchor}
+          style={{
+            animationTimeline: `--${item.url.slice(1)}`,
+          }}
           onClick={(e) => handleClick(e, item.url)}
         >
           {item.title}

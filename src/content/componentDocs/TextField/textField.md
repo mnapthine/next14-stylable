@@ -169,7 +169,7 @@ Change the size of an TextField via the `vol` prop.
 </div>
 ```
 
-## HelpText
+## Help Text
 
 Both a description and an error message can be supplied to a TextField. The description is always visible unless an error message is provided and `isInvalid` is set. The error message can be used to help the user fix their input quickly and should be specific to the detected error. 
 

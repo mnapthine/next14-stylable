@@ -1,7 +1,10 @@
 @st-namespace "docsTableOfContents";
 
 @st-import TableOfContents, [list, listItem, anchor] from "../components/TableOfContents/tableOfContents.st.css";
-@st-import Shelley, [ --spacing-unit ] from "@actionishope/shelley/styles/project.st.css";
+@st-import Shelley, [
+  --spacing-unit,
+  --tone-support-rgb
+] from "@actionishope/shelley/styles/project.st.css";
 
 @st-import [
   container,
@@ -12,8 +15,26 @@
   navAnchor
 ] from "./mixins.st.css";
 
+@property st-global(--scopes);
+@property st-global(--for);
+@property st-global(--is);
 
 @st-scope Shelley {
+
+  /**
+   * The TOC animation requires some inline styles to be set on the DOM elements:
+   * 1) Each section has a `view-timeline-name` set inline.
+   * 2) All sections are wrapped in a container with `timeline-scope` set inline.
+   * 3) The anchor links have an `animation-timeline` set inline.
+   *
+   * @todo: Currently 1 & 2 are added inline via a useEffect in the TableOfContents 
+   * component. It would be nice to move this to the rehype plugin so it all works 
+   * without any JS.
+   */
+  TableOfContents::anchor:not(:focus-visible) {
+    animation: current-item linear;
+    animation-range: entry 0% exit 100%;
+  }
 
   TableOfContents::title:uppercase {
     -st-mixin: navTitle;
@@ -37,5 +58,21 @@
 
   TableOfContents::anchor {
     -st-mixin: navAnchor;
+  }
+}
+
+
+@keyframes current-item {
+  from {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: rgba(var(--tone-support-rgb), 0.1);
+    color: rgba(var(--tone-support-rgb), 0.9);
+  }
+
+  to {
+    background-color: transparent;
   }
 }

@@ -82,7 +82,7 @@
 }
 
 .navAnchor:hover,
-.navAnchor:focus {
+.navAnchor:focus-visible {
   color: var(--link-color);
 }
 
