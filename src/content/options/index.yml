@@ -23,9 +23,9 @@ links:
   - text: Components
     link: /components
     type: navigation
-  - text: Blog
-    link: /blog
-    type: navigation
+  # - text: Blog
+  #   link: /blog
+  #   type: navigation
   - text: About
     link: /about
     type: footer
