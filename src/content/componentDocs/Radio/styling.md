@@ -1,5 +1,5 @@
 ---
-component: checkbox
+component: radio
 ---
 
 ## Structure
