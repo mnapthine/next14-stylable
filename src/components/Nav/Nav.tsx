@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { componentDocs } from "#site/content";
 import { H2 } from "@actionishope/shelley/Text";
 import { st, classes } from "./nav.st.css";
+import { organiseItemsByCategory } from "@/utils/organiseItemsByCategory";
 
 export interface NavItem {
   title: string;
@@ -18,23 +19,6 @@ interface NavProps {
   content?: string;
   pagesNav?: NavItem[];
   componentNav?: boolean;
-}
-
-function organiseItemsByCategory<
-  T extends { category?: string; weight: number }
->(items: T[]): { [category: string]: T[] } {
-  const grouped = items.reduce((acc: { [key: string]: T[] }, item: T) => {
-    const category: string = item.category || "";
-    acc[category] = acc[category] || [];
-    acc[category].push(item);
-    return acc;
-  }, {});
-
-  Object.keys(grouped).forEach((category: string) => {
-    grouped[category].sort((a: T, b: T) => a.weight - b.weight);
-  });
-
-  return grouped;
 }
 
 export function Nav(props: NavProps) {
@@ -68,7 +52,7 @@ export function Nav(props: NavProps) {
                       className={st(classes.anchor, {
                         isActive: pageURL === pathname,
                         isActivePath:
-                          Boolean(pathname.includes(pageURL)) &&
+                          Boolean(pathname.includes(`${pageURL}/`)) &&
                           pageURL !== "/",
                       })}
                       href={pageURL}

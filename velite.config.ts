@@ -1,4 +1,5 @@
 // import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeWrapSections from "./src/utils/rehypeWrapSections";
 import { defineCollection, defineConfig, s } from "velite";
 
 const slugify = (input: string) =>
@@ -182,7 +183,10 @@ export default defineConfig({
     componentDocs,
     componentDocsStyling,
   },
-  // markdown: { rehypePlugins: [rehypePrettyCode] },
+  markdown: { rehypePlugins: [rehypeWrapSections] },
+  mdx: {
+    rehypePlugins: [rehypeWrapSections],
+  },
   prepare: ({
     categories,
     tags,

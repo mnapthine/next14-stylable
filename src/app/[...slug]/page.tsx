@@ -82,7 +82,7 @@ export default function Page(props: { params: { slug: string[] } }) {
           {page?.menuTitle ? page.menuTitle : page.title}
           {/* {page?.menuTitle && <span>{page.menuTitle}</span>} */}
         </H1>
-        <MDX2React code={page.body} className={mixins.format} />
+        <MDX2React code={page.body} />
       </PageContent>
     </PageLayout>
   );

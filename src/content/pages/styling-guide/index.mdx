@@ -6,13 +6,19 @@ slug: styling-guide
 weight: -5
 ---
 
-Shelley is an unstyled first UI library, meaning that it ships with a very minimal set of styles giving you complete control of your styling strategy.
+Shelley is an unstyled first UI library, meaning that it ships with **zero styles** giving you complete control of your styling strategy.
 
-That doesn't mean we don't have a base theme for you to start with, it just means that you have complete control over your styles and how they are put together.
+That doesn't mean we don't have a base theme for you to start with, it just means that you have complete control over your styles and how they are put together. If you fancy submitting a theme to the Shelley project then we would love to see it!
 
 If you are a fan of CSS and and like/need to control the CSS used in your project then Shelley might be for you. if this idea repulses you then maybe go for something else, there is a lot of choice out there.
 
-## Visual props
+## Theme setup
+
+Depends on your strategy...
+
+If you want the most rethemable setup the then we'd suggest maybe ditching the use of the visual props and instead mixin the styles...
+
+### Visual props
 
 Do we want to sacrifice the ability to give CSS exclusive control over presentation?
 
@@ -133,3 +139,5 @@ We've toyed with the idea of a Grid/Flex components but it just seems so pointle
   gap: var(--grid-gutter);
 }
 ```
+
+In terms of internal grid layouts, designs tend to gravite towards a few key internal layouts. You can set up a few mixins for these layouts and apply them as needed and control your layouts from your CSS.

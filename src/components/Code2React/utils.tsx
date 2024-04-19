@@ -1,12 +1,5 @@
-import { slug } from "github-slugger";
-import { ReactNode } from "react";
-
 export const isExternalLink = (url: string): boolean =>
   /^(http:\/\/|https:\/\/)/.test(url);
-
-export const slugFromNode = (children?: ReactNode) => {
-  return children ? slug(children.toString()) : undefined;
-};
 
 export function parseClassnameAndOptions(inputStr: string): {
   className?: string;

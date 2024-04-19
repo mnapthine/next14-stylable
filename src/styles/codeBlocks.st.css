@@ -12,6 +12,7 @@
 @st-scope {
 
   /* CodeBlock :global(.language-bash) {} */
+  /* token comment */
 
   ReactLiveBlock {
     display: grid;
@@ -47,13 +48,18 @@
     white-space: pre-wrap;
   }
 
+  ReactLiveBlock::codeBlock :global(.comment),
+  CodeBlock::code :global(.comment),
+  ReactLiveBlock::editableNotice {
+    /* @todo remove !important once figured out how to override the theme value */
+    color: #a7b4b0 !important;
+  }
+
   CodeBlock::code {
     border-radius: value(borderRadius);
-    /* background-color: black; */
   }
 
   ReactLiveBlock::codeBlock {
-    /* border-top: 1px solid value(borderColor); */
     border-radius: 0 0 value(borderRadius) value(borderRadius);
   }
 
@@ -70,9 +76,6 @@
     border-radius: value(borderRadius) value(borderRadius) 0 0;
     background-color: #0d0f14;
     overflow-x: auto;
-    /* border: 1px solid value(borderColor); */
-    /* display: flex;
-    align-items: center; */
   }
 
   ReactLiveBlock::editableNotice {
@@ -86,9 +89,6 @@
     top: -1.25em;
     top: 0;
     z-index: 0;
-    /* color: rgba(var(--tone-info-rgb), 0.8); */
-    /* comment color picked from prism theme */
-    color: rgb(99, 119, 119);
     font-family: Menlo, monospace;
     font-size: 14px;
     font-weight: 500;

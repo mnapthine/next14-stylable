@@ -47,7 +47,8 @@
     -st-mixin: navAnchor;
   }
 
-  Nav::anchor:isActive {
+  Nav::anchor:isActive,
+  Nav::anchor:isActivePath {
     -st-mixin: navAnchorisActive;
   }
 }

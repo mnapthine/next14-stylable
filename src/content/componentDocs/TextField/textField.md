@@ -3,7 +3,6 @@ slug: text-field
 title: TextField
 description: Allows our wonderful users to tell us something interesting by inputting some text into a little box.
 category: Inputs
-import: import { TextField } from "@actionishope/shelley";
 ---
 
 ## Import
@@ -112,65 +111,7 @@ The `isReadOnly` boolean prop makes the TextField's text content immutable. Unli
 <TextField label="Label" defaultValue="Read only" isReadOnly />
 ```
 
-### Variants
-
-TextField is a complete form control including a label, input, and help text. It comes with three variants:
-
-- `outlined` (default)
-- `filled`
-- `quiet`
-
-```jsx{live:true}
-<div style={{
-  display: "grid",
-  gap: "30px"
-}}>
-  <TextField variant="outlined" label="Outlined" />
-  <TextField variant="filled" label="Filled" />
-  <TextField variant="quiet" label="Quiet" placeholder="Shhhhhh" rows={1} />
-</div>
-```
-
-If you want a clean base to create a new variant from (styled via className) then set variant to `false`.
-
-### Label position
-
-Set the position of the label to either `side`, `top` (default), `over`.
-
-```jsx{live:true}
-<div style={{
-  display: "grid",
-  gap: "30px"
-}}>
-  <TextField label="Side" labelPosition="side"/>
-  <TextField label="Top" labelPosition="top"/>
-  <TextField label="Over" labelPosition="over"/>
-</div>
-```
-
-### Volume
-
-Change the size of an TextField via the `vol` prop.
-
-```jsx{live:true}
-<div style={{
-  display: "grid",
-  gap: "30px"
-}}>
-  <TextField
-    label="Name"
-    vol={1}
-    placeholder="volume 1"
-  />
-  <TextField
-    label="Name"
-    vol={6}
-    placeholder="volume 6"
-  />
-</div>
-```
-
-## HelpText
+### Help Text
 
 Both a description and an error message can be supplied to a TextField. The description is always visible unless an error message is provided and `isInvalid` is set. The error message can be used to help the user fix their input quickly and should be specific to the detected error. 
 
@@ -196,3 +137,62 @@ All strings should be localised.
     />
   );
 };
+```
+
+### Variants
+
+TextField is a complete form control including a label, input, and help text. It comes with three variants:
+
+- `outlined` (default)
+- `filled`
+- `quiet`
+
+```jsx{live:true}
+<div style={{
+  display: "grid",
+  gap: "30px"
+}}>
+  <TextField variant="outlined" label="Outlined" />
+  <TextField variant="filled" label="Filled" />
+  <TextField variant="quiet" label="Quiet" placeholder="Shhhhhh" rows={1} />
+</div>
+```
+
+If you want a clean base to create a new variant from (styled via className) then set variant to `false`.
+
+### Volume
+
+Change the size of an TextField via the `vol` prop.
+
+```jsx{live:true}
+<div style={{
+  display: "grid",
+  gap: "30px"
+}}>
+  <TextField
+    label="Name"
+    vol={1}
+    placeholder="volume 1"
+  />
+  <TextField
+    label="Name"
+    vol={6}
+    placeholder="volume 6"
+  />
+</div>
+```
+
+### Label position
+
+Set the position of the label to either `side`, `top` (default), `over`.
+
+```jsx{live:true}
+<div style={{
+  display: "grid",
+  gap: "30px"
+}}>
+  <TextField label="Side" labelPosition="side"/>
+  <TextField label="Top" labelPosition="top"/>
+  <TextField label="Over" labelPosition="over"/>
+</div>
+```

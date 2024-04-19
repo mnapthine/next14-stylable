@@ -9,8 +9,12 @@ import { Portal } from "@actionishope/shelley/Portal";
 import { Radio, RadioGroup } from "@actionishope/shelley/Radio";
 import { Switch } from "@actionishope/shelley/Switch";
 import { Text, P, H2 } from "@actionishope/shelley/Text";
+import { TextField } from "@actionishope/shelley/TextField";
+import { VisuallyHidden } from "@actionishope/shelley/VisuallyHidden";
 // External
 import { FocusOn } from "react-focus-on";
+import { useOverlayTriggerState } from "@react-stately/overlays";
+import { useOverlayTrigger } from "react-aria";
 // Icons @todo: swap for react-icons
 import PreviewIcon from "@actionishope/shelley/icons/Preview";
 import AngleRightIcon from "@actionishope/shelley/icons/AngleRight";
@@ -32,12 +36,16 @@ const ReactLiveScope = {
   Text,
   P,
   H2,
+  TextField,
   Popup,
   Portal,
   Radio,
   RadioGroup,
+  VisuallyHidden,
   // External
   FocusOn,
+  useOverlayTriggerState, // popup
+  useOverlayTrigger, // popup
   //Icons - @todo: swap for react-icons
   PreviewIcon,
   AngleRightIcon,

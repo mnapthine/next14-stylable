@@ -40,9 +40,9 @@ export const ShelleyBanner = ({
             variant="secondary"
             isCta
             elementType={"a"}
-            href={"#"}
+            href={"/components"}
           >
-            GitHub
+            Components
           </Button>
         </ButtonGroup>
       </div>

@@ -1,8 +1,7 @@
 ---
 component: popup
-category: props
 ---
 
-## Button props
+## Popup props
 
-Button props
+Popup props

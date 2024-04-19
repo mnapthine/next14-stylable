@@ -1,8 +1,7 @@
 ---
-component: button
-category: props
+component: checkbox
 ---
 
-## Button props
+## Checkbox props
 
-Button props
+Checkbox props

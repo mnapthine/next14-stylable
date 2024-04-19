@@ -1,33 +1,18 @@
 import type React from "react";
-import { forwardRef, type ReactNode } from "react";
 import HTML2ReactParser from "react-html-string-parser/HTML2React";
-import { st, classes } from "./code2React.st.css";
-import { components } from "./componentMap";
+import { components as baseComponents } from "./componentMap";
 
-export interface HTML2ReactProps extends React.HTMLAttributes<HTMLDivElement> {
-  children?: ReactNode;
-  dangerouslySetInnerHTML?: { __html: string };
+export interface HTML2ReactProps {
+  code: string;
+  components?: Record<string, React.ComponentType>;
 }
-function HTML2React(props: HTML2ReactProps, ref: React.Ref<HTMLDivElement>) {
-  const { children, dangerouslySetInnerHTML, className, ...rest } = props;
+export function HTML2React(props: HTML2ReactProps) {
+  const { components, code } = props;
 
   return (
-    <div className={st(classes.root, className)} ref={ref} {...rest}>
-      {dangerouslySetInnerHTML ? (
-        <HTML2ReactParser
-          html={dangerouslySetInnerHTML.__html}
-          components={components}
-        />
-      ) : (
-        // Otherwise, just render the children as-is
-        children
-      )}
-    </div>
+    <HTML2ReactParser
+      html={code}
+      components={{ ...baseComponents(), ...components }}
+    />
   );
 }
-
-/**
- * HTML2React
- */
-const _HTML2React = forwardRef(HTML2React);
-export { _HTML2React as HTML2React };

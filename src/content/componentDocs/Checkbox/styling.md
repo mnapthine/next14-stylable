@@ -9,7 +9,6 @@ The `HTML`/`CSS` structure of a Checkbox consisting of its root and parts.
 ```
 .root // <label />
 -> .text // <span />
--> .inputContainer // <span />
 --> .input // <input />
 ```
 
@@ -30,9 +29,6 @@ We can target the root *and* the parts by imported the style api from Checkbox.
   /* text */
   Checkbox::text {}
   
-  /* inputContainer */
-  Checkbox::inputContainer {}
-  
   /* input */
   Checkbox::input {}
 }
@@ -47,25 +43,28 @@ We can also target the root states and the parts inside of that given state.
 /*= example-checkbox.st.css */
 
 @st-scope body {
-  /* you can now access the states (single:)... */
-  Checkbox:isInvalid {}
-  Checkbox:isDisabled {}
-  Checkbox:isIndeterminate {}
-  Checkbox:size(1) {}
-  Checkbox:size(2) {}
-  Checkbox:size(6) {}
-  
-  /* ...and the parts (double::).... */
+  /* parts (double::).... */
   Checkbox::text {}
-  Checkbox::inputContainer {}
   Checkbox::input {}
   Checkbox::input:checked {}
   
+  /* you can now access the states (single:)... */
+  Checkbox:isIndeterminate {}
+  Checkbox:isInvalid {}
+  Checkbox:isDisabled {}
+    
   /* ...and the parts of things with states... */
   Checkbox:isInvalid::text {}
   Checkbox:isInvalid::input {}
+  
   Checkbox:size(1)::text {}
+  Checkbox:size(1)::input {}
+  Checkbox:size(2) {}
+  Checkbox:size(6) {}
 }
+
+/* ... */
+
 ```
 
 > Note: This is not exhaustive, use the auto-complete feature of [stylable intelligence](https://marketplace.visualstudio.com/items?itemName=wix.stylable-intelligence) to explore what is available.

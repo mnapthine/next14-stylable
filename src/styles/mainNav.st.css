@@ -7,9 +7,9 @@
   --spacing-unit,
   --link-color,
   --tone-support-rgb,
-  --bg-main
 ] from "@actionishope/shelley/styles/project.st.css";
-@st-import [container] from "./mixins.st.css";
+@st-import [pseudoFocus, pseudoFocusVisible] from "@actionishope/shelley/styles/mixins/focus.st.css";
+
 
 @st-scope Shelley body {
   MainNav {
@@ -33,6 +33,16 @@
     color: rgba(var(--color-ui-rgb), 0.85);
     text-decoration: none;
     transition: color 0.2s;
+    outline: none;
+    position: relative;
+  }
+
+  MainNav::anchor::before {
+    -st-mixin: pseudoFocus;
+  }
+
+  MainNav::anchor:focus-visible::before {
+    -st-mixin: pseudoFocusVisible;
   }
 
   MainNav::anchor:hover,

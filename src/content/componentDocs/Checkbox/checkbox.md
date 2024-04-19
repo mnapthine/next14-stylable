@@ -1,5 +1,4 @@
 ---
-date: "2021-11-25"
 slug: checkbox
 thumbnail: /assets/getting-started.jpeg
 title: Checkbox
@@ -20,7 +19,7 @@ import { Checkbox, CheckboxGroup } from "@actionishope/shelley/Checkbox";
 
 The checkbox components are built using the Adobe aria [useCheckbox](https://react-spectrum.adobe.com/react-aria/useCheckbox.html) and [useCheckboxGroup](https://react-spectrum.adobe.com/react-aria/useCheckboxGroup.html) hooks.
 
-## Checkbox usage
+## Usage
 
 ```jsx{live:true}
 <Checkbox defaultSelected>Subscribe</Checkbox>
@@ -95,7 +94,7 @@ Checkboxes accept a user defined `onChange` prop, triggered whenever the Checkbo
 
 ### Validation
 
-Implement your own validation logic in your app and set the `invalid` prop on the Checkbox.
+Implement your own validation logic in your app and set the `isInvalid` prop on the Checkbox.
 
 
 ```jsx{live:true}
@@ -131,85 +130,3 @@ In certain cases a visible label isn't desirable (e.g a checkbox used to select 
 ### Internationalisation
 
 To internationalise a Checkbox, a localised label should be passed to the children or aria-label prop. For languages that are read right-to-left (e.g. Hebrew and Arabic), the layout of the checkbox is automatically flipped.
-
-## CheckboxGroup usage
-
-CheckboxGroup accepts multiple Checkbox elements as children. Each Checkbox represents an option that can be selected, labeled by its children.
-
-```jsx{live:true}
-<CheckboxGroup label="Favorite sports">
-  <Checkbox value="rugby">Rugby</Checkbox>
-  <Checkbox value="cricket">Cricket</Checkbox>
-  <Checkbox value="fooball">Football</Checkbox>
-</CheckboxGroup>
-```
-
-### Value
-
-CheckboxGroup supports selecting zero or more items. An initial, uncontrolled value can be provided to the CheckboxGroup using the `defaultValue` prop. Alternatively, a controlled value can be provided using the `value` prop. 
-
-Both of these props accept an array of selected items, which map to the `value` prop on each item.
-
-```jsx{live:true}
-() => {
-  const [selected, setSelected] = React.useState(["cricket", "rugby"]);
-  return (
-    <div style={{display: "flex", justifyContent: "space-around"}}>
-      <CheckboxGroup
-        label="Favorite sports (uncontrolled)"
-        defaultValue={["cricket", "rugby"]}
-      >
-        <Checkbox value="rugby">Rugby</Checkbox>
-        <Checkbox value="cricket">Cricket</Checkbox>
-        <Checkbox value="fooball">Football</Checkbox>
-      </CheckboxGroup>
-
-      <CheckboxGroup
-        label="Favorite sports (controlled)"
-        value={selected}
-        onChange={setSelected}
-      >
-        <Checkbox value="rugby">Rugby</Checkbox>
-        <Checkbox value="cricket">Cricket</Checkbox>
-        <Checkbox value="fooball">Football</Checkbox>
-      </CheckboxGroup>
-    </div>
-  );
-}
-```
-
-### Events
-
-CheckboxGroup accepts a user defined `onChange` prop, triggered whenever a contained checkbox is clicked.
-
-```tsx{live:true}
-() => {
-  const [selected, setSelected] = React.useState<string[]>([]);
-  return (
-    <>
-      <CheckboxGroup
-        label="Favorite sports"
-        value={selected}
-        onChange={setSelected}
-      >
-        <Checkbox value="football">Football</Checkbox>
-        <Checkbox value="baseball">Baseball</Checkbox>
-        <Checkbox value="basketball">Basketball</Checkbox>
-      </CheckboxGroup>
-      <P vol={1} className={spacing.mt2}>
-        You have selected: {selected.join(", ")}
-      </P>
-    </>
-  );
-}
-```
-
-
-
-```jsx{live:true}
-<CheckboxGroup label="Favorite sports" vol={1}>
-  <Switch value="rugby">Rugby</Switch>
-  <Switch value="cricket">Cricket</Switch>
-  <Switch value="fooball">Football</Switch>
-</CheckboxGroup>
-```

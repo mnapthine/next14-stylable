@@ -3,8 +3,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Text } from "@actionishope/shelley/Text";
 import { options } from "#site/content";
-import { RiCompassLine } from "react-icons/ri";
 import { st, classes } from "./mainNav.st.css";
+import { ReactElement } from "react";
+
+import { RiCompassLine } from "react-icons/ri";
+import { RiPaletteLine } from "react-icons/ri";
+import { RiLayoutGridFill } from "react-icons/ri";
+import { RiArticleLine } from "react-icons/ri";
 interface MainNavProps {
   className?: string;
   content?: string;
@@ -12,6 +17,13 @@ interface MainNavProps {
 
 export function MainNav(props: MainNavProps) {
   const pathname = usePathname();
+
+  const iconLookup: { [key: string]: ReactElement } = {
+    "/getting-started": <RiCompassLine />,
+    "/styling-guide": <RiPaletteLine />,
+    "/components": <RiLayoutGridFill />,
+    "/blog": <RiArticleLine />,
+  };
   return (
     <nav
       className={st(classes.root, props?.className)}
@@ -38,7 +50,7 @@ export function MainNav(props: MainNavProps) {
                     weight={5}
                     startAdornment={
                       <span className={classes.icon}>
-                        <RiCompassLine />
+                        {iconLookup[link.link]}
                       </span>
                     }
                   >
