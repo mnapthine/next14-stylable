@@ -52,7 +52,7 @@ export function Nav(props: NavProps) {
                       className={st(classes.anchor, {
                         isActive: pageURL === pathname,
                         isActivePath:
-                          Boolean(pathname.includes(pageURL)) &&
+                          Boolean(pathname.includes(`${pageURL}/`)) &&
                           pageURL !== "/",
                       })}
                       href={pageURL}

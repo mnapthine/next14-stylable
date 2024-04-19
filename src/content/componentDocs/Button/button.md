@@ -1,5 +1,4 @@
 ---
-date: "2021-11-25"
 slug: button
 thumbnail: /assets/getting-started.jpeg
 title: Button

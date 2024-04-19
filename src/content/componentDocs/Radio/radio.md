@@ -1,5 +1,4 @@
 ---
-date: "2021-11-25"
 slug: radio
 thumbnail: /assets/getting-started.jpeg
 title: Radio
@@ -20,7 +19,7 @@ Radio and RadioGroup are built using the Adobe aria [useRadio](https://react-spe
 ## Radio usage
 
 ```jsx{live:true}
-<RadioGroup label="Favorite sport">
+<RadioGroup label="Activities">
   <Radio value="rugby">Rugby</Radio>
   <Radio value="cricket">Cricket</Radio>
   <Radio value="fooball">Football</Radio>
@@ -58,21 +57,6 @@ Alternatively, a controlled `value` can be provided using the value prop, which 
 };
 ```
 
-### Size
-
-Use the `size` prop to adjust the size of the checkmark.
-
-```jsx{live:true}
-<RadioGroup label="Sizes" defaultValue={1}>
-  <Radio size={1} value={1}>1</Radio>
-  <Radio size={2} value={2}>2</Radio>
-  <Radio size={3} value={3}>3</Radio>
-  <Radio size={4} value={4}>4</Radio>
-  <Radio size={5} value={5}>5</Radio>
-  <Radio size={6} value={6}>6</Radio>
-</>
-```
-
 ### Events
 
 RadioGroup accepts an `onChange` prop, which is triggered when a user changes the selected value. The example below uses `onChange` to log how the user is interacting with the component.
@@ -84,7 +68,7 @@ RadioGroup accepts an `onChange` prop, which is triggered when a user changes th
   return (
     <>
       <RadioGroup
-        label="Favorite sport"
+        label="Activities"
         value={selected}
         onChange={setSelected}
       >
@@ -116,110 +100,85 @@ Implement your own validation logic in your app and set the `isInvalid` prop on 
 
 ### Disabled
 
-Use the `isDisabled` prop to to set the Checkbox to disabled.
+The entire RadioGroup can be disabled with the `isDisabled` prop.
 
 ```jsx{live:true}
-<Checkbox isDisabled>
-  I accept the terms and conditions
-</Checkbox>
+<RadioGroup label="Activities" isDisabled>
+  <Radio value="rugby">Rugby</Radio>
+  <Radio value="cricket">Cricket</Radio>
+  <Radio value="fooball">Football</Radio>
+</RadioGroup>
+```
+
+To disable an individual radio, pass isDisabled to the Radio instead.
+
+```jsx{live:true}
+<RadioGroup label="Activities">
+  <Radio value="rugby" isDisabled>Rugby</Radio>
+  <Radio value="cricket">Cricket</Radio>
+  <Radio value="fooball">Football</Radio>
+</RadioGroup>
 ```
 
 ### Readonly
 
-The `isReadOnly` prop makes the selection immutable. Unlike isDisabled, the Checkbox remains focusable. See the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
+The `isReadOnly` prop makes the selection immutable. Unlike isDisabled, the RadioGroup remains focusable. See the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
+
 
 ```jsx{live:true}
-<Checkbox isSelected isReadOnly>
-  I accept the terms and conditions
-</Checkbox>
+<RadioGroup label="Activities" isReadOnly>
+  <Radio value="rugby">Rugby</Radio>
+  <Radio value="cricket">Cricket</Radio>
+  <Radio value="fooball">Football</Radio>
+</RadioGroup>
+```
+
+### Volume and sizes
+
+Use the `vol` on the RadioGroup prop to adjust the text and `size` on the Radios to adjust the size of the input control.
+
+
+```jsx{live:true}
+<RadioGroup 
+  label="Group label" 
+  vol={4} // Supports values 1-6
+  defaultValue="s1"
+  >
+  <Radio size={1} value="s1">Size one</Radio>
+  <Radio size={2} value="s2">Size two</Radio>
+  <Radio size={3} value="s3">Size three</Radio>
+  <Radio size={4} value="s4">Size four</Radio>
+  <Radio size={5} value="s5">Size five</Radio>
+  <Radio size={6} value="s6">Size size</Radio>
+</RadioGroup>
 ```
 
 ### Accessibility
 
-In certain cases a visible label isn't desirable (e.g a checkbox used to select a table row) but a label must be provided for accessibility anyway. You can either use the `visuallyHideLabel` prop to hide the one provided or use `aria-label`.
+If a visible label isn't specified for a RadioGroup, an `aria-label` must be provided for accessibility. If the field is labeled by a separate element, an `aria-labelledby` prop must be provided using the id of the labeling element instead.
+
+In certain cases we might want an icon in place of a visible label but a label must be provided for accessibility anyway. You can use `aria-label` or ensure a label exists alongside your icon inside a `VisuallyHidden` component.
+
+```jsx{live:true}
+<RadioGroup label="Preview" orientation="horizontal">
+  <Radio 
+    inputPosition="bottom" 
+    value="preview1" 
+    aria-label="Preview"
+  >
+    <PreviewIcon />
+  </Radio>
+  {/* or */}
+  <Radio 
+    inputPosition="bottom"
+    value="preview2"
+  >
+    <VisuallyHidden>Preview</VisuallyHidden>
+    <PreviewIcon />
+  </Radio>
+</RadioGroup>
+```
 
 ### Internationalisation
 
-To internationalise a Checkbox, a localised label should be passed to the children or aria-label prop. For languages that are read right-to-left (e.g. Hebrew and Arabic), the layout of the checkbox is automatically flipped.
-
-## CheckboxGroup usage
-
-CheckboxGroup accepts multiple Checkbox elements as children. Each Checkbox represents an option that can be selected, labeled by its children.
-
-```jsx{live:true}
-<CheckboxGroup label="Favorite sports">
-  <Checkbox value="rugby">Rugby</Checkbox>
-  <Checkbox value="cricket">Cricket</Checkbox>
-  <Checkbox value="fooball">Football</Checkbox>
-</CheckboxGroup>
-```
-
-### Value
-
-CheckboxGroup supports selecting zero or more items. An initial, uncontrolled value can be provided to the CheckboxGroup using the `defaultValue` prop. Alternatively, a controlled value can be provided using the `value` prop. 
-
-Both of these props accept an array of selected items, which map to the `value` prop on each item.
-
-```jsx{live:true}
-() => {
-  const [selected, setSelected] = React.useState(["cricket", "rugby"]);
-  return (
-    <div style={{display: "flex", justifyContent: "space-around"}}>
-      <CheckboxGroup
-        label="Favorite sports (uncontrolled)"
-        defaultValue={["cricket", "rugby"]}
-      >
-        <Checkbox value="rugby">Rugby</Checkbox>
-        <Checkbox value="cricket">Cricket</Checkbox>
-        <Checkbox value="fooball">Football</Checkbox>
-      </CheckboxGroup>
-
-      <CheckboxGroup
-        label="Favorite sports (controlled)"
-        value={selected}
-        onChange={setSelected}
-      >
-        <Checkbox value="rugby">Rugby</Checkbox>
-        <Checkbox value="cricket">Cricket</Checkbox>
-        <Checkbox value="fooball">Football</Checkbox>
-      </CheckboxGroup>
-    </div>
-  );
-}
-```
-
-### Events
-
-CheckboxGroup accepts a user defined `onChange` prop, triggered whenever a contained checkbox is clicked.
-
-```tsx{live:true}
-() => {
-  const [selected, setSelected] = React.useState<string[]>([]);
-  return (
-    <>
-      <CheckboxGroup
-        label="Favorite sports"
-        value={selected}
-        onChange={setSelected}
-      >
-        <Checkbox value="football">Football</Checkbox>
-        <Checkbox value="baseball">Baseball</Checkbox>
-        <Checkbox value="basketball">Basketball</Checkbox>
-      </CheckboxGroup>
-      <P vol={1} className={spacing.mt2}>
-        You have selected: {selected.join(", ")}
-      </P>
-    </>
-  );
-}
-```
-
-
-
-```jsx{live:true}
-<CheckboxGroup label="Favorite sports" vol={1}>
-  <Switch value="rugby">Rugby</Switch>
-  <Switch value="cricket">Cricket</Switch>
-  <Switch value="fooball">Football</Switch>
-</CheckboxGroup>
-```
+To internationalise a RadioGroup, a localised string should be passed to the label prop and as the child content of the Radio elements. For languages that are read right-to-left (e.g. Hebrew and Arabic), the layout of the checkbox is automatically flipped.

@@ -10,6 +10,7 @@ import { Radio, RadioGroup } from "@actionishope/shelley/Radio";
 import { Switch } from "@actionishope/shelley/Switch";
 import { Text, P, H2 } from "@actionishope/shelley/Text";
 import { TextField } from "@actionishope/shelley/TextField";
+import { VisuallyHidden } from "@actionishope/shelley/VisuallyHidden";
 // External
 import { FocusOn } from "react-focus-on";
 import { useOverlayTriggerState } from "@react-stately/overlays";
@@ -40,6 +41,7 @@ const ReactLiveScope = {
   Portal,
   Radio,
   RadioGroup,
+  VisuallyHidden,
   // External
   FocusOn,
   useOverlayTriggerState, // popup

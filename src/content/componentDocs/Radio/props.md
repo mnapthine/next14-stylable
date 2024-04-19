@@ -1,8 +1,7 @@
 ---
-component: button
-category: props
+component: radio
 ---
 
-## Button props
+## Radio props
 
-Button props
+Radio props

@@ -8,8 +8,8 @@ The `HTML`/`CSS` structure of a TextField consisting of its root and parts.
 
 ```
 .root // <div />
--> .label // <label />
--> .inputContainer // <span />
+-> .label // <label /> (Label component)
+-> .inputContainer // <div />
 --> .input // <input />
 --> .fieldSet // <fieldset /> (optional)
 ---> .legend // <fieldset />
@@ -22,13 +22,17 @@ TextField supports `InputAdornment`'s and when used they render alongside the in
 
 ### Whats with the fieldset?
 
-The fieldset is a bit of an workaround when you want to have the `over` type of label position where the label sits on top of the border of the field. Usually this would result in the border striking through the text but interestingly `legend` happens to have the ability to apply space around it via padding, handy.
+The fieldset is a bit of an workaround when you want to have the `over` type of label position where the label sits on top of the border of the field when it has a value. Usually this would result in the border ~~striking~~ through the text but `legend` happens to have the ability to apply space around it via padding, which is very handy and can be exploited.
 
 ```{live:true}
-<TextField>Label is over</TextField>
+<TextField 
+  label="Label is over" 
+  labelPosition="over" 
+  defaultValue="Default value" 
+/>
 ```
 
-It is an idea borrowed from [Material UI TextField](https://mui.com/material-ui/react-text-field/) and we hide it in the same way from screen readers however it can be disabled via `disableFieldset` should you not want to support this style. You should then look to focus your styling on the `inputContainer` for borders and such.
+It is an idea borrowed from [Material UI TextField](https://mui.com/material-ui/react-text-field/) and we hide it in the same way from screen readers. However, it can be disabled via `disableFieldset` should you not want to support this style. You should then look to focus your styling on the `inputContainer` for borders and such.
 
 I couldn't find an article talking about the Material UI TextField but [The Magical Use of Uncommon Labels Fieldset and Legend](https://programming.earthonline.us/the-magical-use-of-uncommon-labels-fieldset-and-legend-d3b29df4fb14) speaks to the general concept. 
 
@@ -55,7 +59,7 @@ We can target the root *and* the parts by imported the style api from Checkbox.
   /* inputContainer */
   TextField::inputContainer {}
   
-  TextField:: textAreaWrap {} /* only for rows > 1 */
+  TextField::textAreaWrap {} /* only applies when rows prop > 1 */
     
   /* input */
   TextField::input {}
@@ -66,7 +70,7 @@ We can target the root *and* the parts by imported the style api from Checkbox.
   TextField::fieldset {}
   TextField::legend {}
   
-  /* inputContainer */
+  /* helpText */
   TextField::helpText {}
   /**/
 }
